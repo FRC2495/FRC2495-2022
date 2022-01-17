@@ -90,7 +90,7 @@ public class Robot extends TimedRobot {
 	
 	public static ICamera camera;
 	
-	public static ADXRS450_Gyro gyro; // gyro
+	public static PIDSourceADXRS450_Gyro gyro; // gyro
 	static boolean hasGyroBeenManuallyCalibratedAtLeastOnce = false;
 	
 	public static Sonar sonar;
@@ -197,7 +197,7 @@ public class Robot extends TimedRobot {
 			
 		sonar = new Sonar(Ports.Analog.SONAR); 
 			
-		gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0); // we want to instantiate before we pass to drivetrain	
+		gyro = new PIDSourceADXRS450_Gyro(SPI.Port.kOnboardCS0); // we want to instantiate before we pass to drivetrain	
 
 		gyro.calibrate(); 
 		gyro.reset();

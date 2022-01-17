@@ -128,7 +128,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 	WPI_TalonSRX masterLeft, masterRight; // motor controllers
 	BaseMotorController followerLeft, followerRight; // motor controllers
 	
-	ADXRS450_Gyro gyro; // gyroscope
+	PIDSourceADXRS450_Gyro gyro; // gyroscope
 	
 	DifferentialDrive differentialDrive; // a class to simplify tank or arcade drive (open loop driving) 
 	
@@ -143,7 +143,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 	private final static double RATIO_BETWEEN_INPUT_AND_OUTPUT_LOW = 17.325;
 	private final static double RATIO_BETWEEN_INPUT_AND_OUTPUT_HIGH = 8;
 	
-	public Drivetrain(WPI_TalonSRX masterLeft_in ,WPI_TalonSRX masterRight_in , BaseMotorController followerLeft_in ,BaseMotorController followerRight_in, ADXRS450_Gyro gyro_in, Robot robot_in, ICamera camera_in) 
+	public Drivetrain(WPI_TalonSRX masterLeft_in ,WPI_TalonSRX masterRight_in , BaseMotorController followerLeft_in ,BaseMotorController followerRight_in, PIDSourceADXRS450_Gyro gyro_in, Robot robot_in, ICamera camera_in) 
 	{
 		masterLeft = masterLeft_in;
 		masterRight = masterRight_in;
@@ -210,7 +210,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 
 		
 		//creates a PID controller
-		turnPidController = null; //new PIDController(TURN_PROPORTIONAL_GAIN, TURN_INTEGRAL_GAIN, TURN_DERIVATIVE_GAIN, gyro, this, TURN_PID_CONTROLLER_PERIOD_SECONDS);
+		turnPidController = new PIDController(TURN_PROPORTIONAL_GAIN, TURN_INTEGRAL_GAIN, TURN_DERIVATIVE_GAIN, gyro, this, TURN_PID_CONTROLLER_PERIOD_SECONDS);
 		
 		turnPidController.setInputRange(-180, 180); // valid input range 
 		turnPidController.setOutputRange(-MAX_TURN_PCT_OUTPUT, MAX_TURN_PCT_OUTPUT); // output range NOTE: might need to change signs
