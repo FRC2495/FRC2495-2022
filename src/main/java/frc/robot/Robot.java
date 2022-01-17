@@ -105,17 +105,17 @@ public class Robot extends TimedRobot {
 	
 	// motorized devices
 	
-	//public static /*I*/Drivetrain drivetrain;
-	public static /*I*/SparkMaxDrivetrain drivetrain;
+	public static /*I*/Drivetrain drivetrain;
+	//public static /*I*/SparkMaxDrivetrain drivetrain;
 
-	//WPI_TalonSRX frontLeft;
-	//WPI_TalonSRX frontRight;
-	//BaseMotorController rearLeft; 
-	//BaseMotorController rearRight;
-	CANSparkMax frontLeft;
-	CANSparkMax frontRight;
-	CANSparkMax rearLeft;
-	CANSparkMax rearRight;
+	WPI_TalonSRX frontLeft;
+	WPI_TalonSRX frontRight;
+	BaseMotorController rearLeft; 
+	BaseMotorController rearRight;
+	//CANSparkMax frontLeft;
+	//CANSparkMax frontRight;
+	//CANSparkMax rearLeft;
+	//CANSparkMax rearRight;
 
 	public static /*I*/Grasper grasper;
 	
@@ -221,22 +221,22 @@ public class Robot extends TimedRobot {
 
 		// motorized devices
 
-		//frontLeft = new WPI_TalonSRX(Ports.CAN.LEFT_FRONT);
-		//frontRight = new WPI_TalonSRX(Ports.CAN.RIGHT_FRONT);
-		//rearLeft = new WPI_TalonFX(Ports.CAN.LEFT_REAR);
-		//rearRight = new WPI_TalonFX(Ports.CAN.RIGHT_REAR);
-		frontLeft = new CANSparkMax(Ports.CAN.LEFT_FRONT, MotorType.kBrushless);
-		frontRight = new CANSparkMax(Ports.CAN.RIGHT_FRONT, MotorType.kBrushless);
-		rearLeft  = new CANSparkMax(Ports.CAN.LEFT_REAR, MotorType.kBrushless);
-		rearRight = new CANSparkMax(Ports.CAN.RIGHT_REAR, MotorType.kBrushless);
+		frontLeft = new WPI_TalonSRX(Ports.CAN.LEFT_FRONT);
+		frontRight = new WPI_TalonSRX(Ports.CAN.RIGHT_FRONT);
+		rearLeft = new WPI_TalonFX(Ports.CAN.LEFT_REAR);
+		rearRight = new WPI_TalonFX(Ports.CAN.RIGHT_REAR);
+		//frontLeft = new CANSparkMax(Ports.CAN.LEFT_FRONT, MotorType.kBrushless);
+		//frontRight = new CANSparkMax(Ports.CAN.RIGHT_FRONT, MotorType.kBrushless);
+		//rearLeft  = new CANSparkMax(Ports.CAN.LEFT_REAR, MotorType.kBrushless);
+		//rearRight = new CANSparkMax(Ports.CAN.RIGHT_REAR, MotorType.kBrushless);
 
 		hinge_master = new WPI_TalonSRX(Ports.CAN.HINGE_MASTER);
 		hinge_follower = new WPI_TalonSRX(Ports.CAN.HINGE_FOLLOWER);
 
 		grasp = new WPI_TalonSRX(Ports.CAN.GRASPER);
 
-		//drivetrain = new Drivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
-		drivetrain = new SparkMaxDrivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
+		drivetrain = new Drivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
+		//drivetrain = new SparkMaxDrivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
 		
 		hingeControl = new Hinge(hinge_master, hinge_follower, this);
 		
