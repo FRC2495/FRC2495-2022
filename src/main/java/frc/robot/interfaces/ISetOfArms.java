@@ -15,10 +15,6 @@ public interface ISetOfArms {
 	
 	public void stop();
 
-	//public void open();
-
-	//public void close();
-	
 	
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
 	public void setNominalAndPeakOutputs(double peakOutput);
