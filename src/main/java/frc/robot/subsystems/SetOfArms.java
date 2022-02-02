@@ -30,6 +30,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
+	public static final int LENGTH_OF_TRAVEL_TICKS = 10000; // adjust as needed
+
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
 	static final int TIMEOUT_MS = 5000;
@@ -52,14 +54,16 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 
-	
-	protected static final long SET_ARMS_STOP_DELAY_MS = 500; // TODO tune
 
 	WPI_TalonSRX arm; 
 	BaseMotorController arm_follower;
 	
+	boolean isMoving;
 	boolean isExtending;
-	boolean isRetracting;
+
+	double tac;
+
+	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 	
 	Robot robot;
 	
@@ -102,7 +106,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
 		arm_follower.follow(arm);
 
-		//setPIDParameters();
+		setPIDParameters();
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -118,6 +122,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		arm.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
 		
+		isMoving = false;
+		isExtending = false;
 	}
 	
 	@Override
@@ -135,42 +141,85 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Put code here to be run every loop
 
 	}
-	
-	public synchronized void extend() {
-		arm.set(ControlMode.PercentOutput, MAX_PCT_OUTPUT);
-						
-		isExtending = true;		
+
+	// This method should be called to assess the progress of a move
+	public boolean tripleCheckMove() {
+		if (isMoving) {
+			
+			double error = arm.getClosedLoopError(PRIMARY_PID_LOOP);
+			
+			boolean isOnTarget = (Math.abs(error) < TICK_THRESH);
+			
+			if (isOnTarget) { // if we are on target in this iteration 
+				onTargetCount++; // we increase the counter
+			} else { // if we are not on target in this iteration
+				if (onTargetCount > 0) { // even though we were on target at least once during a previous iteration
+					onTargetCount = 0; // we reset the counter as we are not on target anymore
+					System.out.println("Triple-check failed (arm moving).");
+				} else {
+					// we are definitely moving
+				}
+			}
+			
+			if (onTargetCount > MOVE_ON_TARGET_MINIMUM_COUNT) { // if we have met the minimum
+				isMoving = false;
+			}
+			
+			if (!isMoving) {
+				System.out.println("You have reached the target (arm moving).");
+				//arm.set(ControlMode.PercentOutput,0);
+				if (isExtending)	{
+					stay();
+				} else {
+					stop();
+				}
+			}
+		}
+		return isMoving; 
 	}
 	
-	public synchronized void retract() {
-		arm.set(ControlMode.PercentOutput, -MAX_PCT_OUTPUT);
+	public void extend() {
 		
-		isRetracting = true;
+		//setPIDParameters();
+		System.out.println("Extending");
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+
+		tac = +LENGTH_OF_TRAVEL_TICKS;
+		arm.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isExtending = true;
+		onTargetCount = 0;
+	}
+	
+	public void retract() {
+		
+		//setPIDParameters();
+		System.out.println("Retracting");
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+
+		tac = 0; // adjust as needed
+		arm.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isExtending = false;
+		onTargetCount = 0;
 	}
 
 	public double getEncoderPosition() {
 		return arm.getSelectedSensorPosition(PRIMARY_PID_LOOP);
 	}
 	
-	public synchronized void extendAndStop() {
-		extend();
-		
-		Timer timer = new Timer();
-		timer.schedule(new SetOfArmsStopTask(this), SET_ARMS_STOP_DELAY_MS);
+	public void stay() {	 		
+		isMoving = false;		
+		isExtending = false;
 	}
-	
-	public synchronized void retractAndStop() {
-		retract();
-		
-		Timer timer = new Timer();
-		timer.schedule(new SetOfArmsStopTask(this), SET_ARMS_STOP_DELAY_MS);
-	}
-	
+
 	public synchronized void stop() {
 		arm.set(ControlMode.PercentOutput, 0);
 		
+		isMoving = false;
 		isExtending = false;
-		isRetracting = false;
 	}
 	
 	private void setPIDParameters() {		
@@ -211,38 +260,37 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		arm.configNominalOutputReverse(0, TALON_TIMEOUT_MS);
 	}
 	
+	public synchronized boolean isMoving() {
+		return isMoving;
+	}
+
 	public synchronized boolean isExtending() {
 		return isExtending;
 	}
 	
-	public synchronized boolean isRetracting(){
-		return isRetracting;
-	}
-
 	// for debug purpose only
 	public void joystickControl(Joystick joystick)
 	{
-		if (!isExtending && !isRetracting) // if we are already doing a move we don't take over
+		if (!isMoving) // if we are already doing a move we don't take over
 		{
 			arm.set(ControlMode.PercentOutput, joystick.getY());
 		}
 	}
-	
-	private class SetOfArmsStopTask extends TimerTask {
-		SetOfArms setOfArms;
 
-		public SetOfArmsStopTask(SetOfArms setOfArms_in) {
-			this.setOfArms = setOfArms_in;
-		}
-
-		@Override
-		public void run() {
-			setOfArms.stop();
-		}
+	public double getTarget() {
+		return tac;
 	}	
 
-	public boolean getForwardLimitSwitchState() {
+	public boolean getLimitSwitchState() {
 		return arm.getSensorCollection().isFwdLimitSwitchClosed();
 	}
+
+	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
+	// OTHERWISE THIS IS EQUIVALENT TO MOVING TO THE DISTANCE TO THE CURRENT ZERO IN REVERSE! 
+	public void resetEncoder() {
+		arm.set(ControlMode.PercentOutput,0); // we stop AND MAKE SURE WE DO NOT MOVE WHEN SETTING POSITION
+		arm.setSelectedSensorPosition(0, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // we mark the virtual zero
+	}
+
 
 }

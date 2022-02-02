@@ -61,7 +61,7 @@ public class Ports {
 			*/
 
 			//2020 Robot
-			public static final int RIGHT_FRONT = 1;
+			/*public static final int RIGHT_FRONT = 1;
 			public static final int RIGHT_REAR = 2;
 			public static final int LEFT_FRONT = 3;
 			public static final int LEFT_REAR = 4;
@@ -72,7 +72,21 @@ public class Ports {
 			public static final int PCM = 9;
 			public static final int PDP = 0;
 			public static final int WINCH_MASTER = 10;
-			public static final int WINCH_FOLLOWER = 11;
+			public static final int WINCH_FOLLOWER = 11;*/
+
+			//2022 Robot
+			public static final int RIGHT_FRONT = 1;
+			public static final int RIGHT_REAR = 2;
+			public static final int LEFT_FRONT = 3;
+			public static final int LEFT_REAR = 4;
+			public static final int GRASPER = 5;
+			public static final int HINGE_MASTER = 6;
+			public static final int HINGE_FOLLOWER = 7;
+			//public static final int SPINNER = 8;
+			public static final int PCM = 9;
+			public static final int PDP = 0;
+			public static final int FRONT_ARM_MASTER = 10;
+			public static final int FRONT_ARM_FOLLOWER = 11;
 		}
 		
 		public static class USB{
@@ -103,7 +117,7 @@ public class Ports {
 			public static final int HOOK_DOWN = 6;*/
 
 			// 2020 robot
-			public static final int GEAR_HIGH = 0;
+			/*public static final int GEAR_HIGH = 0;
 			public static final int GEAR_LOW = 1;
 			public static final int WINCH_STOPPER_STOPPED = 3;
 			public static final int WINCH_STOPPER_FREE = 2; 
@@ -112,7 +126,13 @@ public class Ports {
 			public static final int PUSHER_UP = 7; // cannot be used at same time as spinner raiser
 			public static final int PUSHER_DOWN = 6;
 			public static final int SPINNER_RAISER_UP = 7;
-			public static final int SPINNER_RAISER_DOWN = 6;
+			public static final int SPINNER_RAISER_DOWN = 6;*/
+
+			// 2022 robot
+			public static final int GEAR_HIGH = 0;
+			public static final int GEAR_LOW = 1;
+			public static final int FRONT_ELBOWS_OPEN = 2;
+			public static final int FRONT_ELBOWS_CLOSED = 3;
 		}
 
 		public static class PWM {

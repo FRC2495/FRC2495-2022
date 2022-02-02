@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -132,10 +134,10 @@ public class Robot extends TimedRobot {
 	//public BaseMotorController spinnerMotor;
 	//public static Spinner spinnerWheel;
 
-	WPI_TalonSRX winch_master;
-	BaseMotorController winch_follower;
+	WPI_TalonSRX front_arm_master;
+	BaseMotorController front_arm_follower;
 
-	//public static /*I*/Winch winchControl;
+	public static /*I*/SetOfArms frontArms;
 	
 	// pneumatic devices
 	
@@ -148,7 +150,7 @@ public class Robot extends TimedRobot {
 	//public static WinchStopper winchStopperControl; 
 	//public static WinchLock winchLockControl;
 
-	//public static SpinnerRaiser spinnerRaiser;
+	public static SetOfElbows frontElbows;
 
 	// misc
 
@@ -247,10 +249,10 @@ public class Robot extends TimedRobot {
 
 		//vomitShooter = new VomitShooter(shooterLeft, shooterRight, this); 
 
-		//winch_master = new WPI_TalonSRX(Ports.CAN.WINCH_MASTER);
-		//winch_follower = new WPI_TalonSRX(Ports.CAN.WINCH_FOLLOWER);
+		front_arm_master = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_MASTER);
+		front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);
 
-		//winchControl = new Winch(winch_master, winch_follower, this);
+		frontArms = new SetOfArms(front_arm_master, front_arm_follower, this);
 
 
 		// pneumatic devices
@@ -265,8 +267,9 @@ public class Robot extends TimedRobot {
 		//winchStopperControl = new WinchStopper();
 		//winchLockControl = new WinchLock();
 
-		//spinnerRaiser = new SpinnerRaiser();
-
+		DoubleSolenoid fe_solenoid = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.CTREPCM, Ports.PCM.FRONT_ELBOWS_OPEN, Ports.PCM.FRONT_ELBOWS_CLOSED);
+		frontElbows = new SetOfElbows(fe_solenoid);
+	
 
 		// misc
 
