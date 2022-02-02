@@ -138,6 +138,11 @@ public class Robot extends TimedRobot {
 	BaseMotorController front_arm_follower;
 
 	public static /*I*/SetOfArms frontArms;
+
+	WPI_TalonSRX rear_arm_master;
+	BaseMotorController rear_arm_follower;
+
+	public static /*I*/SetOfArms rearArms;
 	
 	// pneumatic devices
 	
@@ -253,6 +258,11 @@ public class Robot extends TimedRobot {
 		front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);
 
 		frontArms = new SetOfArms(front_arm_master, front_arm_follower, this);
+
+		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_MASTER);
+		rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
+
+		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this);
 
 
 		// pneumatic devices

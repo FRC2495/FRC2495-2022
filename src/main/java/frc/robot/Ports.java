@@ -87,6 +87,8 @@ public class Ports {
 			public static final int PDP = 0;
 			public static final int FRONT_ARM_MASTER = 10;
 			public static final int FRONT_ARM_FOLLOWER = 11;
+			public static final int REAR_ARM_MASTER = 12;
+			public static final int REAR_ARM_FOLLOWER = 13;
 		}
 		
 		public static class USB{
