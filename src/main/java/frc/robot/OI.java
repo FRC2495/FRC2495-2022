@@ -129,21 +129,21 @@ public class OI {
 
 		gamepadLT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LT);
 		//gamepadLT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_OFF));
-		//gamepadLT.whenPressed(new SpinnerRaiserDown());
+		gamepadLT.whenPressed(new FrontArmsRetract());
 
 		gamepadLYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY);
-		//gamepadLYp.whenPressed(new SpinnerRaiserUp());
+		gamepadLYp.whenPressed(new FrontArmsExtend());
 		//gamepadLYp.whenPressed(new SpinnerColorMatch()); // pulling back towards operator
 
 		gamepadLYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY,false);
-		//gamepadLYn.whenPressed(new SpinnerRaiserUp());
+		gamepadLYn.whenPressed(new FrontArmsExtend());
 		//gamepadLYn.whenPressed(new SpinnerSpinThrice()); // pushing forward
 
 		gamepadLXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX);
-		//gamepadLXp.whenPressed(new SpinnerRaiserUp());
+		gamepadLXp.whenPressed(new FrontArmsExtend());
 
 		gamepadLXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX,false);
-		//gamepadLXn.whenPressed(new SpinnerRaiserUp());
+		gamepadLXn.whenPressed(new FrontArmsExtend());
 
 		
 		gamepadRS = new JoystickButton(gamepad, ControllerBase.GamepadButtons.RS);

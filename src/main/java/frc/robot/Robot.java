@@ -523,6 +523,17 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putBoolean("Winch Forward Limit Switch", winchControl.getForwardLimitSwitchState());
 
 		SmartDashboard.putString("Gearbox Position", gearbox.getGear().toString());
+
+		SmartDashboard.putBoolean("Front Arms Limit Switch", frontArms.getLimitSwitchState());
+		SmartDashboard.putNumber("Front Arms Enc Position", frontArms.getEncoderPosition());
+		SmartDashboard.putBoolean("Front Arms IsMoving?", frontArms.isMoving());
+		SmartDashboard.putNumber("Front Arms Target", frontArms.getTarget());
+
+		SmartDashboard.putBoolean("Rear Arms Limit Switch", rearArms.getLimitSwitchState());
+		SmartDashboard.putNumber("Rear Arms Enc Position", rearArms.getEncoderPosition());
+		SmartDashboard.putBoolean("Rear Arms IsMoving?", rearArms.isMoving());
+		SmartDashboard.putNumber("Rear Arms Target", rearArms.getTarget());
+
 	}
 
 	public static void setGyroHasBeenManuallyCalibratedAtLeastOnce(boolean flag) {
