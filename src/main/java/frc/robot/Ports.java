@@ -135,6 +135,8 @@ public class Ports {
 			public static final int GEAR_LOW = 1;
 			public static final int FRONT_ELBOWS_OPEN = 2;
 			public static final int FRONT_ELBOWS_CLOSED = 3;
+			public static final int REAR_ELBOWS_OPEN = 4;
+			public static final int REAR_ELBOWS_CLOSED = 5;
 		}
 
 		public static class PWM {
