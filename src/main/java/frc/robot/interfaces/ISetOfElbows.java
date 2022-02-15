@@ -1,15 +1,34 @@
 package frc.robot.interfaces;
 
 
+import edu.wpi.first.wpilibj.Joystick;
+
 public interface ISetOfElbows {
-
-	public enum Position {
-		CLOSED, // closed
-		OPEN, // opend
-		UNKNOWN;
-	}	
-
-	public void setPosition(Position pos);	
+	// returns the state of the limit switch
+	public boolean getLimitSwitchState();
 	
-	public Position getPosition();
+	// This method should be called to assess the progress of a move
+	public boolean tripleCheckMove();
+
+	public void extend();
+	
+	public void retract();
+	
+	public double getEncoderPosition();
+	
+	public boolean isMoving();
+	
+	public boolean isExtending();	
+
+	public void stay();	
+		
+	public void stop();
+
+	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
+	public void setNominalAndPeakOutputs(double peakOutput);
+
+	// for debug purpose only
+	public void joystickControl(Joystick joystick);
+	
+	public double getTarget();
 }

@@ -279,12 +279,6 @@ public class Robot extends TimedRobot {
 		//winchStopperControl = new WinchStopper();
 		//winchLockControl = new WinchLock();
 
-		DoubleSolenoid fe_solenoid = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.CTREPCM, Ports.PCM.FRONT_ELBOWS_OPEN, Ports.PCM.FRONT_ELBOWS_CLOSED);
-		frontElbows = new SetOfElbows(fe_solenoid);
-
-		DoubleSolenoid re_solenoid = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.CTREPCM, Ports.PCM.REAR_ELBOWS_OPEN, Ports.PCM.REAR_ELBOWS_CLOSED);
-		rearElbows = new SetOfElbows(re_solenoid);
-	
 
 		// misc
 
