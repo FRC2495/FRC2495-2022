@@ -143,6 +143,19 @@ public class Robot extends TimedRobot {
 	BaseMotorController rear_arm_follower;
 
 	public static /*I*/SetOfArms rearArms;
+
+	// xxx
+
+	WPI_TalonSRX front_elbow_master;
+	BaseMotorController front_elbow_follower;
+
+	public static /*I*/SetOfElbows frontElbows;
+
+	WPI_TalonSRX rear_elbow_master;
+	BaseMotorController rear_elbow_follower;
+
+	public static /*I*/SetOfElbows rearElbows;
+
 	
 	// pneumatic devices
 	
@@ -155,9 +168,6 @@ public class Robot extends TimedRobot {
 	//public static WinchStopper winchStopperControl; 
 	//public static WinchLock winchLockControl;
 
-	public static SetOfElbows frontElbows;
-
-	public static SetOfElbows rearElbows;
 
 	// misc
 
@@ -266,6 +276,18 @@ public class Robot extends TimedRobot {
 
 		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this);
 
+		// xxx
+
+		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
+		front_elbow_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_FOLLOWER);
+
+		frontElbows = new SetOfElbows(front_elbow_master, front_elbow_follower, this);
+
+		rear_elbow_master = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_MASTER);
+		rear_elbow_follower = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_FOLLOWER);
+
+		rearElbows = new SetOfElbows(rear_elbow_master, rear_elbow_follower, this);
+		
 
 		// pneumatic devices
 
