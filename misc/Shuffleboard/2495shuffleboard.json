@@ -827,18 +827,6 @@
               "Layout/Label position": "BOTTOM",
               "_children": [
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [11]",
-                  "_title": "Talon SRX [11]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [4]",
-                  "_title": "Talon SRX [4]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "3-Axis Accelerometer",
                   "_source0": "network_table:///LiveWindow/Ungrouped/BuiltInAccel[0]",
                   "_title": "BuiltInAccel[0]",
@@ -862,23 +850,11 @@
                   "_title": "Relay[0]"
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [3]",
-                  "_title": "Talon SRX [3]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "Boolean Box",
                   "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[0]/Value",
                   "_title": "DigitalInput[0]/Value",
                   "Colors/Color when true": "#7CFC00FF",
                   "Colors/Color when false": "#8B0000FF"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [1]",
-                  "_title": "Talon SRX [1]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Voltage View",
@@ -889,48 +865,6 @@
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [9]",
-                  "_title": "Talon SRX [9]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
-                  "_title": "Talon SRX [10]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [2]",
-                  "_title": "Talon SRX [2]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [8]",
-                  "_title": "Talon SRX [8]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [7]",
-                  "_title": "Talon SRX [7]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [6]",
-                  "_title": "Talon SRX [6]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [5]",
-                  "_title": "Talon SRX [5]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Graph",
@@ -959,12 +893,6 @@
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [4]/Value",
                   "_title": "Talon SRX [4]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [11]",
-                  "_title": "Talon SRX [11]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "3-Axis Accelerometer",
@@ -1028,39 +956,9 @@
                   "_title": "Talon SRX [3]/Value"
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
-                  "_title": "Talon SRX [10]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [2]",
-                  "_title": "Victor SPX [2]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [4]",
-                  "_title": "Victor SPX [4]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [2]/Value",
                   "_title": "Talon SRX [2]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [9]",
-                  "_title": "Victor SPX [9]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [7]",
-                  "_title": "Talon SRX [7]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Text View",
@@ -1071,12 +969,6 @@
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [9]/Value",
                   "_title": "Talon SRX [9]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [8]",
-                  "_title": "Victor SPX [8]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Text View",
@@ -1117,12 +1009,6 @@
                   "_title": "Talon SRX [4]/Value"
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [11]",
-                  "_title": "Talon SRX [11]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "3-Axis Accelerometer",
                   "_source0": "network_table:///LiveWindow/Ungrouped/BuiltInAccel[0]",
                   "_title": "BuiltInAccel[0]",
@@ -1184,39 +1070,9 @@
                   "_title": "Talon SRX [3]/Value"
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
-                  "_title": "Talon SRX [10]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [2]",
-                  "_title": "Victor SPX [2]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [4]",
-                  "_title": "Victor SPX [4]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [2]/Value",
                   "_title": "Talon SRX [2]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [9]",
-                  "_title": "Victor SPX [9]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [7]",
-                  "_title": "Talon SRX [7]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Text View",
@@ -1227,12 +1083,6 @@
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [9]/Value",
                   "_title": "Talon SRX [9]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [8]",
-                  "_title": "Victor SPX [8]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Text View",
@@ -1327,51 +1177,9 @@
                   "Visuals/Counter clockwise": false
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [2]",
-                  "_title": "Victor SPX [2]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
-                  "_title": "Talon SRX [10]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [9]",
-                  "_title": "Victor SPX [9]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [7]",
-                  "_title": "Talon SRX [7]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [4]",
-                  "_title": "Victor SPX [4]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Victor SPX [8]",
-                  "_title": "Victor SPX [8]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/DoubleSolenoid[9,6]/Value",
                   "_title": "DoubleSolenoid[9,6]/Value"
-                },
-                {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [12]",
-                  "_title": "Talon SRX [12]",
-                  "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
                   "_type": "Text View",
@@ -1419,21 +1227,75 @@
                   "Visuals/Number of tick marks": 5
                 },
                 {
-                  "_type": "Speed Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [13]",
-                  "_title": "Talon SRX [13]",
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [17]",
+                  "_title": "Talon SRX [17]",
                   "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
-                  "_type": "Speed Controller",
+                  "_type": "Motor Controller",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [4]",
                   "_title": "Talon FX [4]",
                   "Visuals/Orientation": "HORIZONTAL"
                 },
                 {
-                  "_type": "Speed Controller",
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [19]",
+                  "_title": "Talon SRX [19]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [14]",
+                  "_title": "Talon SRX [14]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [18]",
+                  "_title": "Talon SRX [18]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
+                  "_title": "Talon SRX [10]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [15]",
+                  "_title": "Talon SRX [15]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [2]",
                   "_title": "Talon FX [2]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [16]",
+                  "_title": "Talon SRX [16]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [5]",
+                  "_title": "Talon SRX [5]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [6]",
+                  "_title": "Talon SRX [6]",
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                {
+                  "_type": "Motor Controller",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [12]",
+                  "_title": "Talon SRX [12]",
                   "Visuals/Orientation": "HORIZONTAL"
                 }
               ]
@@ -2138,19 +2000,6 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Hinge IsHoming?",
-              "_title": "SmartDashboard/Hinge IsHoming?",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
           "3,2": {
             "size": [
               1,
@@ -2238,7 +2087,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "6,0": {
+          "8,0": {
             "size": [
               1,
               1
@@ -2251,7 +2100,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "6,1": {
+          "8,1": {
             "size": [
               1,
               1
@@ -2264,18 +2113,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "7,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Elevator Enc Position",
-              "_title": "SmartDashboard/Elevator Enc Position"
-            }
-          },
-          "7,1": {
+          "6,2": {
             "size": [
               1,
               1
@@ -2288,7 +2126,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "6,2": {
+          "6,1": {
             "size": [
               1,
               1
@@ -2297,6 +2135,45 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Hinge Enc Position",
               "_title": "SmartDashboard/Hinge Enc Position"
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Feeder IsFeeding?",
+              "_title": "SmartDashboard/Feeder IsFeeding?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Shooter IsShooting?",
+              "_title": "SmartDashboard/Shooter IsShooting?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Hinge Limit Switch",
+              "_title": "SmartDashboard/Hinge Limit Switch",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
             }
           }
         }
@@ -2465,44 +2342,6 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Game piece",
               "_title": "SmartDashboard/Game piece"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "DIAGWinch",
-      "autoPopulate": false,
-      "autoPopulatePrefix": "",
-      "widgetPane": {
-        "gridSize": 128.0,
-        "showGrid": true,
-        "hgap": 16.0,
-        "vgap": 16.0,
-        "titleType": 0,
-        "tiles": {
-          "5,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Winch Encoder Value",
-              "_title": "/SmartDashboard/Winch Encoder Value"
-            }
-          },
-          "5,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Winch Forward Limit Switch",
-              "_title": "/SmartDashboard/Winch Forward Limit Switch",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
             }
           }
         }
@@ -2802,6 +2641,102 @@
               "_title": "/SmartDashboard/Rear Arms Limit Switch",
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Elbows Enc Position",
+              "_title": "SmartDashboard/Front Elbows Enc Position"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Front Elbows IsMoving?",
+              "_title": "SmartDashboard/Front Elbows IsMoving?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Front Elbows Limit Switch",
+              "_title": "SmartDashboard/Front Elbows Limit Switch",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Front Elbows Target",
+              "_title": "SmartDashboard/Front Elbows Target"
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Rear Elbows Limit Switch",
+              "_title": "SmartDashboard/Rear Elbows Limit Switch",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Rear Elbows IsMoving?",
+              "_title": "SmartDashboard/Rear Elbows IsMoving?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Rear Elbows Enc Position",
+              "_title": "SmartDashboard/Rear Elbows Enc Position"
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Rear Elbows Target",
+              "_title": "SmartDashboard/Rear Elbows Target"
             }
           }
         }
