@@ -132,7 +132,7 @@ public class Robot extends TimedRobot {
 	public static /*I*/Hinge hingeControl;
 	
 	WPI_TalonSRX hinge_master;
-	BaseMotorController hinge_follower;
+	//BaseMotorController hinge_follower;
 
 	WPI_TalonSRX grasperMotor;
 
@@ -251,14 +251,14 @@ public class Robot extends TimedRobot {
 		//rearRight = new CANSparkMax(Ports.CAN.RIGHT_REAR, MotorType.kBrushless);
 
 		hinge_master = new WPI_TalonSRX(Ports.CAN.HINGE_MASTER);
-		hinge_follower = new WPI_TalonSRX(Ports.CAN.HINGE_FOLLOWER);
+		//hinge_follower = new WPI_TalonSRX(Ports.CAN.HINGE_FOLLOWER);
 
 		grasperMotor = new WPI_TalonSRX(Ports.CAN.GRASPER);
 
 		drivetrain = new Drivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
 		//drivetrain = new SparkMaxDrivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
 		
-		hingeControl = new Hinge(hinge_master, hinge_follower, this);
+		hingeControl = new Hinge(hinge_master/*, hinge_follower*/, this);
 		
 		grasper = new Grasper(grasperMotor, this);
 
