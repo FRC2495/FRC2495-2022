@@ -230,7 +230,7 @@ public class OI {
 		joyLeftBtn11 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN11);
 		//joyLeftBtn11.whileHeld(new WinchJoystickControl());
 		//joyLeftBtn11.whileHeld(new WinchWinchStopperJoystickControl());
-		joyLeftBtn10.whileHeld(new ShooterJoystickControl());
+		joyLeftBtn11.whileHeld(new ShooterJoystickControl());
 		
 		joyLeftBtn10 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN10);
 		//joyLeftBtn10.whileHeld(new GrasperJoystickControl());
