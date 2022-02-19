@@ -68,7 +68,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	Robot robot;
 	
 	
-	public SetOfArms(WPI_TalonSRX arm_in/*, BaseMotorController arm_follower_in*/, Robot robot_in) {
+	public SetOfArms(WPI_TalonSRX arm_in/*, BaseMotorController arm_follower_in*/, Robot robot_in, boolean setInverted) {
 		
 		arm = arm_in;
 		//arm_follower = arm_follower_in;
@@ -97,7 +97,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
-		arm.setInverted(false);
+		arm.setInverted(setInverted);
 		//arm_follower.setInverted(false);
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
