@@ -130,6 +130,7 @@ public class OI {
 		gamepadLT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LT);
 		//gamepadLT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_OFF));
 		//gamepadLT.whenPressed(new FrontArmsRetract());
+		gamepadLT.whileHeld(new FeederFeed());
 
 		gamepadLYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY);
 		gamepadLYp.whenPressed(new FrontArmsRetract());
