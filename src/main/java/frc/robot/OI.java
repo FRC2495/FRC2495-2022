@@ -172,11 +172,12 @@ public class OI {
 		gamepadY = new JoystickButton(gamepad, ControllerBase.GamepadButtons.Y);
 		//gamepadY.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));	
 		//gamepadY.whileHeld(new WinchWinchStopperMagicWinchUp());
-		gamepadY.whileHeld(new ShooterShoot());
+		gamepadY.whileHeld(new ShooterShootHigh());
 
 		gamepadX = new JoystickButton(gamepad, ControllerBase.GamepadButtons.X);
 		//gamepadX.whileHeld(new WinchWinchStopperMagicWinchDown());
-		gamepadX.whileHeld(new FeederFeed());
+		//gamepadX.whileHeld(new FeederFeed());
+		gamepadX.whileHeld(new ShooterShootLow());
 
 		gamepadB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.B);
 		gamepadB.whileHeld(new GrasperRelease());

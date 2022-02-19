@@ -13,11 +13,11 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class ShooterTimedShoot extends TimedCommand {
+public class ShooterTimedShootHigh extends TimedCommand {
 	/**
 	 * Add your docs here.
 	 */
-	public ShooterTimedShoot(double timeout) {
+	public ShooterTimedShootHigh(double timeout) {
 		super(timeout);
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
@@ -27,8 +27,8 @@ public class ShooterTimedShoot extends TimedCommand {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		System.out.println("ShooterTimedShoot: initialize");
-		Robot.shooter.shoot();
+		System.out.println("ShooterTimedShootHigh: initialize");
+		Robot.shooter.shootHigh();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -39,7 +39,7 @@ public class ShooterTimedShoot extends TimedCommand {
 	// Called once after timeout
 	@Override
 	protected void end() {
-		System.out.println("ShooterTimedShoot: end");
+		System.out.println("ShooterTimedShootHigh: end");
 		Robot.shooter.stop();
 	}
 
@@ -47,7 +47,7 @@ public class ShooterTimedShoot extends TimedCommand {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		System.out.println("ShooterTimedShoot: interrupted");
+		System.out.println("ShooterTimedShootHigh: interrupted");
 		end();
 	}
 }

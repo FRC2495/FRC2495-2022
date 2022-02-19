@@ -4,8 +4,10 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public interface IShooter {
 	
-	public void shoot();
+	public void shootHigh();
 	
+	public void shootLow();
+
 	public void stop();
 		
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
