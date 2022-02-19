@@ -58,7 +58,7 @@ public class Shooter extends Subsystem implements IShooter{
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
-		shooterLeft.setNeutralMode(NeutralMode.Brake);
+		shooterLeft.setNeutralMode(NeutralMode.Coast);
 		
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).

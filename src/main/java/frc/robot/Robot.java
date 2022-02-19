@@ -125,17 +125,16 @@ public class Robot extends TimedRobot {
 
 	public static /*I*/Feeder feeder;
 
-	BaseMotorController shooterLeft;
-	//BaseMotorController shooterRight;
+	BaseMotorController shooterMotor;
 
-	BaseMotorController feed;
+	BaseMotorController feederMotor;
 
 	public static /*I*/Hinge hingeControl;
 	
 	WPI_TalonSRX hinge_master;
 	BaseMotorController hinge_follower;
 
-	WPI_TalonSRX grasp;
+	WPI_TalonSRX grasperMotor;
 
 	//public BaseMotorController spinnerMotor;
 	//public static Spinner spinnerWheel;
@@ -258,25 +257,23 @@ public class Robot extends TimedRobot {
 		hinge_master = new WPI_TalonSRX(Ports.CAN.HINGE_MASTER);
 		hinge_follower = new WPI_TalonSRX(Ports.CAN.HINGE_FOLLOWER);
 
-		grasp = new WPI_TalonSRX(Ports.CAN.GRASPER);
+		grasperMotor = new WPI_TalonSRX(Ports.CAN.GRASPER);
 
 		drivetrain = new Drivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
 		//drivetrain = new SparkMaxDrivetrain(frontLeft, frontRight, rearLeft, rearRight, gyro, this, camera);	
 		
 		hingeControl = new Hinge(hinge_master, hinge_follower, this);
 		
-		grasper = new Grasper(grasp, this);
+		grasper = new Grasper(grasperMotor, this);
 
-		shooterLeft = new WPI_TalonSRX(Ports.CAN.SHOOTER);
-		shooter = new Shooter(shooterLeft, this);
+		shooterMotor = new WPI_TalonSRX(Ports.CAN.SHOOTER);
+		shooter = new Shooter(shooterMotor, this);
 		
-		feed = new WPI_TalonSRX(Ports.CAN.FEEDER);
-		feeder = new Feeder(feed, this);
+		feederMotor = new WPI_TalonSRX(Ports.CAN.FEEDER);
+		feeder = new Feeder(feederMotor, this);
 
 		//spinnerMotor = new WPI_TalonSRX(Ports.CAN.SPINNER);
-		//spinnerWheel = new Spinner(spinnerMotor,this);
-
-		//vomitShooter = new VomitShooter(shooterLeft, shooterRight, this); 
+		//spinnerWheel = new Spinner(spinnerMotor,this); 
 
 		front_arm_master = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_MASTER);
 		front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);

@@ -27,7 +27,7 @@ public class FeederTimedFeed extends TimedCommand {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		System.out.println("FeederTimedRelease: initialize");
+		System.out.println("FeederTimedFeed: initialize");
 		Robot.feeder.feed();
 	}
 
@@ -39,7 +39,7 @@ public class FeederTimedFeed extends TimedCommand {
 	// Called once after timeout
 	@Override
 	protected void end() {
-		System.out.println("FeederTimedRelease: end");
+		System.out.println("FeederTimedFeed: end");
 		Robot.feeder.stop();
 	}
 
@@ -47,7 +47,7 @@ public class FeederTimedFeed extends TimedCommand {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		System.out.println("FeederTimedRelease: interrupted");
+		System.out.println("FeederTimedFeed: interrupted");
 		end();
 	}
 }

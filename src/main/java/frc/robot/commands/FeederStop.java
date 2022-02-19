@@ -37,7 +37,7 @@ public class FeederStop extends InstantCommand {
 	// Called once when this command runs
 	@Override
 	protected void initialize() {
-		//System.out.println("GrasperStop: initialize");
+		//System.out.println("FeederStop: initialize");
 		Robot.feeder.stop();
 	}
 

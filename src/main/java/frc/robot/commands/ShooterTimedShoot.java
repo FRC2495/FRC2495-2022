@@ -27,7 +27,7 @@ public class ShooterTimedShoot extends TimedCommand {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		System.out.println("ShooterTimedRelease: initialize");
+		System.out.println("ShooterTimedShoot: initialize");
 		Robot.shooter.shoot();
 	}
 
@@ -39,7 +39,7 @@ public class ShooterTimedShoot extends TimedCommand {
 	// Called once after timeout
 	@Override
 	protected void end() {
-		System.out.println("ShooterTimedRelease: end");
+		System.out.println("ShooterTimedShoot: end");
 		Robot.shooter.stop();
 	}
 
@@ -47,7 +47,7 @@ public class ShooterTimedShoot extends TimedCommand {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		System.out.println("ShooterTimedRelease: interrupted");
+		System.out.println("ShooterTimedShoot: interrupted");
 		end();
 	}
 }
