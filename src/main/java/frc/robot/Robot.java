@@ -123,8 +123,12 @@ public class Robot extends TimedRobot {
 
 	public static /*I*/Shooter shooter;
 
+	public static /*I*/Feeder feeder;
+
 	BaseMotorController shooterLeft;
 	//BaseMotorController shooterRight;
+
+	BaseMotorController feed;
 
 	public static /*I*/Hinge hingeControl;
 	
@@ -266,6 +270,8 @@ public class Robot extends TimedRobot {
 		shooterLeft = new WPI_TalonSRX(Ports.CAN.SHOOTER);
 		shooter = new Shooter(shooterLeft, this);
 		
+		feed = new WPI_TalonSRX(Ports.CAN.FEEDER);
+		feeder = new Feeder(feed, this);
 
 		//spinnerMotor = new WPI_TalonSRX(Ports.CAN.SPINNER);
 		//spinnerWheel = new Spinner(spinnerMotor,this);
