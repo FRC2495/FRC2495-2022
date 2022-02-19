@@ -93,6 +93,7 @@ public class Ports {
 			public static final int FRONT_ELBOW_FOLLOWER = 15;
 			public static final int REAR_ELBOW_MASTER = 16;
 			public static final int REAR_ELBOW_FOLLOWER = 17;
+			public static final int SHOOTER = 18;
 		}
 		
 		public static class USB{

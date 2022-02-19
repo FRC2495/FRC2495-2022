@@ -120,10 +120,12 @@ public class Robot extends TimedRobot {
 	//CANSparkMax rearRight;
 
 	public static /*I*/Grasper grasper;
-	
-	//BaseMotorController shooterLeft;
+
+	public static /*I*/Shooter shooter;
+
+	BaseMotorController shooterLeft;
 	//BaseMotorController shooterRight;
-	
+
 	public static /*I*/Hinge hingeControl;
 	
 	WPI_TalonSRX hinge_master;
@@ -260,6 +262,10 @@ public class Robot extends TimedRobot {
 		hingeControl = new Hinge(hinge_master, hinge_follower, this);
 		
 		grasper = new Grasper(grasp, this);
+
+		shooterLeft = new WPI_TalonSRX(Ports.CAN.SHOOTER);
+		shooter = new Shooter(shooterLeft, this);
+		
 
 		//spinnerMotor = new WPI_TalonSRX(Ports.CAN.SPINNER);
 		//spinnerWheel = new Spinner(spinnerMotor,this);
