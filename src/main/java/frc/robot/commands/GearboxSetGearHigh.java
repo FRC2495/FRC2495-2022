@@ -16,14 +16,14 @@ public class GearboxSetGearHigh extends InstantCommand {
 	public GearboxSetGearHigh() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.gearbox); //
+		//requires(Robot.gearbox); //
 	}
 
 	// Called once when the command executes
 	@Override
 	protected void initialize() {
 		System.out.println("GearboxSetGearHigh: initialize");
-		Robot.gearbox.setGear(Gear.HIGH);
+		//Robot.gearbox.setGear(Gear.HIGH);
 	}
 
 }

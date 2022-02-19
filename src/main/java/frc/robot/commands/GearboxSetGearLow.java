@@ -17,14 +17,14 @@ public class GearboxSetGearLow extends InstantCommand {
 	public GearboxSetGearLow() { //true is up, false is down
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.gearbox); // While using this command no other command can use it 
+		//requires(Robot.gearbox); // While using this command no other command can use it 
 	}
 
 	// Called once when the command executes
 	@Override
 	protected void initialize() {
 		System.out.println("GearboxSetGearLow: initialize ");
-		Robot.gearbox.setGear(Gear.LOW); // Making the piston go down
+		//Robot.gearbox.setGear(Gear.LOW); // Making the piston go down
 	}
 
 }
