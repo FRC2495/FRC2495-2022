@@ -154,7 +154,8 @@ public class OI {
 		gamePadStart = new JoystickButton(gamepad, ControllerBase.GamepadButtons.START);
 		//gamePadStart.whenPressed(new HingeAndGrasperAndSpinnerStop());
 		//gamePadStart.whenPressed(new HingeAndGrasperStop());
-		gamePadStart.whenPressed(new HingeAndGrasperAndFeederAndShooterStop());
+		//gamePadStart.whenPressed(new HingeAndGrasperAndFeederAndShooterStop());
+		gamePadStart.whenPressed(new AlmostEverythingStop());
 
 		gamepadBack = new JoystickButton(gamepad, ControllerBase.GamepadButtons.BACK);
 		gamepadBack.whileHeld(new FullCalibrateAndReset());
