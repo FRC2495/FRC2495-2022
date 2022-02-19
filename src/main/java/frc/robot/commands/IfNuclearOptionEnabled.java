@@ -19,6 +19,6 @@ public class IfNuclearOptionEnabled extends ConditionalCommand {
 
 	@Override
 	protected boolean condition() {
-		return Robot.oi.getRightJoystick().getRawButton(JoystickButtons.BTN11);
+		return Robot.oi.getRightJoystick().getRawButton(JoystickButtons.BTN3);
 	}
 }
