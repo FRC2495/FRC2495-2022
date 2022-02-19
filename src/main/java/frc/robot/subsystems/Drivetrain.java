@@ -192,9 +192,9 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked). 
 		masterLeft.setInverted(true);
-		masterRight.setInverted(false);
+		masterRight.setInverted(true);
 		followerLeft.setInverted(true); 
-		followerRight.setInverted(false);
+		followerRight.setInverted(true);
 		
 		// motors will turn in opposite directions if not inverted 
 		
