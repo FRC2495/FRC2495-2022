@@ -149,8 +149,6 @@ public class Robot extends TimedRobot {
 
 	public static /*I*/SetOfArms rearArms;
 
-	// xxx
-
 	WPI_TalonSRX front_elbow_master;
 	BaseMotorController front_elbow_follower;
 
@@ -166,8 +164,6 @@ public class Robot extends TimedRobot {
 	
 	Compressor compressor; // the compressor's lifecycle needs to be the same as the robot
 
-	//public static VomitShooter vomitShooter;
-	//public static ShooterPusher shooterPusher;
 	public static Gearbox gearbox;
 
 	//public static WinchStopper winchStopperControl; 
@@ -285,7 +281,6 @@ public class Robot extends TimedRobot {
 
 		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this);
 
-		// xxx
 
 		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
 		front_elbow_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_FOLLOWER);
@@ -505,7 +500,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Angle to Target", camera.getAngleToTurnToCompositeTarget());
 		SmartDashboard.putNumber("Distance to Target Using Horizontal FOV", camera.getDistanceToCompositeTargetUsingHorizontalFov());
 		
-	
 		
 		SmartDashboard.putBoolean("Hinge Limit Switch", hingeControl.getLimitSwitchState());
 		SmartDashboard.putBoolean("Hinge Forward Limit Switch", hingeControl.getForwardLimitSwitchState());

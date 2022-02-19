@@ -112,16 +112,16 @@ public class OI {
 		gamepad = new Joystick(Ports.USB.GAMEPAD);
 
 		gamepadRYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY);
-		gamepadRYp.whenPressed(new HingeMoveUp());
+		gamepadRYp.whenPressed(new RearArmsRetract());
 
 		gamepadRYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY,false);
-		gamepadRYn.whenPressed(new HingeMoveUp());
+		gamepadRYn.whenPressed(new RearArmsExtend());
 
 		gamepadRXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX);
-		gamepadRXp.whenPressed(new HingeMoveUp());
+		gamepadRXp.whenPressed(new RearElbowsOpen());
 
 		gamepadRXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX,false);
-		gamepadRXn.whenPressed(new HingeMoveUp());
+		gamepadRXn.whenPressed(new RearElbowsClose());
 
 		gamepadRT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RT);
 		//gamepadRT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));
@@ -129,10 +129,10 @@ public class OI {
 
 		gamepadLT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LT);
 		//gamepadLT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_OFF));
-		gamepadLT.whenPressed(new FrontArmsRetract());
+		//gamepadLT.whenPressed(new FrontArmsRetract());
 
 		gamepadLYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY);
-		gamepadLYp.whenPressed(new FrontArmsExtend());
+		gamepadLYp.whenPressed(new FrontArmsRetract());
 		//gamepadLYp.whenPressed(new SpinnerColorMatch()); // pulling back towards operator
 
 		gamepadLYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY,false);
@@ -140,10 +140,10 @@ public class OI {
 		//gamepadLYn.whenPressed(new SpinnerSpinThrice()); // pushing forward
 
 		gamepadLXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX);
-		gamepadLXp.whenPressed(new FrontArmsExtend());
+		gamepadLXp.whenPressed(new FrontElbowsClose());
 
 		gamepadLXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX,false);
-		gamepadLXn.whenPressed(new FrontArmsExtend());
+		gamepadLXn.whenPressed(new FrontElbowsOpen());
 
 		
 		gamepadRS = new JoystickButton(gamepad, ControllerBase.GamepadButtons.RS);
@@ -152,50 +152,53 @@ public class OI {
 
 		gamePadStart = new JoystickButton(gamepad, ControllerBase.GamepadButtons.START);
 		//gamePadStart.whenPressed(new HingeAndGrasperAndSpinnerStop());
-		gamePadStart.whenPressed(new HingeAndGrasperStop());
+		//gamePadStart.whenPressed(new HingeAndGrasperStop());
+		gamePadStart.whenPressed(new HingeAndGrasperAndFeederAndShooterStop());
 
 		gamepadBack = new JoystickButton(gamepad, ControllerBase.GamepadButtons.BACK);
 		gamepadBack.whileHeld(new FullCalibrateAndReset());
 
 		gamepadRB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.RB);
-		//gamepadRB.whenPressed(new ShooterPusherDown());
-		gamepadRB.whenPressed(new HingeMoveMidway());
+		//gamepadRB.whenPressed(new HingeMoveMidway());
+		gamepadRB.whenPressed(new HingeMoveUp());
 
 		gamepadLB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.LB);
-		//gamepadLB.whenPressed(new ShooterPusherUp());
 		//gamepadLB.whileHeld(new SpinnerSpin());
 		//gamepadLB.whenPressed(new SpinnerRaiserUp());
 		
 		gamepadY = new JoystickButton(gamepad, ControllerBase.GamepadButtons.Y);
 		//gamepadY.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));	
 		//gamepadY.whileHeld(new WinchWinchStopperMagicWinchUp());
+		gamepadY.whileHeld(new ShooterShoot());
 
 		gamepadX = new JoystickButton(gamepad, ControllerBase.GamepadButtons.X);
 		//gamepadX.whileHeld(new WinchWinchStopperMagicWinchDown());
-		
+		gamepadX.whileHeld(new FeederFeed());
 
 		gamepadB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.B);
-		//gamepadB.whenPressed(new VomitShooterShooterPusherFireSequence());
 		gamepadB.whileHeld(new GrasperRelease());
 
 		gamepadA = new JoystickButton(gamepad, ControllerBase.GamepadButtons.A);
-		//gamepadA.whileHeld(new VomitShooterRevBeforeFire());
 		gamepadA.whileHeld(new GrasperGrasp());
 
 
 		joyRight = new Joystick(Ports.USB.RIGHT);
 
 		joyRightBtn11 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN11); 
+		joyRightBtn11.whileHeld(new RearArmsJoystickControl());
 	
 		joyRightBtn10 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN10);
+		joyRightBtn10.whileHeld(new FrontArmsJoystickControl());
 
 		joyRightBtn9 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN9);
 		//joyRightBtn9.whenPressed(new WinchStopperSetStop());
 		//joyRightBtn9.whenPressed(new WinchLockWinchStopperSetLockedAndStop());
+		joyRightBtn9.whileHeld(new RearElbowsJoystickControl());
 
 		joyRightBtn8 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN8);
 		//joyRightBtn8.whenPressed(new WinchStopperSetFree());
 		//joyRightBtn8.whenPressed(new WinchLockWinchStopperSetUnlockedAndFree());
+		joyRightBtn8.whileHeld(new FrontElbowsJoystickControl());
 		
 		joyRightBtn7 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN7);
 		joyRightBtn7.whenPressed(new DrivetrainStop());
@@ -224,14 +227,17 @@ public class OI {
 		joyLeftBtn11 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN11);
 		//joyLeftBtn11.whileHeld(new WinchJoystickControl());
 		//joyLeftBtn11.whileHeld(new WinchWinchStopperJoystickControl());
+		joyLeftBtn10.whileHeld(new ShooterJoystickControl());
 		
 		joyLeftBtn10 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN10);
-		joyLeftBtn10.whileHeld(new GrasperJoystickControl());
+		//joyLeftBtn10.whileHeld(new GrasperJoystickControl());
+		joyLeftBtn10.whileHeld(new FeederJoystickControl());
 
 		joyLeftBtn9 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN9);
 		joyLeftBtn9.whileHeld(new HingeJoystickControl());
 
 		joyLeftBtn8 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN8);
+		joyLeftBtn8.whileHeld(new GrasperJoystickControl());
 
 		joyLeftBtn7 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN7);
 		joyLeftBtn7.whenPressed(new DrivetrainStop());
