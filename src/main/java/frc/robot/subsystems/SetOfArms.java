@@ -30,7 +30,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS = 10000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS = 25000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -50,7 +50,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
 	static final int TALON_TICK_THRESH = 256;//128;
-	static final double TICK_THRESH = 4096;	
+	static final double TICK_THRESH = 512;	
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 
@@ -87,7 +87,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
-		arm.setSensorPhase(true);
+		arm.setSensorPhase(false);
 
 		//Enable limit switches
 		arm.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
