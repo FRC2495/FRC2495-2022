@@ -493,7 +493,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putBoolean("isTurning?", drivetrain.isTurning());
 		SmartDashboard.putBoolean("isStalled?", drivetrain.isStalled());
 		
-		SmartDashboard.putBoolean("isCompromised?", DriverStation.getInstance().isDisabled());
+		SmartDashboard.putBoolean("isCompromised?", DriverStation.isDisabled());
 		
 		SmartDashboard.putNumber("Distance to Target", camera.getDistanceToCompositeTargetUsingVerticalFov());
 		SmartDashboard.putNumber("Angle to Target", camera.getAngleToTurnToCompositeTarget());

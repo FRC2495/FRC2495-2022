@@ -39,8 +39,8 @@ public class Feeder extends Subsystem implements IFeeder{
 	BaseMotorController feederLeft; 
 	
 	// shared feed settings
-	private int onTargetCount; // counter indicating how many times/iterations we were on target
-	private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
+	//private int onTargetCount; // counter indicating how many times/iterations we were on target
+	//private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
 	
 	boolean isFeeding;
 	
@@ -95,7 +95,7 @@ public class Feeder extends Subsystem implements IFeeder{
 		feederLeft.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
 		
 		isFeeding = true;
-		onTargetCount = 0;
+		//onTargetCount = 0;
 	}
 	
 	public void stop() {

@@ -39,8 +39,8 @@ public class Shooter extends Subsystem implements IShooter{
 	BaseMotorController shooterLeft; 
 	
 	// shared shoot settings
-	private int onTargetCount; // counter indicating how many times/iterations we were on target
-	private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
+	//private int onTargetCount; // counter indicating how many times/iterations we were on target
+	//private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
 	
 	boolean isShooting;
 	
@@ -95,14 +95,14 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
 		
 		isShooting = true;
-		onTargetCount = 0;
+		//onTargetCount = 0;
 	}
 
 	public void shootLow() {
 		shooterLeft.set(ControlMode.PercentOutput, -REDUCED_PCT_OUTPUT);
 		
 		isShooting = true;
-		onTargetCount = 0;
+		//onTargetCount = 0;
 	}
 	
 	public void stop() {
