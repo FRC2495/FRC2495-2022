@@ -17,6 +17,9 @@ import frc.robot.interfaces.*;
 import frc.robot.Robot;
 
 
+/**
+ * The {@code Hinge} class contains fields and methods pertaining to the function of the hinge.
+ */
 public class Hinge extends Subsystem implements IHinge {
 	
 	// general settings

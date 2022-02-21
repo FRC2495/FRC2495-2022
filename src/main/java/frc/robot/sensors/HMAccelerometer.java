@@ -3,6 +3,10 @@ package frc.robot.sensors;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
+
+/**
+ * The {@code HMAccelerometer} class contains fields and methods pertaining to the function of the accelerometer.
+ */
 public class HMAccelerometer {
 	
 	static final double TILT_THRESH_DEGREES = 15.0;

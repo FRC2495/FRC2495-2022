@@ -20,6 +20,9 @@ import frc.robot.commands.drivetrain.*;
 import frc.robot.util.*;
 
 
+/**
+ * The {@code Drivetrain} class contains fields and methods pertaining to the function of the drivetrain.
+ */
 public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDOutput3, IDrivetrain {
 
 	// general settings

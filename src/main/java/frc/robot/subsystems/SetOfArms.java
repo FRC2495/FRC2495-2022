@@ -22,8 +22,9 @@ import frc.robot.interfaces.*;
 //import frc.robot.Ports;
 import frc.robot.Robot;
 
+
 /**
- * 
+ * The {@code SetOfArms} class contains fields and methods pertaining to the function of the set of arms.
  */
 public class SetOfArms extends Subsystem implements ISetOfArms {
 

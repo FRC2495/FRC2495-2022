@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import frc.robot.Ports;
 
 /**
- * Add your docs here.
+ * The {@code PressureSensor} class contains fields and methods pertaining to the function of the pressure sensor.
  */
 public class PressureSensor {
 	AnalogInput analogPressureSwitch;

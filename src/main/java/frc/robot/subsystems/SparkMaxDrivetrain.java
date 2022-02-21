@@ -28,6 +28,9 @@ import frc.robot.commands.drivetrain.DrivetrainJoystickControl;
 import frc.robot.util.*;
 
 
+/**
+ * The {@code SparkMaxDrivetrain} class contains fields and methods pertaining to the function of the drivetrain.
+ */
 public class SparkMaxDrivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDOutput3, IDrivetrain {
 
 	// general settings

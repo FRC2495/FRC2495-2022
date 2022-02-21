@@ -17,8 +17,7 @@ import frc.robot.Robot;
 
 
 /**
- * @author Joshua
- *
+ * The {@code Feeder} class contains fields and methods pertaining to the function of the feeder.
  */
 public class Feeder extends Subsystem implements IFeeder{
 	/**
@@ -46,7 +45,10 @@ public class Feeder extends Subsystem implements IFeeder{
 	
 	Robot robot;
 	
-	
+
+	/**
+ 	* The {@code Feeder} class contains fields and methods pertaining to the function of the feeder.
+ 	*/
 	public Feeder(BaseMotorController feederLeft_in, Robot robot_in) {
 		
 		feederLeft = feederLeft_in;

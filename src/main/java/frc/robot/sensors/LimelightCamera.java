@@ -10,6 +10,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.interfaces.*;
 
 
+/**
+ * The {@code LimelighCamera} class contains fields and methods pertaining to the function of the Limelight camera.
+ */
 public class LimelightCamera implements PIDSource, ICamera {
 	private static final int BAD_INDEX = -1;
 	

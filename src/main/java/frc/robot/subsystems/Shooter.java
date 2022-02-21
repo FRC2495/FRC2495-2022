@@ -17,8 +17,7 @@ import frc.robot.Robot;
 
 
 /**
- * @author Joshua
- *
+ * The {@code Shooter} class contains fields and methods pertaining to the function of the shooter.
  */
 public class Shooter extends Subsystem implements IShooter{
 	/**

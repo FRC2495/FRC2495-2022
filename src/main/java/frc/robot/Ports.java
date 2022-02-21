@@ -1,5 +1,8 @@
 package frc.robot;
 
+/**
+ * Contains the definitions of all the ports
+ */
 public class Ports {
 
 		// IP (v4) addresses
@@ -15,20 +18,32 @@ public class Ports {
 		// use Angry IP Scanner to find it!
 
 
+		/**
+		 * Digital ports
+		 */
 		public static class Digital{
 			public static final int CHECK_PRESSURE = 0;
 			
 		}
 		
+		/**
+		 * Analog ports
+		 */
 		public static class Analog{
 			public static final int SONAR = 0;
 			public static final int PRESSURE_SENSOR = 1;
 		}
 		
+		/**
+		 * Relays
+		 */
 		public static class Relay{
 			public static final int COMPRESSOR_RELAY = 0;
 		}
 		
+		/**
+		 * CAN Ids
+		 */
 		public static class CAN{
 			/* 2017 robot
 			public static final int RIGHT_REAR = 3;
@@ -97,12 +112,18 @@ public class Ports {
 			public static final int FEEDER = 19;
 		}
 		
+		/**
+		 * USB ports
+		 */
 		public static class USB{
 			public static final int RIGHT = 0;
 			public static final int LEFT = 1;
 			public static final int GAMEPAD = 2;
 		}
 		
+		/**
+		 * PCM ports
+		 */
 		public static class PCM{
 			/* 2017 robot
 			public static final int INTAKE_IN = 0;
@@ -145,6 +166,9 @@ public class Ports {
 			public static final int REAR_ELBOWS_CLOSED = 5;
 		}
 
+		/**
+		 * PWM ports
+		 */
 		public static class PWM {
 			public static final int LED_STRIP = 9;
 		}

@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj.*;
 import frc.robot.Robot;
 
 
+/**
+ * The {@code Sonar} class contains fields and methods pertaining to the function of the sonar.
+ */
 public class Sonar{
 	
 	private final double IN_TO_CM_CONVERSION = 2.54;

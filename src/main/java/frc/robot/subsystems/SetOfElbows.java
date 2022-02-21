@@ -22,8 +22,9 @@ import frc.robot.interfaces.*;
 //import frc.robot.Ports;
 import frc.robot.Robot;
 
+
 /**
-  * 
+ * The {@code SetOfElbows} class contains fields and methods pertaining to the function of the set of elbows.
  */
 public class SetOfElbows extends Subsystem implements ISetOfElbows {
 

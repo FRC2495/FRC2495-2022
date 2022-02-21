@@ -19,7 +19,7 @@ import frc.robot.commands.indicator.*;
 // see https://docs.wpilib.org/en/latest/docs/software/actuators/addressable-leds.html
 
 /**
- * Add your docs here.
+ * The {@code Indicator} class contains fields and methods pertaining to the function of the indicator.
  */
 public class Indicator extends Subsystem {
 	private AddressableLED led;

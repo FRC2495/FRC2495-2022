@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Ports;
 
 
-//Activates the piston to shoot the ball into the shooter 
+/**
+ * The {@code Gearbox} class contains fields and methods pertaining to the function of the gearbox.
+ */
 public class Gearbox extends Subsystem {
 	
 	static final int WAIT_MS = 1000;

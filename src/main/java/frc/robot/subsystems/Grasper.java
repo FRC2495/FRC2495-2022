@@ -17,8 +17,7 @@ import frc.robot.Robot;
 
 
 /**
- * @author Joshua
- *
+ * The {@code Grasper} class contains fields and methods pertaining to the function of the grasper.
  */
 public class Grasper extends Subsystem implements IGrasper{
 	/**

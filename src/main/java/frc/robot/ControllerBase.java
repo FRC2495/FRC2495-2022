@@ -57,9 +57,11 @@ public class ControllerBase {
 		}
 	}
 	
-	// The purpose of this class is to consider gamepad axes as virtual buttons
-	// (especially the left and right triggers).
-	// and it works!
+	/**
+	* The purpose of this class is to consider gamepad axes as virtual buttons
+	* (especially the left and right triggers).
+	* and it works!
+	*/
 	public static class GamepadAxes {
 		public static final int
 			LX = 0,
