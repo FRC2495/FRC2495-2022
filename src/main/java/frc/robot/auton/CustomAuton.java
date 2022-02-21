@@ -29,10 +29,8 @@ public class CustomAuton extends CommandGroup {
      * @param mainTarget_in    main target
      * @param cameraOption_in  camera option
      * @param sonarOption_in   sonar option
-     * @param release_in       release option
-     * @param autonOption_in   auton option
-     * @return
-     */
+          * @param autonOption_in   auton option
+          */
     public CustomAuton(String startPosition_in, String mainTarget_in, String cameraOption_in,
             String sonarOption_in, String autonOption_in) {
 
