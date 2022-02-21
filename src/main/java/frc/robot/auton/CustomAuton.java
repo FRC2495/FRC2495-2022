@@ -8,8 +8,11 @@
 package frc.robot.auton;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+
 import frc.robot.Robot;
 import frc.robot.commands.*;
+import frc.robot.commands.gearbox.*;
+import frc.robot.commands.hinge.*;
 
 public class CustomAuton extends CommandGroup {
 

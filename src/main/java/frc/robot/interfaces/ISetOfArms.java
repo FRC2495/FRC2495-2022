@@ -1,6 +1,5 @@
 package frc.robot.interfaces;
 
-
 import edu.wpi.first.wpilibj.Joystick;
 
 public interface ISetOfArms {

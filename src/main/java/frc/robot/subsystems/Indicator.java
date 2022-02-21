@@ -9,11 +9,12 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
 import frc.robot.interfaces.ICamera;
 import frc.robot.Ports;
-import frc.robot.commands.*;
+import frc.robot.commands.indicator.*;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 // see https://docs.wpilib.org/en/latest/docs/software/actuators/addressable-leds.html
 

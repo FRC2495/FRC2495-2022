@@ -16,8 +16,17 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
 
 import frc.robot.commands.*;
-import frc.robot.Ports;
-import frc.robot.ControllerBase;
+import frc.robot.commands.drivetrain.*;
+import frc.robot.commands.hinge.*;
+import frc.robot.commands.grasper.*;
+import frc.robot.commands.feeder.*;
+import frc.robot.commands.shooter.*;
+import frc.robot.commands.arms.*;
+import frc.robot.commands.elbows.*;
+import frc.robot.commands.conditional.*;
+import frc.robot.commands.groups.*;
+//import frc.robot.Ports;
+//import frc.robot.ControllerBase;
 import frc.robot.util.GamepadAxis;
 
 
@@ -223,7 +232,7 @@ public class OI {
 		joyRightBtn2 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN2);
 
 		joyRightBtn1 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN1);
-		joyRightBtn1.whenPressed(new GearboxSetGearHigh());
+		//joyRightBtn1.whenPressed(new GearboxSetGearHigh());
 
 
 		joyLeft = new Joystick(Ports.USB.LEFT);
@@ -261,7 +270,7 @@ public class OI {
 		joyLeftBtn2 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN2);
 
 		joyLeftBtn1 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN1);
-		joyLeftBtn1.whenPressed(new GearboxSetGearLow());
+		//joyLeftBtn1.whenPressed(new GearboxSetGearLow());
 
 
 		// SmartDashboard Buttons

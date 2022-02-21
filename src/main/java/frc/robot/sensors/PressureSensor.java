@@ -8,6 +8,7 @@
 package frc.robot.sensors;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+
 import frc.robot.Ports;
 
 /**
