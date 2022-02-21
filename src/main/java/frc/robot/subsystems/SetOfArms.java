@@ -45,7 +45,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 0.06;
+	static final double MOVE_PROPORTIONAL_GAIN = 6;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
