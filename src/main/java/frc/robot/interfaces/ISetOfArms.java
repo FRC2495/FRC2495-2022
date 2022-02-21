@@ -31,4 +31,9 @@ public interface ISetOfArms {
 	public void joystickControl(Joystick joystick);
 	
 	public double getTarget();
+
+	public enum Side {
+		FRONT,
+        REAR
+	}
 }

@@ -30,7 +30,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS = 25000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 25000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 25000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -66,14 +67,18 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 	
 	Robot robot;
+
+	Side side;
 	
 	
-	public SetOfArms(WPI_TalonSRX arm_in/*, BaseMotorController arm_follower_in*/, Robot robot_in, boolean setInverted) {
+	public SetOfArms(WPI_TalonSRX arm_in/*, BaseMotorController arm_follower_in*/, Robot robot_in, boolean setInverted, Side side_in) {
 		
 		arm = arm_in;
 		//arm_follower = arm_follower_in;
 				
 		robot = robot_in;
+
+		side = side_in;
 
 		arm.configFactoryDefault();
 		//arm_follower.configFactoryDefault();
@@ -184,7 +189,12 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		System.out.println("Extending");
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
 
-		tac = +LENGTH_OF_TRAVEL_TICKS;
+		if (side == Side.FRONT) {
+			tac = +LENGTH_OF_TRAVEL_TICKS_FRONT;
+		} else {
+			tac = +LENGTH_OF_TRAVEL_TICKS_REAR;
+		}
+		
 		arm.set(ControlMode.Position,tac);
 		
 		isMoving = true;

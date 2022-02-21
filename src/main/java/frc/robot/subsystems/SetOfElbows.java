@@ -30,7 +30,8 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS = 10000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 10000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 10000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -66,14 +67,18 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 	
 	Robot robot;
+
+	Side side;
 	
 	
-	public SetOfElbows(WPI_TalonSRX elbow_in, BaseMotorController elbow_follower_in, Robot robot_in) {
+	public SetOfElbows(WPI_TalonSRX elbow_in, BaseMotorController elbow_follower_in, Robot robot_in, Side side_in) {
 		
 		elbow = elbow_in;
 		elbow_follower = elbow_follower_in;
 				
 		robot = robot_in;
+
+		side = side_in;
 
 		elbow.configFactoryDefault();
 		elbow_follower.configFactoryDefault();
@@ -184,7 +189,12 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		System.out.println("Extending");
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
 
-		tac = +LENGTH_OF_TRAVEL_TICKS;
+		if (side == Side.FRONT) {
+			tac = +LENGTH_OF_TRAVEL_TICKS_FRONT;
+		} else {
+			tac = +LENGTH_OF_TRAVEL_TICKS_REAR;
+		}
+		
 		elbow.set(ControlMode.Position,tac);
 		
 		isMoving = true;

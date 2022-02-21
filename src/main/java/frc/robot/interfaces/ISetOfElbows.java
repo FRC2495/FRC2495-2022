@@ -31,4 +31,9 @@ public interface ISetOfElbows {
 	public void joystickControl(Joystick joystick);
 	
 	public double getTarget();
+
+	public enum Side {
+		FRONT,
+        REAR
+	}
 }

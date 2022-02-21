@@ -274,23 +274,23 @@ public class Robot extends TimedRobot {
 		front_arm_master = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_MASTER);
 		//front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);
 
-		frontArms = new SetOfArms(front_arm_master/*, front_arm_follower*/, this, true);
+		frontArms = new SetOfArms(front_arm_master/*, front_arm_follower*/, this, true, ISetOfArms.Side.FRONT);
 
 		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_MASTER);
 		//rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
 
-		rearArms = new SetOfArms(rear_arm_master/*, rear_arm_follower*/, this, false);
+		rearArms = new SetOfArms(rear_arm_master/*, rear_arm_follower*/, this, false, ISetOfArms.Side.REAR);
 
 
 		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
 		front_elbow_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_FOLLOWER);
 
-		frontElbows = new SetOfElbows(front_elbow_master, front_elbow_follower, this);
+		frontElbows = new SetOfElbows(front_elbow_master, front_elbow_follower, this, ISetOfElbows.Side.FRONT);
 
 		rear_elbow_master = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_MASTER);
 		rear_elbow_follower = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_FOLLOWER);
 
-		rearElbows = new SetOfElbows(rear_elbow_master, rear_elbow_follower, this);
+		rearElbows = new SetOfElbows(rear_elbow_master, rear_elbow_follower, this, ISetOfElbows.Side.REAR);
 		
 
 		// pneumatic devices
