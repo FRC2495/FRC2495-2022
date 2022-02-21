@@ -423,7 +423,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 			rtac = dist / PERIMETER_WHEEL_INCHES * RATIO_BETWEEN_INPUT_AND_OUTPUT_LOW * TICKS_PER_REVOLUTION;
 			ltac = dist / PERIMETER_WHEEL_INCHES * RATIO_BETWEEN_INPUT_AND_OUTPUT_LOW * TICKS_PER_REVOLUTION;
 			
-			rtac = - rtac; // account for fact that front of robot is back from sensor's point of view
+			rtac = + rtac; // account for fact that front of robot is back from sensor's point of view
 			ltac = - ltac;
 		/*}
 		else{			//Using the high gear ratio between input gear and output gear
@@ -733,7 +733,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		{
 			output = Math.signum(output) * MIN_TURN_PCT_OUTPUT;
 		}
-		masterRight.set(ControlMode.PercentOutput, +output);
+		masterRight.set(ControlMode.PercentOutput, -output);
 		masterLeft.set(ControlMode.PercentOutput, -output);		
 	}
 	
@@ -750,7 +750,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		{
 			output = Math.signum(output) * MIN_TURN_USING_CAMERA_PCT_OUTPUT;
 		}
-		masterRight.set(ControlMode.PercentOutput, +output); // TODO double-check signs
+		masterRight.set(ControlMode.PercentOutput, -output); // TODO double-check signs
 		masterLeft.set(ControlMode.PercentOutput, -output);		
 	}
 
@@ -767,7 +767,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		{
 			output = Math.signum(output) * MIN_MOVE_USING_CAMERA_PCT_OUTPUT;
 		}
-		masterRight.set(ControlMode.PercentOutput, -output); // TODO double-check signs
+		masterRight.set(ControlMode.PercentOutput, +output); // TODO double-check signs
 		masterLeft.set(ControlMode.PercentOutput, -output);		
 	}
 	
