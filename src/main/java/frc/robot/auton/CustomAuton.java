@@ -10,9 +10,9 @@ package frc.robot.auton;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import frc.robot.Robot;
-import frc.robot.commands.*;
-import frc.robot.commands.gearbox.*;
-import frc.robot.commands.hinge.*;
+//import frc.robot.commands.*;
+//import frc.robot.commands.gearbox.*;
+//import frc.robot.commands.hinge.*;
 
 public class CustomAuton extends CommandGroup {
 
@@ -29,8 +29,8 @@ public class CustomAuton extends CommandGroup {
      * @param mainTarget_in    main target
      * @param cameraOption_in  camera option
      * @param sonarOption_in   sonar option
-          * @param autonOption_in   auton option
-          */
+    * @param autonOption_in   auton option
+    */
     public CustomAuton(String startPosition_in, String mainTarget_in, String cameraOption_in,
             String sonarOption_in, String autonOption_in) {
 
@@ -57,24 +57,18 @@ public class CustomAuton extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 
-		addSequential(new GearboxSetGearLow()); // forces low gear just in case
+		//addSequential(new GearboxSetGearLow()); // forces low gear just in case
 
-		addSequential(new HingeMoveUp()); // forces hinge back up just in case
+		//addSequential(new HingeMoveUp()); // forces hinge back up just in case
 
 		switch (startPosition) {
 			case Robot.START_POSITION_1:
 				switch (mainTarget) {
-					case Robot.MAIN_TARGET_ALLIANCE_TRENCH:
-						//addSequential(new StartingPositionOneToAllianceTrench());
-						break;
-					case Robot.MAIN_TARGET_OPPONENT_TRENCH:
-						//addSequential(new StartingPositionOneToOpponentTrench());
-						break;
-                    case Robot.MAIN_TARGET_RENDEZVOUS_POINT:
-						//addSequential(new StartingPositionOneToRendezvousPoint());
+					case Robot.MAIN_TARGET_HUB:
+						addSequential(new StartingPositionOneShootInHub());
 						break;
 					case Robot.MAIN_TARGET_NOWHERE:
-						//addSequential(new StartingPositionOneToNowhere());
+						addSequential(new StartingPositionOneToNowhere());
 						break;
 					default:
 						// nothing
@@ -84,14 +78,8 @@ public class CustomAuton extends CommandGroup {
 
 			case Robot.START_POSITION_2:
 				switch (mainTarget) {
-					case Robot.MAIN_TARGET_ALLIANCE_TRENCH:
-						//addSequential(new StartingPositionTwoToAllianceTrench());
-						break;
-					case Robot.MAIN_TARGET_OPPONENT_TRENCH:
-						//addSequential(new StartingPositionTwoToOpponentTrench());
-						break;
-					case Robot.MAIN_TARGET_RENDEZVOUS_POINT:
-						//addSequential(new StartingPositionTwoToRendezvousPoint());
+					case Robot.MAIN_TARGET_HUB:
+						//addSequential(new StartingPositionTwoShootInHub());
 						break;
 					case Robot.MAIN_TARGET_NOWHERE:
 						//addSequential(new StartingPositionTwoToNowhere());
@@ -104,14 +92,8 @@ public class CustomAuton extends CommandGroup {
 
 			case Robot.START_POSITION_3:
 				switch (mainTarget) {
-					case Robot.MAIN_TARGET_ALLIANCE_TRENCH:
-						//addSequential(new StartingPositionThreeToAllianceTrench());
-						break;
-					case Robot.MAIN_TARGET_OPPONENT_TRENCH:
-						//addSequential(new StartingPositionThreeToOpponentTrench());
-						break;
-                    case Robot.MAIN_TARGET_RENDEZVOUS_POINT:
-						//addSequential(new StartingPositionThreeToRendezvousPoint());
+					case Robot.MAIN_TARGET_HUB:
+						//addSequential(new StartingPositionThreeShootInHub());
 						break;
 					case Robot.MAIN_TARGET_NOWHERE:
 						//addSequential(new StartingPositionThreeToNowhere());
