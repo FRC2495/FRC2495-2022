@@ -283,7 +283,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			arm.set(ControlMode.PercentOutput, joystick.getY());
+			arm.set(ControlMode.PercentOutput, -joystick.getY()); // adjust sign if desired
 		}
 	}
 

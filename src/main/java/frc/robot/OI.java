@@ -121,10 +121,12 @@ public class OI {
 		gamepad = new Joystick(Ports.USB.GAMEPAD);
 
 		gamepadRYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY);
-		gamepadRYp.whenPressed(new RearArmsExtend());
+		//gamepadRYp.whenPressed(new RearArmsExtend());
+		gamepadRYp.whenPressed(new RearArmsRetract());
 
 		gamepadRYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY,false);
-		gamepadRYn.whenPressed(new RearArmsRetract());
+		//gamepadRYn.whenPressed(new RearArmsRetract());
+		gamepadRYn.whenPressed(new RearArmsExtend());
 
 		gamepadRXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX);
 		gamepadRXp.whenPressed(new RearElbowsOpen());
@@ -142,11 +144,13 @@ public class OI {
 		gamepadLT.whileHeld(new FeederFeed());
 
 		gamepadLYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY);
-		gamepadLYp.whenPressed(new FrontArmsExtend());
+		//gamepadLYp.whenPressed(new FrontArmsExtend());
+		gamepadLYp.whenPressed(new FrontArmsRetract());
 		//gamepadLYp.whenPressed(new SpinnerColorMatch()); // pulling back towards operator
 
 		gamepadLYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LY,false);
-		gamepadLYn.whenPressed(new FrontArmsRetract());
+		//gamepadLYn.whenPressed(new FrontArmsRetract());
+		gamepadLYn.whenPressed(new FrontArmsExtend());
 		//gamepadLYn.whenPressed(new SpinnerSpinThrice()); // pushing forward
 
 		gamepadLXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX);
