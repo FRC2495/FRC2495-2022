@@ -30,8 +30,8 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 10000; // adjust as needed
-	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 10000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 8000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 7000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -46,12 +46,12 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 0.06;
+	static final double MOVE_PROPORTIONAL_GAIN = 0.6;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
-	static final int TALON_TICK_THRESH = 256;//128;
-	static final double TICK_THRESH = 4096;	
+	static final int TALON_TICK_THRESH = 64;//128;
+	static final double TICK_THRESH = 128;	
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 
@@ -60,7 +60,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	BaseMotorController elbow_follower;
 	
 	boolean isMoving;
-	boolean isExtending;
+	boolean isOpening;
 
 	double tac;
 
@@ -128,7 +128,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
 		
 		isMoving = false;
-		isExtending = false;
+		isOpening = false;
 	}
 	
 	@Override
@@ -173,46 +173,46 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 			if (!isMoving) {
 				System.out.println("You have reached the target (elbow moving).");
 				//elbow.set(ControlMode.PercentOutput,0);
-				if (isExtending)	{
-					stay();
+				if (isOpening)	{
+					stop(); // adjust if needed
 				} else {
-					stop();
+					stop(); // adjust if needed
 				}
 			}
 		}
 		return isMoving; 
 	}
 	
-	public void extend() {
+	public void open() {
 		
 		//setPIDParameters();
-		System.out.println("Extending");
+		System.out.println("Opening");
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
 
 		if (side == Side.FRONT) {
-			tac = +LENGTH_OF_TRAVEL_TICKS_FRONT;
+			tac = -LENGTH_OF_TRAVEL_TICKS_FRONT;
 		} else {
-			tac = +LENGTH_OF_TRAVEL_TICKS_REAR;
+			tac = -LENGTH_OF_TRAVEL_TICKS_REAR;
 		}
 		
 		elbow.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = true;
+		isOpening = true;
 		onTargetCount = 0;
 	}
 	
-	public void retract() {
+	public void close() {
 		
 		//setPIDParameters();
-		System.out.println("Retracting");
+		System.out.println("Closing");
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
 
 		tac = 0; // adjust as needed
 		elbow.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = false;
+		isOpening = false;
 		onTargetCount = 0;
 	}
 
@@ -222,14 +222,14 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	
 	public void stay() {	 		
 		isMoving = false;		
-		isExtending = false;
+		isOpening = false;
 	}
 
 	public synchronized void stop() {
 		elbow.set(ControlMode.PercentOutput, 0);
 		
 		isMoving = false;
-		isExtending = false;
+		isOpening = false;
 	}
 	
 	private void setPIDParameters() {		
@@ -274,8 +274,8 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		return isMoving;
 	}
 
-	public synchronized boolean isExtending() {
-		return isExtending;
+	public synchronized boolean isOpening() {
+		return isOpening;
 	}
 	
 	// for debug purpose only

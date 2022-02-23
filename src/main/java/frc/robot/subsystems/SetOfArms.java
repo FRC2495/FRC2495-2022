@@ -174,9 +174,9 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 				System.out.println("You have reached the target (arm moving).");
 				//arm.set(ControlMode.PercentOutput,0);
 				if (isExtending)	{
-					stay();
+					stop(); // adjust if needed
 				} else {
-					stop();
+					stop(); // adjust if needed
 				}
 			}
 		}

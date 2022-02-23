@@ -40,7 +40,7 @@ public class RearElbowsClose extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("RearElbowsClose: initialize");
-		Robot.rearElbows.retract();
+		Robot.rearElbows.close();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -59,7 +59,7 @@ public class RearElbowsClose extends Command {
 	@Override
 	protected void end() {
 		System.out.println("RearElbowsClose: end");
-		Robot.rearElbows.stop();
+		Robot.rearElbows.stop(); // adjust if needed
 	}
 
 	// Called when another command which requires one or more of the same

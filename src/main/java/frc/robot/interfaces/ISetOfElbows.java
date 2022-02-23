@@ -9,15 +9,15 @@ public interface ISetOfElbows {
 	// This method should be called to assess the progress of a move
 	public boolean tripleCheckMove();
 
-	public void extend();
+	public void open();
 	
-	public void retract();
+	public void close();
 	
 	public double getEncoderPosition();
 	
 	public boolean isMoving();
 	
-	public boolean isExtending();	
+	public boolean isOpening();	
 
 	public void stay();	
 		

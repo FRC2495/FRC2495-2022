@@ -40,7 +40,7 @@ public class FrontElbowsOpen extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("FrontElbowsOpen initialize");
-		Robot.frontElbows.extend();
+		Robot.frontElbows.open();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -59,7 +59,7 @@ public class FrontElbowsOpen extends Command {
 	@Override
 	protected void end() {
 		System.out.println("FrontElbowsOpen: end");
-		Robot.frontElbows.stay(); // we don't want to stop so we stay up...
+		Robot.frontElbows.stop(); // adjust if needed
 	}
 
 	// Called when another command which requires one or more of the same

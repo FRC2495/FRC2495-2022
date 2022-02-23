@@ -59,7 +59,7 @@ public class FrontArmsRetract extends Command {
 	@Override
 	protected void end() {
 		System.out.println("FrontArmsRetract: end");
-		Robot.frontArms.stop();
+		Robot.frontArms.stop(); // adjust if needed
 	}
 
 	// Called when another command which requires one or more of the same

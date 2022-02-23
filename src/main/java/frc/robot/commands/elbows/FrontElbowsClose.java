@@ -40,7 +40,7 @@ public class FrontElbowsClose extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("FrontElbowsClose: initialize");
-		Robot.frontElbows.retract();
+		Robot.frontElbows.close();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -59,7 +59,7 @@ public class FrontElbowsClose extends Command {
 	@Override
 	protected void end() {
 		System.out.println("FrontElbowsClose: end");
-		Robot.frontElbows.stop();
+		Robot.frontElbows.stop(); // adjust if neded
 	}
 
 	// Called when another command which requires one or more of the same

@@ -40,7 +40,7 @@ public class RearElbowsOpen extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("RearElbowsOpen initialize");
-		Robot.rearElbows.extend();
+		Robot.rearElbows.open();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -59,7 +59,7 @@ public class RearElbowsOpen extends Command {
 	@Override
 	protected void end() {
 		System.out.println("RearElbowsOpen: end");
-		Robot.rearElbows.stay(); // we don't want to stop so we stay up...
+		Robot.rearElbows.stop(); // adjust if needed
 	}
 
 	// Called when another command which requires one or more of the same

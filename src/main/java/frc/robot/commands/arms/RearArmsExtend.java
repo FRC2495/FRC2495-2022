@@ -59,7 +59,7 @@ public class RearArmsExtend extends Command {
 	@Override
 	protected void end() {
 		System.out.println("RearArmsExtend: end");
-		Robot.rearArms.stay(); // we don't want to stop so we stay up...
+		Robot.rearArms.stop(); // adjust if needed
 	}
 
 	// Called when another command which requires one or more of the same
