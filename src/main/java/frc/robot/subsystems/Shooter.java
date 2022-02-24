@@ -91,14 +91,14 @@ public class Shooter extends Subsystem implements IShooter{
 	}
 
 	public void shootHigh() {
-		shooterLeft.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
+		shooterLeft.set(ControlMode.PercentOutput, +ALMOST_MAX_PCT_OUTPUT);
 		
 		isShooting = true;
 		//onTargetCount = 0;
 	}
 
 	public void shootLow() {
-		shooterLeft.set(ControlMode.PercentOutput, -REDUCED_PCT_OUTPUT);
+		shooterLeft.set(ControlMode.PercentOutput, +REDUCED_PCT_OUTPUT);
 		
 		isShooting = true;
 		//onTargetCount = 0;
