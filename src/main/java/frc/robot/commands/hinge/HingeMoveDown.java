@@ -59,8 +59,8 @@ public class HingeMoveDown extends Command {
 	@Override
 	protected void end() {
 		System.out.println("HingeMoveDown: end");
-		//Robot.hingeControl.stop();
-		Robot.hingeControl.stay();
+		Robot.hingeControl.stop();
+		//Robot.hingeControl.stay();
 	}
 
 	// Called when another command which requires one or more of the same

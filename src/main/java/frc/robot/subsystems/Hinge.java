@@ -27,8 +27,8 @@ public class Hinge extends Subsystem implements IHinge {
 	
 	public static final double GEAR_RATIO = 3.0; // TODO change if needed
 	
-	public static final int ANGLE_TO_TRAVEL_TICKS = Robot.COMPETITION_BOT_CONFIG?4000:4000; // TODO set proper value
-	public static final int ANGLE_TO_MIDWAY_TICKS = Robot.COMPETITION_BOT_CONFIG?480:480;
+	public static final int ANGLE_TO_TRAVEL_TICKS = Robot.COMPETITION_BOT_CONFIG?100000:100000; // TODO set proper value
+	public static final int ANGLE_TO_MIDWAY_TICKS = Robot.COMPETITION_BOT_CONFIG?50000:50000;
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!
@@ -48,14 +48,15 @@ public class Hinge extends Subsystem implements IHinge {
 	
 	static final int SLOT_0 = 0;
 	
-	static final double REDUCED_PCT_OUTPUT = 0.5;
+	static final double REDUCED_PCT_OUTPUT = 0.4;
+	static final double SUPER_REDUCED_PCT_OUTPUT = 0.1;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 0.06*100;
+	static final double MOVE_PROPORTIONAL_GAIN = 0.06;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
-	static final int TALON_TICK_THRESH = 256/100;//128;
-	static final double TICK_THRESH = 4096/100;	
+	static final int TALON_TICK_THRESH = 256;
+	static final double TICK_THRESH = 4096;	
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 
@@ -113,7 +114,7 @@ public class Hinge extends Subsystem implements IHinge {
 		
 		setPIDParameters();
 		
-		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		// Sensors for motor controllers provide feedback about the position, velocity, and acceleration
 		// of the system using that motor controller.
@@ -190,8 +191,8 @@ public class Hinge extends Subsystem implements IHinge {
 				if (isMovingUp) {
 					stay();
 				} else {
-					//stop();
-					stay();
+					stop();
+					//stay();
 				}
 			}
 		}
@@ -206,9 +207,9 @@ public class Hinge extends Subsystem implements IHinge {
 			//setPIDParameters();
 			System.out.println("Moving Up");
 			
-			setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+			setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-			tac = 0; //VIRTUAL_HOME_OFFSET_TICKS; // because we cannot reach 0 reliably
+			tac = VIRTUAL_HOME_OFFSET_TICKS; // because we cannot reach 0 reliably
 			hinge.set(ControlMode.Position,tac);
 			
 			isMoving = true;
@@ -227,7 +228,7 @@ public class Hinge extends Subsystem implements IHinge {
 			//setPIDParameters();
 			System.out.println("Moving Midway");
 			
-			setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we may need to check if we were up in which case we may want to reduce output
+			setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT); // we may need to check if we were up in which case we may want to reduce output
 
 			//tac = ANGLE_TO_TRAVEL_TICKS / 2;
 			tac = ANGLE_TO_MIDWAY_TICKS;
@@ -247,7 +248,7 @@ public class Hinge extends Subsystem implements IHinge {
 			//setPIDParameters();
 			System.out.println("Moving Down");
 			
-			setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
+			setNominalAndPeakOutputs(SUPER_REDUCED_PCT_OUTPUT);
 	
 			tac = ANGLE_TO_TRAVEL_TICKS;
 			hinge.set(ControlMode.Position,tac);
