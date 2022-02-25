@@ -18,11 +18,11 @@ import frc.robot.sensors.SwitchedCamera;
 /**
  *
  */
-public class SwitchedCameraSetPhysicalCamera extends InstantCommand {
+public class SwitchedCameraSetUsbCamera extends InstantCommand {
 
 	private int camera;
 
-	public SwitchedCameraSetPhysicalCamera(int camera_in) {
+	public SwitchedCameraSetUsbCamera(int camera_in) {
 		setRunWhenDisabled(true); // allows running of command when robot is disabled
 
 		camera = camera_in;
@@ -31,8 +31,8 @@ public class SwitchedCameraSetPhysicalCamera extends InstantCommand {
 	// Called once when this command runs
 	@Override
 	protected void initialize() {
-		System.out.println("CameraSetPhysicalCamera: initialize");
-		SwitchedCamera.setPhysicalCamera(camera);
+		System.out.println("SwitchedCameraSetUsbCamera: initialize");
+		SwitchedCamera.setUsbCamera(camera);
 	}
 
 }
