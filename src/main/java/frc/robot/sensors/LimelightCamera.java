@@ -27,11 +27,11 @@ public class LimelightCamera implements PIDSource, ICamera {
 
 	// The 2020 target has an overall height of 1 ft. 5 in. (~43 cm), and a width of 3 ft. 3¼ in. (~100 cm).
 	// The bottom of the target is 6 ft. 9¼ in. (~206 cm) above the carpet. 
-	private static final double TARGET_HEIGHT_INCHES = 17.0; // TODO set proper value PROPER VALUE IS 17.0 inches
-	private static final double TARGET_WIDTH_INCHES = 39.25; // TODO set proper value PROPER VALUE IS 39.25 inches
-	private static final double TARGET_ELEVATION_INCHES = 81.25;
+	private static final double TARGET_HEIGHT_INCHES = 2.0; // TODO set proper value PROPER VALUE IS 17.0 inches
+	private static final double TARGET_WIDTH_INCHES = 33.0; // TODO set proper value PROPER VALUE IS 39.25 inches
+	private static final double TARGET_ELEVATION_INCHES = 104-2.;
 
-	private static final double CAM_ELEVATION_INCHES = 22.0; // TODO set proper value 
+	private static final double CAM_ELEVATION_INCHES = 24.0; // TODO set proper value 
 
 	public static final double SAFE_DISTANCE_INCHES = 240;
 
