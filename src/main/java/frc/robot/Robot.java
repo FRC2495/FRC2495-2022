@@ -525,7 +525,10 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putBoolean("Spinner IsSpinning?", spinnerWheel.isSpinning());
 
 		SmartDashboard.putBoolean("Feeder IsFeeding?", feeder.isFeeding());
+
 		SmartDashboard.putBoolean("Shooter IsShooting?", shooter.isShooting());
+		SmartDashboard.putNumber("Shooter Enc Velocity", shooter.getEncoderVelocity());
+		SmartDashboard.putNumber("Shooter Rpm", shooter.getRpm());
 		
 		SmartDashboard.putString("Auton selected", autonChooser.getSelected());	
 		SmartDashboard.putString("Start position", startPositionChooser.getSelected());

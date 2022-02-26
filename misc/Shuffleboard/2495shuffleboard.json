@@ -9,7 +9,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -814,7 +813,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -870,11 +868,9 @@
                   "_type": "Graph",
                   "_title": "Graph (no sources)",
                   "Graph/Visible time": 30.0,
-                  "Graph/X-axis auto scrolling": true,
                   "Y-axis/Automatic bounds": true,
                   "Y-axis/Upper bound": 1.0,
-                  "Y-axis/Lower bound": -1.0,
-                  "Y-axis/Unit": "ul"
+                  "Y-axis/Lower bound": -1.0
                 }
               ]
             }
@@ -1227,76 +1223,54 @@
                   "Visuals/Number of tick marks": 5
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [17]",
-                  "_title": "Talon SRX [17]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [19]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [19]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [4]",
-                  "_title": "Talon FX [4]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [10]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [19]",
-                  "_title": "Talon SRX [19]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [17]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [17]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [14]",
-                  "_title": "Talon SRX [14]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [15]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [15]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [18]",
-                  "_title": "Talon SRX [18]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [4]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon FX [4]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]",
-                  "_title": "Talon SRX [10]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [18]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [18]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [15]",
-                  "_title": "Talon SRX [15]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [2]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon FX [2]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [2]",
-                  "_title": "Talon FX [2]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [16]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [16]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [16]",
-                  "_title": "Talon SRX [16]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [14]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [14]/Value"
                 },
                 {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [5]",
-                  "_title": "Talon SRX [5]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [6]",
-                  "_title": "Talon SRX [6]",
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                {
-                  "_type": "Motor Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [12]",
-                  "_title": "Talon SRX [12]",
-                  "Visuals/Orientation": "HORIZONTAL"
+                  "_type": "Text View",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [12]/Value",
+                  "_title": "/LiveWindow/Ungrouped/Talon SRX [12]/Value"
                 }
               ]
             }
@@ -1387,7 +1361,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -1666,7 +1639,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {}
       }
     },
@@ -1679,7 +1651,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "1,0": {
             "size": [
@@ -1800,7 +1771,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "0,0": {
             "size": [
@@ -1985,7 +1955,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "3,0": {
             "size": [
@@ -2175,7 +2144,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "4,2": {
             "size": [
@@ -2343,7 +2311,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "7,0": {
             "size": [
@@ -2532,7 +2499,6 @@
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
-        "titleType": 0,
         "tiles": {
           "3,0": {
             "size": [
@@ -2724,6 +2690,54 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Rear Elbows Target",
               "_title": "SmartDashboard/Rear Elbows Target"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "DIAGShooter",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "3,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter Enc Velocity",
+              "_title": "/SmartDashboard/Shooter Enc Velocity"
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Shooter IsShooting?",
+              "_title": "/SmartDashboard/Shooter IsShooting?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter Rpm",
+              "_title": "/SmartDashboard/Shooter Rpm"
             }
           }
         }
