@@ -14,6 +14,7 @@ import frc.robot.interfaces.*;
 import frc.robot.commands.grasper.*;
 import frc.robot.Robot;
 //import frc.robot.sensors.Sonar;
+import frc.robot.sensors.SwitchedCamera;
 
 
 /**
@@ -93,6 +94,8 @@ public class Grasper extends Subsystem implements IGrasper{
 	}
 
 	public void grasp() {
+		SwitchedCamera.setUsbCamera(1);
+
 		grasperLeft.set(ControlMode.PercentOutput, REDUCED_PCT_OUTPUT);
 		
 		isGrasping = true;
@@ -101,6 +104,8 @@ public class Grasper extends Subsystem implements IGrasper{
 	}
 	
 	public void release() {
+		SwitchedCamera.setUsbCamera(1);
+
 		grasperLeft.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
 		
 		isReleasing = true;

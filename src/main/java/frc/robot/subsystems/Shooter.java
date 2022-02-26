@@ -15,6 +15,7 @@ import frc.robot.interfaces.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.Robot;
 //import frc.robot.sensors.Sonar;
+import frc.robot.sensors.SwitchedCamera;
 
 
 /**
@@ -105,6 +106,8 @@ public class Shooter extends Subsystem implements IShooter{
 	}
 
 	public void shootHigh() {
+		SwitchedCamera.setUsbCamera(2);
+
 		//shooterLeft.set(ControlMode.PercentOutput, +ALMOST_MAX_PCT_OUTPUT);
 
 		setPIDParameters();
@@ -121,6 +124,8 @@ public class Shooter extends Subsystem implements IShooter{
 	}
 
 	public void shootLow() {
+		SwitchedCamera.setUsbCamera(2);
+
 		//set(ControlMode.PercentOutput, +REDUCED_PCT_OUTPUT);
 
 		setPIDParameters();
