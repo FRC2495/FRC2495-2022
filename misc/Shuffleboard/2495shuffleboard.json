@@ -1225,52 +1225,52 @@
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [19]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [19]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [19]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [10]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [10]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [10]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [17]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [17]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [17]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [15]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [15]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [15]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [4]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon FX [4]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon FX [4]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [18]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [18]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [18]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon FX [2]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon FX [2]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon FX [2]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [16]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [16]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [16]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [14]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [14]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [14]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [12]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [12]/Value"
+                  "_title": "LiveWindow/Ungrouped/Talon SRX [12]/Value"
                 }
               ]
             }
@@ -1465,19 +1465,6 @@
               "_type": "Boolean Box",
               "_source0": "network_table:///SmartDashboard/Hinge isUp",
               "_title": "SmartDashboard/Hinge isUp",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Winch IsWinchingUp?",
-              "_title": "SmartDashboard/Winch IsWinchingUp?",
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
@@ -2713,7 +2700,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Shooter Enc Velocity",
-              "_title": "/SmartDashboard/Shooter Enc Velocity"
+              "_title": "SmartDashboard/Shooter Enc Velocity"
             }
           },
           "1,0": {
@@ -2724,7 +2711,7 @@
             "content": {
               "_type": "Boolean Box",
               "_source0": "network_table:///SmartDashboard/Shooter IsShooting?",
-              "_title": "/SmartDashboard/Shooter IsShooting?",
+              "_title": "SmartDashboard/Shooter IsShooting?",
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
@@ -2737,7 +2724,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Shooter Rpm",
-              "_title": "/SmartDashboard/Shooter Rpm"
+              "_title": "SmartDashboard/Shooter Rpm"
             }
           }
         }
