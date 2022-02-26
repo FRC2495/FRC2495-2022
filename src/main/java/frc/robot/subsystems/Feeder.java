@@ -28,18 +28,9 @@ public class Feeder extends Subsystem implements IFeeder{
 	static final double HALF_PCT_OUTPUT = 0.5;
 	static final double REDUCED_PCT_OUTPUT = 0.6;
 	
-	static final int WAIT_MS = 1000;
-	static final int TIMEOUT_MS = 5000;
-
 	static final int TALON_TIMEOUT_MS = 20;
 
-	static final int SHOOT_DISTANCE_INCHES = 17;
-	
-	BaseMotorController feederLeft; 
-	
-	// shared feed settings
-	//private int onTargetCount; // counter indicating how many times/iterations we were on target
-	//private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
+	BaseMotorController feederLeft; 	
 	
 	boolean isFeeding;
 	
@@ -67,11 +58,6 @@ public class Feeder extends Subsystem implements IFeeder{
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		feederLeft.setInverted(false);
-
-		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
-		// Users will still need to set the motor controller's direction, and neutral mode.
-		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
-		// , talon to talon, victor to victor, talon to victor, and victor to talon.
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -90,7 +76,6 @@ public class Feeder extends Subsystem implements IFeeder{
 	@Override
 	public void periodic() {
 		// Put code here to be run every loop
-
 	}
 
 	public void feed() {
@@ -102,6 +87,7 @@ public class Feeder extends Subsystem implements IFeeder{
 	
 	public void stop() {
 		feederLeft.set(ControlMode.PercentOutput, 0);
+
 		isFeeding = false;
 	}
 	

@@ -33,22 +33,14 @@ public class Shooter extends Subsystem implements IShooter{
 	static final int TIMEOUT_MS = 5000;
 
 	static final int TALON_TIMEOUT_MS = 20;
-
-	static final int SHOOT_DISTANCE_INCHES = 17;
 	
 	BaseMotorController shooterLeft; 
-	
-	// shared shoot settings
-	//private int onTargetCount; // counter indicating how many times/iterations we were on target
-	//private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
-	
+		
 	boolean isShooting;
 	
 	Robot robot;
 
-	public static final int TICKS_PER_REVOLUTION = 2048; // TODO switch to 2048 if needed for Talon FX
-
-	// move settings
+	// shoot settings
 	static final int PRIMARY_PID_LOOP = 0;
 
 	static final int SLOT_0 = 0;
@@ -56,7 +48,7 @@ public class Shooter extends Subsystem implements IShooter{
 	static final double SHOOT_PROPORTIONAL_GAIN = 1.0;
 	static final double SHOOT_INTEGRAL_GAIN = 0.001;
 	static final double SHOOT_DERIVATIVE_GAIN = 20.0;
-	static final double SHOOT_FEED_FORWARD = 1023.0/7200.0;
+	static final double SHOOT_FEED_FORWARD = 1023.0/7200.0; // 1023 = Talon SRX full motor output, max measured velocity ~ 7200 native units per 100ms
 
 	public static final double TICK_PER_100MS_THRESH = 1;
 	
@@ -74,7 +66,11 @@ public class Shooter extends Subsystem implements IShooter{
 		// brake and coast.
 		shooterLeft.setNeutralMode(NeutralMode.Coast);
 
-		/* Config sensor used for Primary PID [Velocity] */
+		// Sensors for motor controllers provide feedback about the position, velocity, and acceleration
+		// of the system using that motor controller.
+		// Note: With Phoenix framework, position units are in the natural units of the sensor.
+		// This ensures the best resolution possible when performing closed-loops in firmware.
+		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
         shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,
 				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); 
 
@@ -88,11 +84,6 @@ public class Shooter extends Subsystem implements IShooter{
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		shooterLeft.setInverted(true);
-
-		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
-		// Users will still need to set the motor controller's direction, and neutral mode.
-		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
-		// , talon to talon, victor to victor, talon to victor, and victor to talon.
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -111,7 +102,6 @@ public class Shooter extends Subsystem implements IShooter{
 	@Override
 	public void periodic() {
 		// Put code here to be run every loop
-
 	}
 
 	public void shootHigh() {
@@ -120,9 +110,9 @@ public class Shooter extends Subsystem implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double RPM = 3000.0;
+		final double SHOOT_HIGH_RPM = 3000.0;
 
-		double targetVelocity_UnitsPer100ms = RPM * 4096 / 600;
+		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -136,9 +126,9 @@ public class Shooter extends Subsystem implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double RPM = 1500.0;
+		final double SHOOT_LOW_RPM = 1500.0;
 
-		double targetVelocity_UnitsPer100ms = RPM * 4096 / 600;
+		double targetVelocity_UnitsPer100ms = SHOOT_LOW_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -148,7 +138,10 @@ public class Shooter extends Subsystem implements IShooter{
 	
 	public void stop() {
 		shooterLeft.set(ControlMode.PercentOutput, 0);
+
 		isShooting = false;
+
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 	}
 	
 	public void setPIDParameters()
@@ -173,6 +166,12 @@ public class Shooter extends Subsystem implements IShooter{
 		// D gain is specified in output units per derivative error.
 		// If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion.
 		// Typically start with 10x to 100x of your current Proportional Gain.
+
+		// Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+		// F gain is multiplied directly by the set point passed into the programming API.
+		// The result of this multiplication is in motor output units [-1023, 1023]. This allows the robot to feed-forward using the target set-point.
+		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
+		// (preferably an output close to the intended operating range).
 			
 		shooterLeft.config_kP(SLOT_0, SHOOT_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
 		shooterLeft.config_kI(SLOT_0, SHOOT_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
@@ -200,16 +199,14 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.PercentOutput, joystick.getY());
 	}
 
-
 	// in units per 100 ms
 	public int getEncoderVelocity() {
 		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
 	}
 
-	// 1 min = 600 * 100 ms
-	// 1 round = 4096 ticks
+	// in revolutions per minute
 	public int getRpm() {
-		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/4096);
+		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/4096);  // 1 min = 600 * 100 ms, 1 revolution = 4096 ticks 
 	}
 }
 

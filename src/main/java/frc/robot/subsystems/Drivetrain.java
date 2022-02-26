@@ -622,6 +622,12 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		// D gain is specified in output units per derivative error.
 		// If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion.
 		// Typically start with 10x to 100x of your current Proportional Gain.
+
+		// Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+		// F gain is multiplied directly by the set point passed into the programming API.
+		// The result of this multiplication is in motor output units [-1023, 1023]. This allows the robot to feed-forward using the target set-point.
+		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
+		// (preferably an output close to the intended operating range).
 		
 		masterRight.config_kP(SLOT_0, MOVE_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
 		masterRight.config_kI(SLOT_0, MOVE_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
