@@ -93,7 +93,7 @@ public class LimelightCamera implements PIDSource, ICamera {
 
 	private void processInformation() {
 		double[] areaSave = area;
-		if (areaSave.length >= 1) {
+		if (areaSave != null && areaSave.length >= 1) {
 			largeIndex = 0;
 	 
 			//Checking remaining elements of input array
