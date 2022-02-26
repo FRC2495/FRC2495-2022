@@ -14,7 +14,10 @@ public class SwitchedCamera {
 
         // assumes you used "/PiSwitch" as the NT key on the Pi
         NetworkTableEntry cameraSelect = NetworkTableInstance.getDefault().getEntry("/PiSwitch");
-        cameraSelect.setDouble(camera);  // or setString("My Pi Camera Name")
+        
+        if (cameraSelect != null) {
+            cameraSelect.setDouble(camera);  // or setString("My Pi Camera Name")
+        }
     }
 
 }
