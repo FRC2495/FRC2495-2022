@@ -11,28 +11,69 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 //import frc.robot.commands.*;
 import frc.robot.commands.grasper.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.commands.drivetrain.*;
+import frc.robot.commands.hinge.*;
 //import frc.robot.auton.AutonConstants;
+import frc.robot.commands.feeder.FeederTimedFeed;
 
 
 public class StartingPositionOneShootInHub extends CommandGroup {
 	/**
 	 * Add your docs here.
 	 */
-    final int TURN_DIRECTION = +1;
-        //Left is equal to -1
-        //Right is equal to +1
+	final int TURN_DIRECTION = +1;
+		//Left is equal to -1
+		//Right is equal to +1
 
 	public StartingPositionOneShootInHub() {
 
-        addSequential(new GrasperGrasp());
-    
-        addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_OUTSIDE_TARMAC));
-        //Moving from starting point 1 to the drop zone
+		// Add Commands here:
+		// e.g. addSequential(new Command1());
+		// addSequential(new Command2());
+		// these will run in order.
 
-        addSequential(new GrasperStop());
+		// To run multiple commands at the same time,
+		// use addParallel()
+		// e.g. addParallel(new Command1());
+		// addSequential(new Command2());
+		// Command1 and Command2 will run in parallel.
 
-        // todo: shoot
-   
-    }
+		// A command group will require all of the subsystems that each member
+		// would require.
+		// e.g. if Command1 requires chassis, and Command2 requires arm,
+		// a CommandGroup containing them would require both the chassis and the
+		// arm.
+
+		addParallel(new ShooterTimedShootHigh(15));
+		// Starts Shooter (i.e. spinning) - will stop after 15 secs or explicit stop, whichever comes first
+	
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
+		// Moving from starting point 1 to high shooting zone
+
+		addSequential(new FeederTimedFeed(2));
+		// Starts Feeder (i.e. shoots) - will take 2 secs
+
+		addParallel(new HingeMoveDown());
+		// Starts moving hinge down (does not wait for it to go down)
+
+		addSequential(new GrasperTimedGrasp(5));
+		// Starts Grasper - will stop after 5 secs or explicit stop, whichever comes first
+
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
+		// Attempts to pickup cargo
+
+		addSequential(new HingeMoveUp());
+		// Moves hinge up
+
+		
+		// todo fo back to shooting zone and shoot again
+
+
+		addSequential(new GrasperStop());
+		// Stops Grasper
+
+		addSequential(new ShooterStop());
+   		// Stops Shooter
+	}
 }
