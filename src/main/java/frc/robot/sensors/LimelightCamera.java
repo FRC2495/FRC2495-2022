@@ -66,14 +66,28 @@ public class LimelightCamera implements PIDSource, ICamera {
 		// have the same size
 		do {
 			// Get data from NetworkTable
-			double ta = nt.getEntry("ta").getDouble(def);
-			double thor = nt.getEntry("thor").getDouble(def);
-			double tvert = nt.getEntry("tvert").getDouble(def);
-			double tx = nt.getEntry("tx").getDouble(def);
-			double ty = nt.getEntry("ty").getDouble(def);
-			double tv = nt.getEntry("tv").getDouble(def);
 
-			if (tv != 0.0) {
+			// tv		Whether the limelight has any valid targets (0 or 1)
+			// tx		Horizontal Offset From Crosshair To Target (LL1: -27 degrees to 27 degrees | LL2: -29.8 to 29.8 degrees)
+			// ty		Vertical Offset From Crosshair To Target (LL1: -20.5 degrees to 20.5 degrees | LL2: -24.85 to 24.85 degrees)
+			// ta		Target Area (0% of image to 100% of image)
+			// ts		Skew or rotation (-90 degrees to 0 degrees)
+			// tl		The pipeline’s latency contribution (ms) Add at least 11ms for image capture latency.
+			// tshort	Sidelength of shortest side of the fitted bounding box (pixels)
+			// tlong	Sidelength of longest side of the fitted bounding box (pixels)
+			// thor		Horizontal sidelength of the rough bounding box (0 - 320 pixels)
+			// tvert	Vertical sidelength of the rough bounding box (0 - 320 pixels)
+			// getpipe	True active pipeline index of the camera (0 .. 9)
+			// camtran	Results of a 3D position solution, NumberArray: Translation (x,y,z) Rotation(pitch,yaw,roll)
+
+			double ta = nt.getEntry("ta").getDouble(def); // target area
+			double thor = nt.getEntry("thor").getDouble(def); // target horizontal sidelength (width)
+			double tvert = nt.getEntry("tvert").getDouble(def); // target vertical sidelength (height)
+			double tx = nt.getEntry("tx").getDouble(def); // target horizontal offset
+			double ty = nt.getEntry("ty").getDouble(def); // target vertical offset
+			double tv = nt.getEntry("tv").getDouble(def); // target valid
+
+			if (tv != 0.0) { // if there is at least one valid target
 				double[] area = {ta};
 				double[] width = {thor};
 				double[] height = {tvert};
