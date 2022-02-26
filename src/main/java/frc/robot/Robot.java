@@ -25,6 +25,7 @@ import frc.robot.subsystems.*;
 import frc.robot.util.*;
 import frc.robot.commands.gamepad.*;
 import frc.robot.commands.indicator.*;
+import frc.robot.Ports;
 
 
 /**
@@ -387,7 +388,7 @@ public class Robot extends TimedRobot {
 
 		camera.setLedMode(ICamera.LedMode.PIPELINE);
 
-		SwitchedCamera.setUsbCamera(1);
+		SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 	
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
@@ -418,7 +419,7 @@ public class Robot extends TimedRobot {
 
 		camera.setLedMode(ICamera.LedMode.PIPELINE);
 
-		SwitchedCamera.setUsbCamera(1);
+		SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
 		gamepadRumbleUsingCameraCommand.start();
 
@@ -460,7 +461,7 @@ public class Robot extends TimedRobot {
 
 		camera.setLedMode(ICamera.LedMode.FORCE_OFF);
 
-		SwitchedCamera.setUsbCamera(1);
+		SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 	}
 
 	@Override

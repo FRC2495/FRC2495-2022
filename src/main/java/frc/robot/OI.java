@@ -26,7 +26,7 @@ import frc.robot.commands.elbows.*;
 import frc.robot.commands.conditional.*;
 import frc.robot.commands.groups.*;
 import frc.robot.commands.camera.*;
-//import frc.robot.Ports;
+import frc.robot.Ports;
 //import frc.robot.ControllerBase;
 import frc.robot.util.GamepadAxis;
 
@@ -235,7 +235,7 @@ public class OI {
 		joyRightBtn3 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN3);
 
 		joyRightBtn2 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN2);
-		joyRightBtn2.whenPressed(new SwitchedCameraSetUsbCamera(2));
+		joyRightBtn2.whenPressed(new SwitchedCameraSetUsbCamera(Ports.UsbCamera.SHOOTER_CAMERA));
 
 		joyRightBtn1 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN1);
 		//joyRightBtn1.whenPressed(new GearboxSetGearHigh());
@@ -274,7 +274,7 @@ public class OI {
 		joyLeftBtn3.whenPressed(new DrivetrainMoveDistance(50));
 
 		joyLeftBtn2 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN2);
-		joyLeftBtn2.whenPressed(new SwitchedCameraSetUsbCamera(1));
+		joyLeftBtn2.whenPressed(new SwitchedCameraSetUsbCamera(Ports.UsbCamera.GRASPER_CAMERA));
 
 		joyLeftBtn1 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN1);
 		//joyLeftBtn1.whenPressed(new GearboxSetGearLow());

@@ -172,4 +172,13 @@ public class Ports {
 		public static class PWM {
 			public static final int LED_STRIP = 9;
 		}
+
+		/**
+		 * USB cameras
+		 */
+		public static class UsbCamera {
+			public static final int PRIMARY_CAMERA = 0;
+			public static final int GRASPER_CAMERA = 1;
+			public static final int SHOOTER_CAMERA = 2;
+		}
 }
