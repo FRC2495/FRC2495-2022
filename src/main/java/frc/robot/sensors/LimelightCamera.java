@@ -159,7 +159,7 @@ public class LimelightCamera implements PIDSource, ICamera {
 	}
 
 	public synchronized double getDistanceToCompositeTargetUsingVerticalFov() {
-		if (isCoherent() && largeIndex != BAD_INDEX) {
+		if (isCoherent() && largeIndex != BAD_INDEX && height[largeIndex] != 0) {
 			double diagTargetDistance = TARGET_HEIGHT_INCHES * (VERTICAL_CAMERA_RES_PIXELS / height[largeIndex]) / 2.0
 					/ Math.tan(Math.toRadians(VERTICAL_FOV_DEGREES / 2));
 
@@ -174,7 +174,7 @@ public class LimelightCamera implements PIDSource, ICamera {
 	
 	public synchronized double getDistanceToCompositeTargetUsingHorizontalFov()
 	{
-		if (isCoherent() && largeIndex != BAD_INDEX) {
+		if (isCoherent() && largeIndex != BAD_INDEX && width[largeIndex] !=0 ) {
 			double diagTargetDistance = TARGET_WIDTH_INCHES * (HORIZONTAL_CAMERA_RES_PIXELS / width[largeIndex]) / 2.0
 					/ Math.tan(Math.toRadians(HORIZONTAL_FOV_DEGREES / 2));
 
