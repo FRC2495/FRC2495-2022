@@ -10,7 +10,7 @@ import frc.robot.Robot;
  */
 public class Sonar{
 	
-	private final double IN_TO_CM_CONVERSION = 2.54;
+	private static final double IN_TO_CM_CONVERSION = 2.54;
 	
 	private boolean use_units;    //Are we using units or just returning voltage?
 	private double min_voltage;	  //Minimum voltage the ultrasonic sensor can return

@@ -62,7 +62,7 @@ public class Hinge extends Subsystem implements IHinge {
 
 	
 	// variables
-	boolean isHomingPart1, isHomingPart2, isMoving, isMovingUp;
+	boolean isMoving, isMovingUp;
 	
 	WPI_TalonSRX hinge;
 	//BaseMotorController hinge_follower;
@@ -127,8 +127,6 @@ public class Hinge extends Subsystem implements IHinge {
 		hinge.configSetParameter(ParamEnum.eClearPositionOnLimitR, 1, 0, 0, TALON_TIMEOUT_MS);
 		hinge.configSetParameter(ParamEnum.eClearPositionOnLimitF, 0, 0, 0, TALON_TIMEOUT_MS);		
 		
-		isHomingPart1 = false;
-		isHomingPart2 = false;
 		isMoving = false;
 		isMovingUp = false;
 
@@ -287,8 +285,6 @@ public class Hinge extends Subsystem implements IHinge {
 
 	public void stay() {	 		
 		isMoving = false;		
-		isHomingPart1 = false;
-		isHomingPart2 = false;
 	}
 	
 	public void stop() {	 
@@ -296,8 +292,6 @@ public class Hinge extends Subsystem implements IHinge {
 		hinge.set(ControlMode.PercentOutput, 0);
 		
 		isMoving = false;
-		isHomingPart1 = false;
-		isHomingPart2 = false;
 		
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 	}	
