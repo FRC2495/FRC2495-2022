@@ -174,7 +174,7 @@ public class LimelightCamera implements PIDSource, ICamera {
 	
 	public synchronized double getDistanceToCompositeTargetUsingHorizontalFov()
 	{
-		if (isCoherent() && largeIndex != BAD_INDEX && width[largeIndex] !=0 ) {
+		if (isCoherent() && largeIndex != BAD_INDEX && width[largeIndex] !=0) {
 			double diagTargetDistance = TARGET_WIDTH_INCHES * (HORIZONTAL_CAMERA_RES_PIXELS / width[largeIndex]) / 2.0
 					/ Math.tan(Math.toRadians(HORIZONTAL_FOV_DEGREES / 2));
 
@@ -288,16 +288,16 @@ public class LimelightCamera implements PIDSource, ICamera {
 
 	/*public enum LedMode {
 		PIPELINE,
-        FORCE_OFF,
-        FORCE_BLINK,
+		FORCE_OFF,
+		FORCE_BLINK,
 		FORCE_ON
 	}*/
 
 	public synchronized void setLedMode(LedMode ledMode) {
-        nt.getEntry("ledMode").setNumber(ledMode.ordinal());
+		nt.getEntry("ledMode").setNumber(ledMode.ordinal());
 	}
 	
 	public synchronized void setPipeline(byte pipeline) {
-        nt.getEntry("pipeline").setNumber(pipeline);
-    }
+		nt.getEntry("pipeline").setNumber(pipeline);
+	}
 }

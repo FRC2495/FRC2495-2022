@@ -39,8 +39,8 @@ public interface ICamera extends PIDSource, PIDSource2 {
 
 	public enum LedMode {
 		PIPELINE,
-        FORCE_OFF,
-        FORCE_BLINK,
+		FORCE_OFF,
+		FORCE_BLINK,
 		FORCE_ON
 	}
 

@@ -73,7 +73,7 @@ public class Shooter extends Subsystem implements IShooter{
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
-        shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,
+		shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,
 				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); 
 
 		// Sensor phase is the term used to explain sensor direction.

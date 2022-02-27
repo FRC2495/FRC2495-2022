@@ -33,6 +33,6 @@ public interface ISetOfArms {
 
 	public enum Side {
 		FRONT,
-        REAR
+		REAR
 	}
 }

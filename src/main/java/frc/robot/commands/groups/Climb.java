@@ -20,53 +20,53 @@ public class Climb extends CommandGroup {
 	 */
 	public Climb() {
 
-        addSequential(new RearArmsExtend());
+		addSequential(new RearArmsExtend());
 
-        // move forward
+		// move forward
 
-        addSequential(new RearArmsRetract());
+		addSequential(new RearArmsRetract());
 
-        // move onto the bar
-    
-        addSequential(new FrontElbowsOpen());
+		// move onto the bar
 
-        addSequential(new FrontArmsExtend());
+		addSequential(new FrontElbowsOpen());
 
-        addSequential(new FrontElbowsOpen());
+		addSequential(new FrontArmsExtend());
 
-        addSequential(new FrontArmsExtend());
+		addSequential(new FrontElbowsOpen());
 
-        addSequential(new FrontElbowsClose());
+		addSequential(new FrontArmsExtend());
 
-        addSequential(new RearArmsExtend());
+		addSequential(new FrontElbowsClose());
 
-        addSequential(new RearElbowsClose());
+		addSequential(new RearArmsExtend());
 
-        addSequential(new RearArmsRetract());
+		addSequential(new RearElbowsClose());
 
-        addSequential(new RearArmsExtend());
+		addSequential(new RearArmsRetract());
 
-        addSequential(new FrontArmsExtend());
+		addSequential(new RearArmsExtend());
 
-        addSequential(new FrontElbowsClose());
+		addSequential(new FrontArmsExtend());
 
-        addSequential(new FrontArmsRetract());
+		addSequential(new FrontElbowsClose());
 
-        addSequential(new FrontElbowsOpen());
+		addSequential(new FrontArmsRetract());
 
-        addSequential(new RearArmsExtend());
+		addSequential(new FrontElbowsOpen());
 
-        addSequential(new FrontArmsExtend());
+		addSequential(new RearArmsExtend());
 
-        addSequential(new RearElbowsOpen());
+		addSequential(new FrontArmsExtend());
 
-        addSequential(new FrontArmsRetract());
+		addSequential(new RearElbowsOpen());
 
-        addSequential(new FrontElbowsClose());
+		addSequential(new FrontArmsRetract());
 
-        addSequential(new RearArmsExtend());
+		addSequential(new FrontElbowsClose());
 
-        // todo: finish implementation
-   
-    }
+		addSequential(new RearArmsExtend());
+
+		// todo: finish implementation
+		
+	}
 }

@@ -14,9 +14,9 @@ public class Gearbox extends Subsystem {
 	
 	static final int WAIT_MS = 1000;
 	
-    DoubleSolenoid highLow;
-    
-    public enum Gear {
+	DoubleSolenoid highLow;
+	
+	public enum Gear {
 		HIGH, // The gearbox is in high gear
 		LOW, // The gearbox is in low gear
 		UNKNOWN;

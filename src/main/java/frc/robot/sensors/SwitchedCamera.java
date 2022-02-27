@@ -10,14 +10,14 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 /** Add your docs here. */
 public class SwitchedCamera {
 
-    public synchronized static void setUsbCamera(int camera) {
+	public synchronized static void setUsbCamera(int camera) {
 
-        // assumes you used "/PiSwitch" as the NT key on the Pi
-        NetworkTableEntry cameraSelect = NetworkTableInstance.getDefault().getEntry("/PiSwitch");
-        
-        if (cameraSelect != null) {
-            cameraSelect.setDouble(camera);  // or setString("My Pi Camera Name")
-        }
-    }
+		// assumes you used "/PiSwitch" as the NT key on the Pi
+		NetworkTableEntry cameraSelect = NetworkTableInstance.getDefault().getEntry("/PiSwitch");
+
+		if (cameraSelect != null) {
+			cameraSelect.setDouble(camera);  // or setString("My Pi Camera Name")
+		}
+	}
 
 }

@@ -34,8 +34,8 @@ public class StartingPositionOneToNowhere extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.    
 
-    	addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_OUTSIDE_TARMAC));
-        // Moving from starting point 1 to outside tarmac
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_OUTSIDE_TARMAC));
+		// Moving from starting point 1 to outside tarmac
   }
 
 }

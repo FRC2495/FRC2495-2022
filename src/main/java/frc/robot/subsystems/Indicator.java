@@ -79,7 +79,7 @@ public class Indicator extends Subsystem {
 		rainbowFirstPixelHue %= 180; 
 
 		// Set the LEDs
-		led.setData(ledBuffer);    
+		led.setData(ledBuffer);
 	}
 
 	public void setHue(int hue)
@@ -92,7 +92,7 @@ public class Indicator extends Subsystem {
 		}
 
 		// Set the LEDs
-		led.setData(ledBuffer);    
+		led.setData(ledBuffer);
 	}
 
 	public void setRed()
