@@ -69,6 +69,18 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		
 		// todo fo back to shooting zone and shoot again
 
+		addSequential(new GrasperGrasp());
+		// Starts Grasper to push cargo into the feeder
+
+		addSequential(new HingeMoveDown());
+		// Moves hinge down
+
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
+		// Moving from cargo pickup to shooting zone (adjust constant if needed)
+
+		addSequential(new FeederTimedFeed(2));
+		// Feeds cargo - will take 2 secs
+
 
 		addSequential(new GrasperStop());
 		// Stops Grasper
