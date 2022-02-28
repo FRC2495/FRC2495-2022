@@ -72,7 +72,7 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new HingeMoveDown());
 		// Moves hinge down (does not wait)
 
-		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
 		// Moving from cargo pickup to shooting zone (adjust constant if needed)
 
 		addSequential(new FeederTimedFeed(2));
