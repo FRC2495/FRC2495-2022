@@ -48,7 +48,7 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new ShooterTimedShootHigh(15));
 		// Starts Shooter (i.e. spinning) - will stop after 15 secs or explicit stop, whichever comes first
 	
-		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
 		// Moving from starting point 1 to high shooting zone
 
 		addSequential(new FeederTimedFeed(2));
@@ -60,7 +60,7 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new GrasperTimedGrasp(5));
 		// Starts Grasper - will stop after 5 secs or explicit stop, whichever comes first
 
-		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
 		// Attempts to pickup cargo
 
 		addSequential(new HingeMoveUp());
@@ -72,7 +72,7 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new HingeMoveDown());
 		// Moves hinge down (does not wait)
 
-		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
 		// Moving from cargo pickup to shooting zone (adjust constant if needed)
 
 		addSequential(new FeederTimedFeed(2));
