@@ -364,6 +364,9 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 				stop();				 
 			}
 		}
+
+		//Thread.onSpinWait();
+
 		return isTurningUsingCamera;
 	}
 
@@ -762,6 +765,8 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		}
 		masterRight.set(ControlMode.PercentOutput, -output); // TODO double-check signs
 		masterLeft.set(ControlMode.PercentOutput, -output);		
+
+		//Thread.onSpinWait();
 	}
 
 	@Override
