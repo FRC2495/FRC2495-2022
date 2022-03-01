@@ -45,7 +45,10 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 
-		addParallel(new ShooterTimedShootHigh(15));
+		addSequential(new ShooterTimedShootHigh(1));
+		// Runs Shooter (i.e. spinning) for one sec
+		
+		addParallel(new ShooterTimedShootHigh(14));
 		// Starts Shooter (i.e. spinning) - will stop after 15 secs or explicit stop, whichever comes first
 	
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
