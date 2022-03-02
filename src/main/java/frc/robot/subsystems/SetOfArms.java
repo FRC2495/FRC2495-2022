@@ -31,7 +31,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	// general settings
 	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 25000; // adjust as needed
-	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 25000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 20000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
