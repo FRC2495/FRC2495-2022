@@ -27,8 +27,8 @@ public class Hinge extends Subsystem implements IHinge {
 	
 	public static final double GEAR_RATIO = 3.0; // TODO change if needed
 	
-	public static final int ANGLE_TO_TRAVEL_TICKS = Robot.COMPETITION_BOT_CONFIG?100000:100000; // TODO set proper value
-	public static final int ANGLE_TO_MIDWAY_TICKS = Robot.COMPETITION_BOT_CONFIG?50000:50000;
+	public static final int ANGLE_TO_TRAVEL_TICKS = Robot.COMPETITION_BOT_CONFIG?90000:90000; // TODO set proper value
+	public static final int ANGLE_TO_MIDWAY_TICKS = Robot.COMPETITION_BOT_CONFIG?45000:45000;
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!
