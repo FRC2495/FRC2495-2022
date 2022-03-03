@@ -20,11 +20,27 @@ public class Climb extends CommandGroup {
 	 */
 	public Climb() {
 
-		addSequential(new RearArmsExtend());
+		// 1. drive into hangar
 
-		// move forward
+		// 2. use gamepad to extended rear arms
+		// addSequential(new RearArmsExtend());
 
+		// 3. drive back against bar
+
+		// 4. extend front elbow
+		addSequential(new FrontElbowsOpen());
+
+		// 5. extend front arms
+		addSequential(new FrontArmsExtend());
+
+		// 6. retract rear arms (partially?)
 		addSequential(new RearArmsRetract());
+
+		// 7. retract front elbow (partially?)
+		addSequential(new FrontElbowsClose());
+
+
+		/*addSequential(new RearArmsRetract());
 
 		// move onto the bar
 
@@ -64,7 +80,7 @@ public class Climb extends CommandGroup {
 
 		addSequential(new FrontElbowsClose());
 
-		addSequential(new RearArmsExtend());
+		addSequential(new RearArmsExtend());*/
 
 		// todo: finish implementation
 		

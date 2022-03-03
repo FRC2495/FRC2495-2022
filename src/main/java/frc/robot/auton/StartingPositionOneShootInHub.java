@@ -60,13 +60,13 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new GrasperTimedGrasp(10));
 		// Starts Grasper - will stop after 5 secs or explicit stop, whichever comes first
 
-		addSequential(new HingeMoveDown());
-		// Moves hinge down (wait for it to go down)
+		addSequential(new HingeTimedMoveDown(2));
+		// Moves hinge down (wait for it to go down max 2 secs)
 
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
 		// Attempts to pickup cargo
 
-		addSequential(new HingeMoveUp());
+		addSequential(new HingeTimedMoveUp(2));
 		// Moves hinge up
 
 		addParallel(new GrasperTimedGrasp(5));
