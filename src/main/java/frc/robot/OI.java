@@ -130,7 +130,8 @@ public class OI {
 		gamepadRYn.whenPressed(new RearArmsExtend());
 
 		gamepadRXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX);
-		gamepadRXp.whenPressed(new RearElbowsOpen());
+		//gamepadRXp.whenPressed(new RearElbowsOpen());
+		gamepadRXp.whenPressed(new RearElbowsMidway());
 
 		gamepadRXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX,false);
 		gamepadRXn.whenPressed(new RearElbowsClose());
@@ -158,7 +159,8 @@ public class OI {
 		gamepadLXp.whenPressed(new FrontElbowsClose());
 
 		gamepadLXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX,false);
-		gamepadLXn.whenPressed(new FrontElbowsOpen());
+		//gamepadLXn.whenPressed(new FrontElbowsOpen());
+		gamepadLXn.whenPressed(new FrontElbowsMidway());
 
 		
 		gamepadRS = new JoystickButton(gamepad, ControllerBase.GamepadButtons.RS);
