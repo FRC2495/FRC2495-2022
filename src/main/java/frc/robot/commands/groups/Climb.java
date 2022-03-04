@@ -41,17 +41,25 @@ public class Climb extends CommandGroup {
 
 		// we are now hanging from the second bar
 
-		/*addSequential(new FrontElbowsMidway());
+		/*
 
-		addSequential(new FrontArmsExtend());
+		// next, we attempt to climb to the third bar
+		
+		// 1. extend rear arms
+		addSequential(new RearArmsExtend());
 
-		addSequential(new RearElbowsClose());
+		// 2. retract front arms
+		addSequential(new FrontArmsRetract());
 
+		// 3. rear elbows midway
+		addSequential(new RearElbowsMidway());
+
+		// 4. rear arms retract
 		addSequential(new RearArmsRetract());
 
-		addSequential(new FrontElbowsOpen());
+		todo finish
 
-		addSequential(new FrontElbowsClose());*/
+		*/
 
 		// we are now hanging from the third bar
 		
