@@ -46,11 +46,11 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 0.6;
+	static final double MOVE_PROPORTIONAL_GAIN = 1.2; //0.6
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
-	static final int TALON_TICK_THRESH = 256;//128;
+	static final int TALON_TICK_THRESH = 128; //256
 	static final double TICK_THRESH = 512;	
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
