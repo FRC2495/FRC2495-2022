@@ -33,56 +33,27 @@ public class Climb extends CommandGroup {
 		// 5. extend front arms
 		addSequential(new FrontArmsExtend());
 
-		// 6. retract rear arms (partially?)
+		// 6. retract rear arms
 		addSequential(new RearArmsRetract());
 
-		// 7. retract front elbow (partially?)
+		// 7. retract front elbow
 		addSequential(new FrontElbowsClose());
 
+		// we are now hanging from the second bar
 
-		/*addSequential(new RearArmsRetract());
-
-		// move onto the bar
-
-		addSequential(new FrontElbowsOpen());
+		/*addSequential(new FrontElbowsMidway());
 
 		addSequential(new FrontArmsExtend());
-
-		addSequential(new FrontElbowsOpen());
-
-		addSequential(new FrontArmsExtend());
-
-		addSequential(new FrontElbowsClose());
-
-		addSequential(new RearArmsExtend());
 
 		addSequential(new RearElbowsClose());
 
 		addSequential(new RearArmsRetract());
 
-		addSequential(new RearArmsExtend());
-
-		addSequential(new FrontArmsExtend());
-
-		addSequential(new FrontElbowsClose());
-
-		addSequential(new FrontArmsRetract());
-
 		addSequential(new FrontElbowsOpen());
 
-		addSequential(new RearArmsExtend());
+		addSequential(new FrontElbowsClose());*/
 
-		addSequential(new FrontArmsExtend());
-
-		addSequential(new RearElbowsOpen());
-
-		addSequential(new FrontArmsRetract());
-
-		addSequential(new FrontElbowsClose());
-
-		addSequential(new RearArmsExtend());*/
-
-		// todo: finish implementation
+		// we are now hanging from the third bar
 		
 	}
 }

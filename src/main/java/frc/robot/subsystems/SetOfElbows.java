@@ -33,6 +33,8 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 9000; // adjust as needed
 	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 7000; // adjust as needed
 
+	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY = 4600; // adjust as needed
+
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
 	static final int TIMEOUT_MS = 5000;
@@ -191,6 +193,25 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 			tac = -LENGTH_OF_TRAVEL_TICKS_FRONT;
 		} else {
 			tac = -LENGTH_OF_TRAVEL_TICKS_REAR;
+		}
+		
+		elbow.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isOpening = true;
+		onTargetCount = 0;
+	}
+
+	public void midway() {
+		
+		//setPIDParameters();
+		System.out.println("Opening");
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+
+		if (side == Side.FRONT) {
+			tac = -LENGTH_OF_TRAVEL_TICKS_MIDWAY;
+		} else {
+			tac = -LENGTH_OF_TRAVEL_TICKS_MIDWAY;
 		}
 		
 		elbow.set(ControlMode.Position,tac);

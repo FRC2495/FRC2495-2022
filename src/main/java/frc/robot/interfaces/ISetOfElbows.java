@@ -10,6 +10,8 @@ public interface ISetOfElbows {
 	public boolean tripleCheckMove();
 
 	public void open();
+
+	public void midway();
 	
 	public void close();
 	
