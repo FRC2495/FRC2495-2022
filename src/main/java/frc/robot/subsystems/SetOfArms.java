@@ -51,20 +51,24 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
 	static final int TALON_TICK_THRESH = 128; //256
-	static final double TICK_THRESH = 512;	
+	static final double TICK_THRESH = 512;
+	public static final double TICK_PER_100MS_THRESH = 64; // about a tenth of a rotation per second 
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 
+	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
 	WPI_TalonSRX arm; 
 	BaseMotorController arm_follower;
 	
 	boolean isMoving;
 	boolean isExtending;
+	boolean isReallyStalled;
 
 	double tac;
 
 	private int onTargetCount; // counter indicating how many times/iterations we were on target 
+	private int stalledCount; // counter indicating how many times/iterations we were stalled
 	
 	Robot robot;
 
@@ -129,6 +133,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		
 		isMoving = false;
 		isExtending = false;
+		isReallyStalled = false;
+		stalledCount = 0;
 	}
 	
 	@Override
@@ -180,6 +186,44 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 			}
 		}
 		return isMoving; 
+	}
+
+	// return if drivetrain might be stalled
+	public boolean tripleCheckIfStalled() {
+		if (isMoving) {
+			
+			double velocity = getEncoderVelocity();
+			
+			boolean isStalled = (Math.abs(velocity) < TICK_PER_100MS_THRESH);
+			
+			if (isStalled) { // if we are stalled in this iteration 
+				stalledCount++; // we increase the counter
+			} else { // if we are not stalled in this iteration
+				if (stalledCount > 0) { // even though we were stalled at least once during a previous iteration
+					stalledCount = 0; // we reset the counter as we are not stalled anymore
+					System.out.println("Triple-check failed (detecting stall).");
+				} else {
+					// we are definitely not stalled
+					
+					//System.out.println("moving velocity : " + velocity);
+				}
+			}
+			
+			if (isMoving && stalledCount > MOVE_STALLED_MINIMUM_COUNT) { // if we have met the minimum
+				isReallyStalled = true;
+			}
+					
+			if (isReallyStalled) {
+				System.out.println("WARNING: Stall detected!");
+				stop(); // WE STOP IF A STALL IS DETECTED				 
+			}
+		}
+		
+		return isReallyStalled;
+	}
+
+	public int getEncoderVelocity() {
+		return (int) (arm.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
 	}
 	
 	public void extend() {
