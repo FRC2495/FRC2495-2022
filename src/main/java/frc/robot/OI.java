@@ -131,10 +131,10 @@ public class OI {
 
 		gamepadRXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX);
 		//gamepadRXp.whenPressed(new RearElbowsOpen());
-		gamepadRXp.whenPressed(new RearElbowsMidway());
+		gamepadRXp.whenPressed(new RearElbowsMidwayWithStallDetection());
 
 		gamepadRXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX,false);
-		gamepadRXn.whenPressed(new RearElbowsClose());
+		gamepadRXn.whenPressed(new RearElbowsCloseWithStallDetection());
 
 		gamepadRT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RT);
 		//gamepadRT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));
@@ -156,11 +156,11 @@ public class OI {
 		//gamepadLYn.whenPressed(new SpinnerSpinThrice()); // pushing forward
 
 		gamepadLXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX);
-		gamepadLXp.whenPressed(new FrontElbowsClose());
+		gamepadLXp.whenPressed(new FrontElbowsCloseWithStallDetection());
 
 		gamepadLXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.LX,false);
 		//gamepadLXn.whenPressed(new FrontElbowsOpen());
-		gamepadLXn.whenPressed(new FrontElbowsMidway());
+		gamepadLXn.whenPressed(new FrontElbowsMidwayWithStallDetection());
 
 		
 		gamepadRS = new JoystickButton(gamepad, ControllerBase.GamepadButtons.RS);
