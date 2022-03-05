@@ -12,7 +12,7 @@ import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.ParamEnum;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-//import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
+import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -57,7 +57,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 
 	WPI_TalonSRX arm; 
-	//BaseMotorController arm_follower;
+	BaseMotorController arm_follower;
 	
 	boolean isMoving;
 	boolean isExtending;
@@ -71,23 +71,23 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	Side side;
 	
 	
-	public SetOfArms(WPI_TalonSRX arm_in/*, BaseMotorController arm_follower_in*/, Robot robot_in, boolean setInverted, Side side_in) {
+	public SetOfArms(WPI_TalonSRX arm_in, BaseMotorController arm_follower_in, Robot robot_in, boolean setInverted, Side side_in) {
 		
 		arm = arm_in;
-		//arm_follower = arm_follower_in;
+		arm_follower = arm_follower_in;
 				
 		robot = robot_in;
 
 		side = side_in;
 
 		arm.configFactoryDefault();
-		//arm_follower.configFactoryDefault();
+		arm_follower.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
 		arm.setNeutralMode(NeutralMode.Brake);
-		//arm_follower.setNeutralMode(NeutralMode.Brake);
+		arm_follower.setNeutralMode(NeutralMode.Brake);
 				
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -103,13 +103,13 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		arm.setInverted(setInverted);
-		//arm_follower.setInverted(false);
+		arm_follower.setInverted(setInverted);
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		//arm_follower.follow(arm);
+		arm_follower.follow(arm);
 
 		setPIDParameters();
 		
