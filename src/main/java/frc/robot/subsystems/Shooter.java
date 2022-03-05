@@ -114,7 +114,7 @@ public class Shooter extends Subsystem implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		final double SHOOT_HIGH_RPM = 3000.0;
+		final double SHOOT_HIGH_RPM = 3200.0;
 
 		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
 
