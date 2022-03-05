@@ -243,6 +243,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		isMoving = true;
 		isExtending = true;
 		onTargetCount = 0;
+		isReallyStalled = false;
+		stalledCount = 0;
 	}
 	
 	public void retract() {
@@ -257,6 +259,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		isMoving = true;
 		isExtending = false;
 		onTargetCount = 0;
+		isReallyStalled = false;
+		stalledCount = 0;
 	}
 
 	public double getEncoderPosition() {
