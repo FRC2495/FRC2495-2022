@@ -34,7 +34,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 7000; // adjust as needed
 
 	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_FRONT = 4600; // adjust as needed
-	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_REAR = 1000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_REAR = 4000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
