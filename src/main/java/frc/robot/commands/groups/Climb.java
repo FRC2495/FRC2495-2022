@@ -36,6 +36,9 @@ public class Climb extends CommandGroup {
 		// 6. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
 
+		// 6.5. retract rear elbow
+		addSequential(new RearElbowsCloseWithStallDetection());
+
 		// 7. retract front elbow
 		addSequential(new FrontElbowsCloseWithStallDetection());
 
@@ -44,6 +47,7 @@ public class Climb extends CommandGroup {
 		/*
 
 		// next, we attempt to climb to the third bar
+
 		
 		// 1. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
