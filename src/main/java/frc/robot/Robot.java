@@ -275,7 +275,7 @@ public class Robot extends TimedRobot {
 		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_MASTER);
 		rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
 
-		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this, false, ISetOfArms.Side.REAR);
+		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this, true, ISetOfArms.Side.REAR);
 
 
 		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
