@@ -20,10 +20,13 @@ public class Climb extends CommandGroup {
 	 */
 	public Climb() {
 
-		// 1. drive into hangar
+		// 1. drive forward into hangar
 
 		// 2. use gamepad to extended rear arms
 		// addSequential(new RearArmsExtend());
+
+		// 2.5 use gamepad to set rear elbows midway
+		// addSequential(new RearElbowsMidwayWithStallDetection());
 
 		// 3. drive back against bar
 
@@ -47,7 +50,6 @@ public class Climb extends CommandGroup {
 		/*
 
 		// next, we attempt to climb to the third bar
-
 		
 		// 1. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
