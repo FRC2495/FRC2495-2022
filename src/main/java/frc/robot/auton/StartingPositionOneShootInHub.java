@@ -50,15 +50,15 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		
 		addParallel(new ShooterTimedShootHigh(14));
 		// Starts Shooter (i.e. spinning) - will stop after 15 secs or explicit stop, whichever comes first
+
+		addParallel(new GrasperTimedGrasp(15));
+		// Strarts Grasper (i.e. grasping) - will stop after 15 seconds or explicit stop, whichever comes first
 	
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
 		// Moving from starting point 1 to high shooting zone
 
 		addSequential(new FeederTimedFeed(2));
 		// Feeds (i.e. shoots) - will take 2 secs
-
-		addParallel(new GrasperTimedGrasp(10));
-		// Starts Grasper - will stop after 5 secs or explicit stop, whichever comes first
 
 		addSequential(new HingeTimedMoveDown(2));
 		// Moves hinge down (wait for it to go down max 2 secs)
@@ -68,9 +68,6 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 
 		addSequential(new HingeTimedMoveUp(2));
 		// Moves hinge up
-
-		addParallel(new GrasperTimedGrasp(5));
-		// Starts Grasper to push cargo into the feeder and runs it for up to 5 secs - does not wait
 
 		addParallel(new HingeMoveDown());
 		// Moves hinge down (does not wait)
