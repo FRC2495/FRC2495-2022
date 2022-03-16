@@ -14,6 +14,7 @@ import frc.robot.commands.grasper.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.hinge.*;
+import frc.robot.commands.feeder.FeederStop;
 //import frc.robot.auton.AutonConstants;
 import frc.robot.commands.feeder.FeederTimedFeed;
 
@@ -57,29 +58,50 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
 		// Moving from starting point 1 to high shooting zone
 
-		addSequential(new FeederTimedFeed(2));
-		// Feeds (i.e. shoots) - will take 2 secs
+		addParallel(new FeederTimedFeed(15));
+		// Feeds (i.e. shoots) - will take 15 secs
 
-		addSequential(new HingeTimedMoveDown(2));
-		// Moves hinge down (wait for it to go down max 2 secs)
+		//addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
+		// Moving from shooting zone to cargo pickup
 
-		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
-		// Attempts to pickup cargo
-
-		addSequential(new HingeTimedMoveUp(2));
-		// Moves hinge up
-
-		addParallel(new HingeMoveDown());
-		// Moves hinge down (does not wait)
+		addSequential(new HingeTimedMoveDown(7));
+		// Moves hinge down (wait for it to go down max 7 secs)
 
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
 		// Moving from cargo pickup to shooting zone (adjust constant if needed)
 
-		addSequential(new FeederTimedFeed(2));
+		addSequential(new HingeMoveUp());
+		// Moves hinge up
+
+		addSequential(new FeederTimedFeed(5));
+		// Feeder feeds - will take 5 secs (to stall from stopping motors)
+
+		//addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
+		// Attempts to pickup cargo
+
+		//addSequential(new HingeTimedMoveUp(2));
+		// Moves hinge up
+
+		//addParallel(new HingeTimedMoveDown(5));
+		// Moves hinge down for 5 seconds	
+
+		//addSequential(new FeederTimedFeed(12));
+		// Feeds cargo - will take 12 secs
+
+		//addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
+		// Moving from cargo pickup to shooting zone (adjust constant if needed)
+
+		//addSequential(new HingeTimedMoveUp(2));
+		// Moves hinge up for 2 seconds
+
+		//addSequential(new FeederTimedFeed(2));
 		// Feeds cargo - will take 2 secs
 
 		addSequential(new GrasperStop());
 		// Stops Grasper
+
+		addSequential(new FeederStop());
+		// Stops Feeder
 
 		addSequential(new ShooterStop());
    		// Stops Shooter

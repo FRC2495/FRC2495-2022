@@ -31,10 +31,13 @@ public class Climb extends CommandGroup {
 		// 3. drive back against bar
 
 		// 4. extend front elbow
-		addSequential(new FrontElbowsOpen());
+		//addParallel(new FrontElbowsOpen());
 
 		// 5. extend front arms
-		addSequential(new FrontArmsExtendWithStallDetection());
+		//addSequential(new FrontArmsExtendWithStallDetection());
+
+		// 4. & 5.
+		addSequential(new FrontOpenExtend());
 
 		// 6. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
