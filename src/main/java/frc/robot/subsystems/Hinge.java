@@ -56,7 +56,7 @@ public class Hinge extends Subsystem implements IHinge {
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
 	static final int TALON_TICK_THRESH = 256;
-	static final double TICK_THRESH = 4096;	
+	static final double TICK_THRESH = 8192; //4096;	
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
 

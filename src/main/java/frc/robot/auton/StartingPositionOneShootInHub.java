@@ -8,7 +8,7 @@
 package frc.robot.auton;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
+import edu.wpi.first.wpilibj.command.WaitCommand;
 //import frc.robot.commands.*;
 import frc.robot.commands.grasper.*;
 import frc.robot.commands.shooter.*;
@@ -64,8 +64,10 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		//addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
 		// Moving from shooting zone to cargo pickup
 
-		addSequential(new HingeTimedMoveDown(7));
-		// Moves hinge down (wait for it to go down max 7 secs)
+		addSequential(new HingeTimedMoveDown(3));
+		// Moves hinge down (wait for it to go down max 3 secs)
+
+		addSequential(new WaitCommand(1));
 
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(-AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
 		// Moving from cargo pickup to shooting zone (adjust constant if needed)
