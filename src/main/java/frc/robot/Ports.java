@@ -30,7 +30,7 @@ public class Ports {
 		 * Analog ports
 		 */
 		public static class Analog{
-			public static final int SONAR = 0;
+			public static final int SONAR = 3;
 			public static final int PRESSURE_SENSOR = 1;
 		}
 		
