@@ -61,11 +61,13 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addParallel(new FeederTimedFeed(15));
 		// Feeds (i.e. shoots) - will take 15 secs
 
-		//addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_CARGO_PICKUP_TO_SHOOTING_ZONE));
-		// Moving from shooting zone to cargo pickup
+		addSequential(new WaitCommand(1));
 
 		addSequential(new HingeTimedMoveDown(3));
 		// Moves hinge down (wait for it to go down max 3 secs)
+
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_HIGH_SHOOTING_ZONE_TO_CARGO_PICKUP));
+		// Moving from shooting zone to cargo pickup
 
 		addSequential(new WaitCommand(1));
 
