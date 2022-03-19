@@ -2474,17 +2474,6 @@
               "_title": "SmartDashboard/Angle to Target"
             }
           },
-          "8,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Distance to Target",
-              "_title": "SmartDashboard/Distance to Target"
-            }
-          },
           "0,4": {
             "size": [
               1,
@@ -2593,6 +2582,17 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Shooter Rpm",
               "_title": "SmartDashboard/Shooter Rpm"
+            }
+          },
+          "8,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to Target Using Horizontal FOV",
+              "_title": "SmartDashboard/Distance to Target Using Horizontal FOV"
             }
           }
         }
