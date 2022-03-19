@@ -141,6 +141,22 @@ public class Shooter extends Subsystem implements IShooter{
 		isShooting = true;
 		//onTargetCount = 0;
 	}
+
+	public void shootCustom(double custom_rpm) {
+		SwitchedCamera.setUsbCamera(Ports.UsbCamera.SHOOTER_CAMERA);
+
+		//set(ControlMode.PercentOutput, +REDUCED_PCT_OUTPUT);
+
+		setPIDParameters();
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
+
+		double targetVelocity_UnitsPer100ms = custom_rpm * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+
+		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		
+		isShooting = true;
+		//onTargetCount = 0;
+	}
 	
 	public void stop() {
 		shooterLeft.set(ControlMode.PercentOutput, 0);
