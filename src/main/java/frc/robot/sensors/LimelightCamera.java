@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.math.filter.MedianFilter;
 
 import frc.robot.interfaces.*;
 
@@ -44,8 +45,13 @@ public class LimelightCamera implements PIDSource, ICamera {
 
 	private double offsetCameraTargetInches = DEFAULT_OFFSET_CAMERA_TARGET_INCHES;
 
+	private MedianFilter filter;
+	private double filteredDistance = 0;
+
 	public LimelightCamera() {
 		nt = NetworkTableInstance.getDefault().getTable("limelight");
+
+		filter = new MedianFilter(25); // median filter with n samples
 	}
 
 	private void setLocalTables(double[] area, double[] width, double[] height, double[] centerX, double[] centerY) {
@@ -119,6 +125,8 @@ public class LimelightCamera implements PIDSource, ICamera {
 				}
 			}
 		}
+
+		filteredDistance = filter.calculate(getDistanceToCompositeTargetUsingHorizontalFov());
 	}
 
 	public synchronized boolean isCoherent() {
@@ -185,6 +193,11 @@ public class LimelightCamera implements PIDSource, ICamera {
 			return horizTargetDistance;
 		} else
 			return Double.POSITIVE_INFINITY;
+	}
+
+	public synchronized double getFilteredDistance()
+	{
+		return filteredDistance;
 	}
 
 	public synchronized double getAngleToTurnToCompositeTarget() {

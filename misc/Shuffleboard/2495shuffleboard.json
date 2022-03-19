@@ -2594,6 +2594,17 @@
               "_source0": "network_table:///SmartDashboard/Distance to Target Using Horizontal FOV",
               "_title": "SmartDashboard/Distance to Target Using Horizontal FOV"
             }
+          },
+          "9,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Filtered Distance to Target",
+              "_title": "/SmartDashboard/Filtered Distance to Target"
+            }
           }
         }
       }

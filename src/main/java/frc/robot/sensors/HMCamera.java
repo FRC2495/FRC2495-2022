@@ -189,6 +189,11 @@ public class HMCamera implements PIDSource, ICamera {
 			return Double.POSITIVE_INFINITY;
 	}
 
+	public double getFilteredDistance()
+	{
+		return 0;
+	}
+
 	public synchronized double getAngleToTurnToTargetA() {
 		if (isCoherent() && largeAIndex != BAD_INDEX) {
 			double diff = (getCenterX()[largeAIndex] - (HORIZONTAL_CAMERA_RES_PIXELS / 2))

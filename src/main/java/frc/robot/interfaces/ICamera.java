@@ -19,6 +19,8 @@ public interface ICamera extends PIDSource, PIDSource2 {
 	
 	public double getDistanceToCompositeTargetUsingHorizontalFov();
 
+	public double getFilteredDistance();
+
 	public double getAngleToTurnToCompositeTarget();
 	
 	public double getPixelDisplacementToCenterToCompositeTarget();

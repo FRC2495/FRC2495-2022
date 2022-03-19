@@ -40,7 +40,10 @@ public class ShooterShootUsingCamera extends InstantCommand {
 	@Override
 	protected void initialize() {
 		//System.out.println("ShooterShootUsingCamera: initialize");
-		double custom_rpm = Robot.camera!=null?3200.0+(Robot.camera.getDistanceToCompositeTargetUsingHorizontalFov()-100)*10:3200;
+		//double distance = Robot.camera!=null?Robot.camera.getDistanceToCompositeTargetUsingHorizontalFov():100;
+		double distance = Robot.camera!=null?Robot.camera.getFilteredDistance():100;
+		
+		double custom_rpm = Robot.camera!=null?3200.0+(distance-100)*10:3200;
 
 		Robot.shooter.shootCustom(custom_rpm);
 	}
