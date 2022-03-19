@@ -183,7 +183,8 @@ public class OI {
 		gamepadLB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.LB);
 		//gamepadLB.whileHeld(new SpinnerSpin());
 		//gamepadLB.whenPressed(new SpinnerRaiserUp());
-		gamepadLB.whenPressed(new IfNuclearOptionEnabled(new Climb(), new DoNothing()));
+		//gamepadLB.whenPressed(new IfNuclearOptionEnabled(new Climb(), new DoNothing()));
+		gamepadLB.whenPressed(new IfNuclearOptionEnabled(new Climb(), new ShooterShootUsingCamera()));
 		
 		gamepadY = new JoystickButton(gamepad, ControllerBase.GamepadButtons.Y);
 		//gamepadY.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));	
@@ -231,7 +232,7 @@ public class OI {
 		//final int MAGIC_DISTANCE_INCHES = 40;
 		//joyRightBtn5.whenPressed(new DrivetrainDriveUsingCamera(Robot.camera.getOffsetBetweenCameraAndTarget() + MAGIC_DISTANCE_INCHES));
 		//joyRightBtn5.whileHeld(new ShooterShootCustom(3200.0*1.2));
-		joyRightBtn5.whileHeld(new ShooterShootUsingCamera());
+		//joyRightBtn5.whileHeld(new ShooterShootUsingCamera());
 
 		joyRightBtn4 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN4);
 		joyRightBtn4.whenPressed(new DrivetrainTurnUsingCameraPidController());
