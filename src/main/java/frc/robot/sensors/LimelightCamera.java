@@ -45,13 +45,19 @@ public class LimelightCamera implements PIDSource, ICamera {
 
 	private double offsetCameraTargetInches = DEFAULT_OFFSET_CAMERA_TARGET_INCHES;
 
-	private MedianFilter filter;
+	private MedianFilter distanceFilter;
 	private double filteredDistance = 0;
+
+	private MedianFilter verticalOffsetFilter;
+	private double filteredVerticalOffset = 0;
+
 
 	public LimelightCamera() {
 		nt = NetworkTableInstance.getDefault().getTable("limelight");
 
-		filter = new MedianFilter(25); // median filter with n samples
+		distanceFilter = new MedianFilter(25); // median filter with n samples
+
+		verticalOffsetFilter = new MedianFilter(25); // median filter with n samples
 	}
 
 	private void setLocalTables(double[] area, double[] width, double[] height, double[] centerX, double[] centerY) {
@@ -126,7 +132,9 @@ public class LimelightCamera implements PIDSource, ICamera {
 			}
 		}
 
-		filteredDistance = filter.calculate(getDistanceToCompositeTargetUsingHorizontalFov());
+		filteredDistance = distanceFilter.calculate(getDistanceToCompositeTargetUsingHorizontalFov());
+
+		filteredVerticalOffset = verticalOffsetFilter.calculate(getVerticalOffsetToCompositeTarget());
 	}
 
 	public synchronized boolean isCoherent() {
@@ -195,7 +203,7 @@ public class LimelightCamera implements PIDSource, ICamera {
 			return Double.POSITIVE_INFINITY;
 	}
 
-	public synchronized double getFilteredDistance()
+	public synchronized double getFilteredDistanceToCompositeTarget()
 	{
 		return filteredDistance;
 	}
@@ -216,6 +224,21 @@ public class LimelightCamera implements PIDSource, ICamera {
 			return diff;
 		} else
 			return 0;
+	}
+
+	public synchronized double getVerticalOffsetToCompositeTarget() {
+		if (isCoherent() && largeIndex != BAD_INDEX) {
+			double diff = (getCenterY()[largeIndex] - (VERTICAL_CAMERA_RES_PIXELS / 2))
+					/ VERTICAL_CAMERA_RES_PIXELS;
+			double angle = diff * VERTICAL_FOV_DEGREES;
+			return angle;
+		} else
+			return 0;
+	}
+
+	public synchronized double getFilteredVerticalOffsetToCompositeTarget()
+	{
+		return filteredVerticalOffset;
 	}
 
 	public synchronized double[] getArea() {

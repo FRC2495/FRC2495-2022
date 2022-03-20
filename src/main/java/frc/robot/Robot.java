@@ -503,7 +503,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Distance to Target", camera.getDistanceToCompositeTargetUsingVerticalFov());
 		SmartDashboard.putNumber("Angle to Target", camera.getAngleToTurnToCompositeTarget());
 		SmartDashboard.putNumber("Distance to Target Using Horizontal FOV", camera.getDistanceToCompositeTargetUsingHorizontalFov());
-		SmartDashboard.putNumber("Filtered Distance to Target", camera.getFilteredDistance());
+		SmartDashboard.putNumber("Filtered Distance to Target", camera.getFilteredDistanceToCompositeTarget());
+		SmartDashboard.putNumber("Vertical Offset to Target", camera.getVerticalOffsetToCompositeTarget());
+		SmartDashboard.putNumber("Filtered Vertical Offset to Target", camera.getFilteredVerticalOffsetToCompositeTarget());
 		
 		
 		SmartDashboard.putBoolean("Hinge Limit Switch", hingeControl.getLimitSwitchState());

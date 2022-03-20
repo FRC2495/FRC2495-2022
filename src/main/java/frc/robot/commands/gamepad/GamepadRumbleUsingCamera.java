@@ -50,8 +50,8 @@ public class GamepadRumbleUsingCamera extends Command {
 	protected void execute() {
 		if (Robot.camera != null && Robot.camera.getNumberOfTargets() > 0 && 
 			Math.abs(Robot.camera.getAngleToTurnToCompositeTarget()) < 5 &&
-			Robot.camera.getFilteredDistance() > DISTANCE_MIN &&
-			Robot.camera.getFilteredDistance() < DISTANCE_MAX)
+			Robot.camera.getFilteredDistanceToCompositeTarget() > DISTANCE_MIN &&
+			Robot.camera.getFilteredDistanceToCompositeTarget() < DISTANCE_MAX)
 			{
 			ControllerBase.rumble(true, Robot.oi.getGamepad());
 		} else { // no camera or no target, so quiet

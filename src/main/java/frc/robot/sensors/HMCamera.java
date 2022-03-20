@@ -189,11 +189,6 @@ public class HMCamera implements PIDSource, ICamera {
 			return Double.POSITIVE_INFINITY;
 	}
 
-	public double getFilteredDistance()
-	{
-		return 0;
-	}
-
 	public synchronized double getAngleToTurnToTargetA() {
 		if (isCoherent() && largeAIndex != BAD_INDEX) {
 			double diff = (getCenterX()[largeAIndex] - (HORIZONTAL_CAMERA_RES_PIXELS / 2))
@@ -224,6 +219,11 @@ public class HMCamera implements PIDSource, ICamera {
 		return ((getDistanceToTargetAUsingHorizontalFov() + getDistanceToTargetBUsingHorizontalFov()) /2);
 	}
 	
+	public double getFilteredDistanceToCompositeTarget()
+	{
+		return 0;
+	}
+
 	public synchronized double getAngleToTurnToCompositeTarget()
 	{
 		return (getAngleToTurnToTargetA() + getAngleToTurnToTargetB()) / 2;
@@ -248,6 +248,16 @@ public class HMCamera implements PIDSource, ICamera {
 	public synchronized double getPixelDisplacementToCenterToCompositeTarget()
 	{
 		return ((getPixelDisplacementToCenterToTargetA() + getPixelDisplacementToCenterToTargetB()) /2);
+	}
+
+	public double getVerticalOffsetToCompositeTarget()
+	{
+		return 0;
+	}
+
+	public double getFilteredVerticalOffsetToCompositeTarget()
+	{
+		return 0;
 	}
 
 	public synchronized double[] getArea() {
