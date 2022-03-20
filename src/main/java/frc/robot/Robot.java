@@ -535,6 +535,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putBoolean("Shooter IsShooting?", shooter.isShooting());
 		SmartDashboard.putNumber("Shooter Enc Velocity", shooter.getEncoderVelocity());
 		SmartDashboard.putNumber("Shooter Rpm", shooter.getRpm());
+		SmartDashboard.putNumber("Shooter Preset Rpm", shooter.getPresetRpm());
 		
 		SmartDashboard.putString("Auton selected", autonChooser.getSelected());	
 		SmartDashboard.putString("Start position", startPositionChooser.getSelected());

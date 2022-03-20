@@ -53,6 +53,13 @@ public class Shooter extends Subsystem implements IShooter{
 	static final double SHOOT_FEED_FORWARD = 1023.0/30000.0; // 1023 = Talon SRX full motor output, max measured velocity ~ 30000 native units per 100ms
 
 	public static final double TICK_PER_100MS_THRESH = 1;
+
+	static final double SHOOT_HIGH_RPM = 3200.0;
+	static final double SHOOT_LOW_RPM = 1500.0;
+
+	private double presetRpm = SHOOT_HIGH_RPM; // preset rpm
+
+	static final double PRESET_DELTA_RPM = 100.0; // by what we increase/decrease by default
 	
 	
 	public Shooter(BaseMotorController shooterLeft_in, Robot robot_in) {
@@ -114,8 +121,6 @@ public class Shooter extends Subsystem implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		final double SHOOT_HIGH_RPM = 3200.0;
-
 		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
@@ -132,8 +137,6 @@ public class Shooter extends Subsystem implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		final double SHOOT_LOW_RPM = 1500.0;
-
 		double targetVelocity_UnitsPer100ms = SHOOT_LOW_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
@@ -145,8 +148,6 @@ public class Shooter extends Subsystem implements IShooter{
 	public void shootCustom(double custom_rpm) {
 		SwitchedCamera.setUsbCamera(Ports.UsbCamera.SHOOTER_CAMERA);
 
-		//set(ControlMode.PercentOutput, +REDUCED_PCT_OUTPUT);
-
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
@@ -156,6 +157,35 @@ public class Shooter extends Subsystem implements IShooter{
 		
 		isShooting = true;
 		//onTargetCount = 0;
+	}
+
+	public void shootPreset() {
+		SwitchedCamera.setUsbCamera(Ports.UsbCamera.SHOOTER_CAMERA);
+
+		setPIDParameters();
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
+
+		double targetVelocity_UnitsPer100ms = presetRpm * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+
+		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		
+		isShooting = true;
+		//onTargetCount = 0;
+	}
+
+	public void increasePresetRpm()
+	{
+		presetRpm += PRESET_DELTA_RPM;
+	}
+
+	public void decreasePresetRpm()
+	{
+		presetRpm -= PRESET_DELTA_RPM;
+	}
+
+	public double getPresetRpm()
+	{
+		return presetRpm;
 	}
 	
 	public void stop() {

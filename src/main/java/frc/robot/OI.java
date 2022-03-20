@@ -295,13 +295,13 @@ public class OI {
 		dpadUp.whileHeld(new ShooterShootUsingCamera());
 
 		dpadDown = new DPadButton(gamepad,DPadButton.Direction.DOWN);
-		dpadDown.whileHeld(new ShooterShootUsingCamera());
+		dpadDown.whileHeld(new ShooterShootPreset());
 
 		dpadLeft = new DPadButton(gamepad,DPadButton.Direction.LEFT);
-		dpadLeft.whileHeld(new ShooterShootUsingCamera());
+		dpadLeft.whenPressed(new ShooterDecreasePresetRpm());
 
 		dpadRight = new DPadButton(gamepad,DPadButton.Direction.RIGHT);
-		dpadRight.whileHeld(new ShooterShootUsingCamera());
+		dpadRight.whenPressed(new ShooterIncreasePresetRpm());
 
 		// SmartDashboard Buttons
 
