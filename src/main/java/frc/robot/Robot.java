@@ -26,6 +26,7 @@ import frc.robot.util.*;
 import frc.robot.commands.gamepad.*;
 import frc.robot.commands.indicator.*;
 import frc.robot.Ports;
+import frc.robot.util.Magic;
 
 
 /**
@@ -536,6 +537,12 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Shooter Enc Velocity", shooter.getEncoderVelocity());
 		SmartDashboard.putNumber("Shooter Rpm", shooter.getRpm());
 		SmartDashboard.putNumber("Shooter Preset Rpm", shooter.getPresetRpm());
+
+		double verticalOffset = Robot.camera!=null?Robot.camera.getFilteredVerticalOffsetToCompositeTarget():10;
+
+		double magic_rpm = Magic.getRpm(verticalOffset);
+		
+		SmartDashboard.putNumber("Shooter Magic Rpm", magic_rpm);
 		
 		SmartDashboard.putString("Auton selected", autonChooser.getSelected());	
 		SmartDashboard.putString("Start position", startPositionChooser.getSelected());

@@ -14,6 +14,7 @@ package frc.robot.commands.shooter;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 import frc.robot.Robot;
+import frc.robot.util.Magic;
 
 /**
  *
@@ -47,8 +48,8 @@ public class ShooterShootUsingCamera extends InstantCommand {
 
 		double verticalOffset = Robot.camera!=null?Robot.camera.getFilteredVerticalOffsetToCompositeTarget():10;
 
-		double custom_rpm = 2.79 * verticalOffset * verticalOffset - 42.07 * verticalOffset + 3374.3;
+		double magic_rpm = Magic.getRpm(verticalOffset);
 
-		Robot.shooter.shootCustom(custom_rpm);
+		Robot.shooter.shootCustom(magic_rpm);
 	}
 }
