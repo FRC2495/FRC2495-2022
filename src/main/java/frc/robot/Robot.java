@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.SPI;
 //import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 //import edu.wpi.first.wpilibj.DoubleSolenoid;
-//import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.util.net.PortForwarder;
 
 import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -181,6 +181,16 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+
+		// Port forwarders for LimeLight
+		// Do not place these function calls in any periodic functions
+		PortForwarder.add(5800, "limelight.local", 5800);
+		PortForwarder.add(5801, "limelight.local", 5801);
+		PortForwarder.add(5802, "limelight.local", 5802);
+		PortForwarder.add(5803, "limelight.local", 5803);
+		PortForwarder.add(5804, "limelight.local", 5804);
+		PortForwarder.add(5805, "limelight.local", 5805);
+
 		// choosers (for auton)
 		
 		autonChooser.setDefaultOption("Do Nothing", AUTON_DO_NOTHING);
