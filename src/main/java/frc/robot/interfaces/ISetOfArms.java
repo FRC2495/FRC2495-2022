@@ -19,6 +19,9 @@ public interface ISetOfArms {
 	
 	public boolean isExtending();	
 
+	// return if stalled
+	public boolean isStalled();
+
 	public void stay();	
 		
 	public void stop();

@@ -2759,7 +2759,7 @@
               "_title": "SmartDashboard/Front Elbows Enc Position"
             }
           },
-          "7,0": {
+          "6,0": {
             "size": [
               1,
               1
@@ -2772,7 +2772,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "6,0": {
+          "5,0": {
             "size": [
               1,
               1
@@ -2796,7 +2796,7 @@
               "_title": "SmartDashboard/Front Elbows Target"
             }
           },
-          "6,1": {
+          "5,1": {
             "size": [
               1,
               1
@@ -2809,7 +2809,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "7,1": {
+          "6,1": {
             "size": [
               1,
               1
@@ -2842,6 +2842,58 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Rear Elbows Target",
               "_title": "SmartDashboard/Rear Elbows Target"
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Front Arms isStalled?",
+              "_title": "SmartDashboard/Front Arms isStalled?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Front Elbows isStalled?",
+              "_title": "SmartDashboard/Front Elbows isStalled?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Rear Arms isStalled?",
+              "_title": "SmartDashboard/Rear Arms isStalled?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Rear Elbows isStalled?",
+              "_title": "SmartDashboard/Rear Elbows isStalled?",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
             }
           }
         }

@@ -354,6 +354,11 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		return isOpening;
 	}
 	
+	// return if stalled
+	public boolean isStalled() {
+		return isReallyStalled;
+	}
+
 	// for debug purpose only
 	public void joystickControl(Joystick joystick)
 	{

@@ -21,6 +21,9 @@ public interface ISetOfElbows {
 	
 	public boolean isOpening();	
 
+	// return if stalled
+	public boolean isStalled();
+
 	public void stay();	
 		
 	public void stop();

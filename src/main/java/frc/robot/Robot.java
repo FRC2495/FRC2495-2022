@@ -578,21 +578,25 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Front Arms Enc Position", frontArms.getEncoderPosition());
 		SmartDashboard.putBoolean("Front Arms IsMoving?", frontArms.isMoving());
 		SmartDashboard.putNumber("Front Arms Target", frontArms.getTarget());
+		SmartDashboard.putBoolean("Front Arms isStalled?", frontArms.isStalled());
 
 		SmartDashboard.putBoolean("Rear Arms Limit Switch", rearArms.getLimitSwitchState());
 		SmartDashboard.putNumber("Rear Arms Enc Position", rearArms.getEncoderPosition());
 		SmartDashboard.putBoolean("Rear Arms IsMoving?", rearArms.isMoving());
 		SmartDashboard.putNumber("Rear Arms Target", rearArms.getTarget());
+		SmartDashboard.putBoolean("Rear Arms isStalled?", rearArms.isStalled());
 
 		SmartDashboard.putBoolean("Front Elbows Limit Switch", frontElbows.getLimitSwitchState());
 		SmartDashboard.putNumber("Front Elbows Enc Position", frontElbows.getEncoderPosition());
 		SmartDashboard.putBoolean("Front Elbows IsMoving?", frontElbows.isMoving());
 		SmartDashboard.putNumber("Front Elbows Target", frontElbows.getTarget());
+		SmartDashboard.putBoolean("Front Elbows isStalled?", frontElbows.isStalled());
 
 		SmartDashboard.putBoolean("Rear Elbows Limit Switch", rearElbows.getLimitSwitchState());
 		SmartDashboard.putNumber("Rear Elbows Enc Position", rearElbows.getEncoderPosition());
 		SmartDashboard.putBoolean("Rear Elbows IsMoving?", rearElbows.isMoving());
 		SmartDashboard.putNumber("Rear Elbows Target", rearElbows.getTarget());
+		SmartDashboard.putBoolean("Rear Elbows isStalled?", rearElbows.isStalled());
 
 	}
 
