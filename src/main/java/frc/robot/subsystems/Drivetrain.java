@@ -147,7 +147,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 	private final static double RATIO_BETWEEN_INPUT_AND_OUTPUT_LOW = 17.325*0.8;
 	//private final static double RATIO_BETWEEN_INPUT_AND_OUTPUT_HIGH = 8;
 	
-	public Drivetrain(WPI_TalonSRX masterLeft_in ,WPI_TalonSRX masterRight_in , BaseMotorController followerLeft_in ,BaseMotorController followerRight_in, PIDSourceADXRS450_Gyro gyro_in, Robot robot_in, ICamera camera_in) 
+	public Drivetrain(WPI_TalonSRX masterLeft_in, WPI_TalonSRX masterRight_in, BaseMotorController followerLeft_in, BaseMotorController followerRight_in, PIDSourceADXRS450_Gyro gyro_in, Robot robot_in, ICamera camera_in) 
 	{
 		masterLeft = masterLeft_in;
 		masterRight = masterRight_in;
@@ -165,7 +165,7 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
-		masterLeft.setNeutralMode(NeutralMode.Coast); // sets the talons on brake mode
+		masterLeft.setNeutralMode(NeutralMode.Coast); // sets the talons on coast mode
 		followerLeft.setNeutralMode(NeutralMode.Coast);	
 		masterRight.setNeutralMode(NeutralMode.Coast);
 		followerRight.setNeutralMode(NeutralMode.Coast);
@@ -175,11 +175,12 @@ public class Drivetrain extends Subsystem implements PIDOutput, PIDOutput2, PIDO
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
+		// FX Integrated Sensor = 2048 units per rotation
 		masterLeft.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,
-				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // TODO switch to FeedbackDevice.IntegratedSensor if needed for Talon FX
+				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 				
 		masterRight.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,
-				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // TODO switch to FeedbackDevice.IntegratedSensor if needed for Talon FX
+				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 		
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.

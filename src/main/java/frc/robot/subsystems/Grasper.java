@@ -39,11 +39,7 @@ public class Grasper extends Subsystem implements IGrasper{
 	static final int RELEASE_DISTANCE_INCHES = 17;
 	
 	BaseMotorController grasperLeft; 
-	
-	// shared grasp and release settings
-	//private int onTargetCount; // counter indicating how many times/iterations we were on target
-	//private final static int ON_TARGET_MINIMUM_COUNT = 25; // number of times/iterations we need to be on target to really be on target
-	
+		
 	boolean isGrasping;
 	boolean isReleasing;
 	
@@ -101,7 +97,6 @@ public class Grasper extends Subsystem implements IGrasper{
 		
 		isGrasping = true;
 		isReleasing = false;
-		//onTargetCount = 0;
 	}
 	
 	public void release() {
@@ -111,14 +106,13 @@ public class Grasper extends Subsystem implements IGrasper{
 		
 		isReleasing = true;
 		isGrasping = false;
-		//onTargetCount = 0;
 	}
 	
 	public void stop() {
 		grasperLeft.set(ControlMode.PercentOutput, 0);
 		
 		isGrasping = false;
-		//isReleasing = false;
+		isReleasing = false;
 	}
 	
 		

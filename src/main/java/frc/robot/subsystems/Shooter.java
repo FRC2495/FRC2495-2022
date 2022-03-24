@@ -126,7 +126,6 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
-		//onTargetCount = 0;
 	}
 
 	public void shootLow() {
@@ -142,7 +141,6 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
-		//onTargetCount = 0;
 	}
 
 	public void shootCustom(double custom_rpm) {
@@ -156,7 +154,6 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
-		//onTargetCount = 0;
 	}
 
 	public void shootPreset() {
@@ -170,7 +167,6 @@ public class Shooter extends Subsystem implements IShooter{
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
-		//onTargetCount = 0;
 	}
 
 	public void increasePresetRpm()
