@@ -30,8 +30,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 20000; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 20000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 600000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 10000; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -59,7 +59,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
 	WPI_TalonSRX arm; 
-	BaseMotorController arm_follower;
+	//BaseMotorController arm_follower;
 	
 	boolean isMoving;
 	boolean isExtending;
@@ -75,30 +75,30 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	Side side;
 	
 	
-	public SetOfArms(WPI_TalonSRX arm_in, BaseMotorController arm_follower_in, Robot robot_in, boolean setInverted, Side side_in) {
+	public SetOfArms(WPI_TalonSRX arm_in, /*BaseMotorController arm_follower_in,*/ Robot robot_in, boolean setInverted, Side side_in) {
 		
 		arm = arm_in;
-		arm_follower = arm_follower_in;
+		//arm_follower = arm_follower_in;
 				
 		robot = robot_in;
 
 		side = side_in;
 
 		arm.configFactoryDefault();
-		arm_follower.configFactoryDefault();
+		//arm_follower.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
 		arm.setNeutralMode(NeutralMode.Brake);
-		arm_follower.setNeutralMode(NeutralMode.Brake);
+		//arm_follower.setNeutralMode(NeutralMode.Brake);
 				
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
 		
 		if (side == Side.FRONT) {
-			arm.setSensorPhase(false); // TODO switch to true if required if switching to Talon FX
+			arm.setSensorPhase(true); // false for SRX // TODO switch to true if required if switching to Talon FX
 		} else {
 			arm.setSensorPhase(true);
 		}
@@ -112,13 +112,13 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		arm.setInverted(setInverted);  // TODO switch to false if required if switching to Talon FX
-		arm_follower.setInverted(setInverted);  // TODO comment out if switching to Talon FX
+		//arm_follower.setInverted(setInverted);  // TODO comment out if switching to Talon FX
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		arm_follower.follow(arm);
+		//arm_follower.follow(arm);
 
 		setPIDParameters();
 		
@@ -131,7 +131,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation		
-		arm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // TODO switch to FeedbackDevice.IntegratedSensor if switching to Talon FX
+		arm.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // .CTRE_MagEncoder_Relative for SRX // TODO switch to FeedbackDevice.IntegratedSensor if switching to Talon FX
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		arm.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);

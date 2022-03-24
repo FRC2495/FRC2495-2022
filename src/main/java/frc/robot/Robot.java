@@ -139,12 +139,12 @@ public class Robot extends TimedRobot {
 	//public static Spinner spinnerWheel;
 
 	WPI_TalonSRX front_arm_master;
-	BaseMotorController front_arm_follower;
+	//BaseMotorController front_arm_follower;
 
 	public static /*I*/SetOfArms frontArms;
 
 	WPI_TalonSRX rear_arm_master;
-	BaseMotorController rear_arm_follower;
+	//BaseMotorController rear_arm_follower;
 
 	public static /*I*/SetOfArms rearArms;
 
@@ -278,15 +278,15 @@ public class Robot extends TimedRobot {
 		//spinnerMotor = new WPI_TalonSRX(Ports.CAN.SPINNER);
 		//spinnerWheel = new Spinner(spinnerMotor,this); 
 
-		front_arm_master = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_MASTER);
-		front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);
+		front_arm_master = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_REAL_MASTER);
+		//front_arm_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ARM_FOLLOWER);
 
-		frontArms = new SetOfArms(front_arm_master, front_arm_follower, this, true, ISetOfArms.Side.FRONT);
+		frontArms = new SetOfArms(front_arm_master, /*front_arm_follower,*/ this, false, ISetOfArms.Side.FRONT);
 
-		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_MASTER);
-		rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
+		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_REAL_MASTER);
+		//rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
 
-		rearArms = new SetOfArms(rear_arm_master, rear_arm_follower, this, true, ISetOfArms.Side.REAR);
+		rearArms = new SetOfArms(rear_arm_master, /*rear_arm_follower,*/ this, true, ISetOfArms.Side.REAR);
 
 
 		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
