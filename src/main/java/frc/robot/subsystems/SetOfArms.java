@@ -30,8 +30,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 20000; // adjust as needed
-	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 20000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 20000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 20000; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -46,7 +46,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 1.2; //0.6
+	static final double MOVE_PROPORTIONAL_GAIN = 1.2; //0.6 // TODO switch to 0.6 if required if switching to Talon FX (as encoder resolution is halved)
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
@@ -98,7 +98,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
 		
 		if (side == Side.FRONT) {
-			arm.setSensorPhase(false);
+			arm.setSensorPhase(false); // TODO switch to true if required if switching to Talon FX
 		} else {
 			arm.setSensorPhase(true);
 		}
@@ -111,8 +111,8 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
-		arm.setInverted(setInverted);
-		arm_follower.setInverted(setInverted);
+		arm.setInverted(setInverted);  // TODO switch to false if required if switching to Talon FX
+		arm_follower.setInverted(setInverted);  // TODO comment out if switching to Talon FX
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
@@ -131,7 +131,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation		
-		arm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+		arm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // TODO switch to FeedbackDevice.IntegratedSensor if switching to Talon FX
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		arm.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
