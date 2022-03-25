@@ -31,7 +31,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	// general settings
 	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 600000; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 10000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 600000; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -46,7 +46,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 1.2; //0.6 // TODO switch to 0.6 if required if switching to Talon FX (as encoder resolution is halved)
+	static final double MOVE_PROPORTIONAL_GAIN = 0.1; // 1.2 for SRX // TODO switch to 0.6 if required if switching to Talon FX (as encoder resolution is halved)
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
@@ -240,7 +240,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		if (side == Side.FRONT) {
 			tac = +LENGTH_OF_TRAVEL_TICKS_FRONT;
 		} else {
-			tac = +LENGTH_OF_TRAVEL_TICKS_REAR;
+			tac = -LENGTH_OF_TRAVEL_TICKS_REAR;
 		}
 		
 		arm.set(ControlMode.Position,tac);
@@ -346,7 +346,11 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			arm.set(ControlMode.PercentOutput, -joystick.getY()); // adjust sign if desired
+			if (side == Side.FRONT) {
+				arm.set(ControlMode.PercentOutput, -joystick.getY()); // adjust sign if desired
+			} else {
+				arm.set(ControlMode.PercentOutput, +joystick.getY()); // adjust sign if desired
+			}
 		}
 	}
 
