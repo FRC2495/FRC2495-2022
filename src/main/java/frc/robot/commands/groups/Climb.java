@@ -45,8 +45,11 @@ public class Climb extends CommandGroup {
 		// 6.5. retract rear elbow
 		addSequential(new RearElbowsCloseWithStallDetection());
 
-		// 7. retract front elbow
-		addSequential(new FrontElbowsCloseWithStallDetection());
+		// 7. close front elbow 
+		addSequential(new FrontElbowsMoveWithStallDetection(3137));
+
+		// 8. retract front arms 
+		addSequential(new FrontArmsRetractWithStallDetection());
 
 		// we are now hanging from the second bar
 
@@ -56,23 +59,35 @@ public class Climb extends CommandGroup {
 		// 1. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
 
-		// 2. open rear elbow midway
-		addSequential(new RearElbowsMidwayWithStallDetection());
+		// 2. close front elbows
+		addSequential(new FrontElbowsMoveWithStallDetection(150));
 
 		// 3. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
 
-		// 4. rear elbows close
-		addSequential(new RearElbowsCloseWithStallDetection());
+		// 4. extend front arms
+		addSequential(new FrontArmsExtendWithStallDetection());
 
 		// 5. open front elbows
-		addSequential(new FrontElbowsOpen());
+		addSequential(new FrontElbowsOpenWithStallDetection());
 
-		// 6. retract front arms
+		// 6. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
 
-		// 7. close front elbows
-		addSequential(new FrontElbowsCloseWithStallDetection());
+		// 7. extend rear arms
+		addSequential(new RearArmsExtendWithStallDetection());
+
+		// 8. open rear elbows
+		addSequential(new RearElbowsOpenWithStallDetection());
+
+		// 5. open front elbows
+		//addSequential(new FrontElbowsOpen());
+
+		// 6. retract front arms
+		//addSequential(new FrontArmsRetractWithStallDetection());
+
+		// 6. close front elbows
+		//addSequential(new FrontElbowsCloseWithStallDetection());
 
 		// we are now hanging from the third bar
 		

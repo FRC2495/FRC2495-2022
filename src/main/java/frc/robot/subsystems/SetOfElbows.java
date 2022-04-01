@@ -249,6 +249,27 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		stalledCount = 0;
 	}
 
+	public void move(int position) {
+		
+		//setPIDParameters();
+		System.out.println("Moving");
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+
+		if (side == Side.FRONT) {
+			tac = -position;
+		} else {
+			tac = -position;
+		}
+		
+		elbow.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isOpening = true;
+		onTargetCount = 0;
+		isReallyStalled = false;
+		stalledCount = 0;
+	}
+
 	public void midway() {
 		
 		//setPIDParameters();
