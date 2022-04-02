@@ -8,7 +8,7 @@
 package frc.robot.commands.groups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
+import edu.wpi.first.wpilibj.command.WaitCommand;
 //import frc.robot.commands.*;
 import frc.robot.commands.arms.*;
 import frc.robot.commands.elbows.*;
@@ -39,17 +39,27 @@ public class Climb extends CommandGroup {
 		// 4. & 5.
 		addSequential(new FrontOpenExtend());
 
+		addSequential(new WaitCommand(2));
+
 		// 6. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
+
+		addSequential(new WaitCommand(2));
 
 		// 6.5. retract rear elbow
 		addSequential(new RearElbowsCloseWithStallDetection());
 
+		addSequential(new WaitCommand(2));
+
 		// 7. close front elbow 
 		addSequential(new FrontElbowsMoveWithStallDetection(3137));
 
+		addSequential(new WaitCommand(2));
+
 		// 8. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
+
+		addSequential(new WaitCommand(2));
 
 		// we are now hanging from the second bar
 
@@ -59,26 +69,42 @@ public class Climb extends CommandGroup {
 		// 1. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
 
+		addSequential(new WaitCommand(2));
+
 		// 2. close front elbows
-		addSequential(new FrontElbowsMoveWithStallDetection(150));
+		addSequential(new FrontElbowsMoveWithStallDetection(0));
+
+		addSequential(new WaitCommand(2));
 
 		// 3. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
 
+		addSequential(new WaitCommand(2));
+
 		// 4. extend front arms
 		addSequential(new FrontArmsExtendWithStallDetection());
+
+		addSequential(new WaitCommand(2));
 
 		// 5. open front elbows
 		addSequential(new FrontElbowsOpenWithStallDetection());
 
+		addSequential(new WaitCommand(2));
+
 		// 6. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
+
+		addSequential(new WaitCommand(2));
 
 		// 7. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
 
+		addSequential(new WaitCommand(2));
+
 		// 8. open rear elbows
 		addSequential(new RearElbowsOpenWithStallDetection());
+
+		addSequential(new WaitCommand(2));
 
 		// 5. open front elbows
 		//addSequential(new FrontElbowsOpen());

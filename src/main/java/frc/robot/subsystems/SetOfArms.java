@@ -54,7 +54,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 	static final double TICK_THRESH = 512;
 	public static final double TICK_PER_100MS_THRESH = 64; // about a tenth of a rotation per second 
 	
-	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 10; // number of times/iterations we need to be on target to really be on target
+	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
 
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
