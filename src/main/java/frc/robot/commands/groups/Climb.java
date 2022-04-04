@@ -39,27 +39,27 @@ public class Climb extends CommandGroup {
 		// 4. & 5.
 		addSequential(new FrontOpenExtend());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// 6. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+	    //addSequential(new WaitCommand(2));
 
 		// 6.5. retract rear elbow
 		addSequential(new RearElbowsCloseWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// 7. close front elbow 
 		addSequential(new FrontElbowsMoveWithStallDetection(3137));
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// 8. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// we are now hanging from the second bar
 
@@ -69,42 +69,48 @@ public class Climb extends CommandGroup {
 		// 1. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// 2. close front elbows
 		addSequential(new FrontElbowsMoveWithStallDetection(0));
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
-		// 3. retract rear arms
+		// 3. close rear elbows
+		addSequential(new RearElbowsMoveWithStallDetection(0));
+
+		//addSequential(new WaitCommand(2));
+
+
+		// 4. retract rear arms
 		addSequential(new RearArmsRetractWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
-		// 4. extend front arms
+		// 5. extend front arms
 		addSequential(new FrontArmsExtendWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//(new WaitCommand(2));
 
-		// 5. open front elbows
+		// 6. open front elbows
 		addSequential(new FrontElbowsOpenWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
-		// 6. retract front arms 
+		// 7. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
-		// 7. extend rear arms
+		// 8. extend rear arms
 		addSequential(new RearArmsExtendWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
-		// 8. open rear elbows
+		// 9. open rear elbows
 		addSequential(new RearElbowsOpenWithStallDetection());
 
-		addSequential(new WaitCommand(2));
+		//addSequential(new WaitCommand(2));
 
 		// 5. open front elbows
 		//addSequential(new FrontElbowsOpen());
