@@ -28,7 +28,7 @@ public class Grasper extends Subsystem implements IGrasper{
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
 	static final double HALF_PCT_OUTPUT = 0.5;
-	static final double REDUCED_PCT_OUTPUT = 0.80;
+	static final double REDUCED_PCT_OUTPUT = 0.85;
 	
 	static final int WAIT_MS = 1000;
 	static final int TIMEOUT_MS = 5000;
