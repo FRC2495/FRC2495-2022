@@ -97,6 +97,8 @@ public class Climb extends CommandGroup {
 
 		//addSequential(new WaitCommand(2));
 
+		addSequential(new WaitCommand(.5));
+
 		// 7. retract front arms 
 		addSequential(new FrontArmsRetractWithStallDetection());
 

@@ -77,8 +77,10 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 		addSequential(new HingeMoveUp());
 		// Moves hinge up
 
-		addSequential(new FeederTimedFeed(5));
-		// Feeder feeds - will take 5 secs (to stall from stopping motors)
+		addSequential(new FeederTimedFeed(2));
+		// Feeder feeds - will take 2 secs (to stall from stopping motors)
+
+		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_OUTSIDE_TARMAC));
 
 		//addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_SHOOTING_ZONE_TO_CARGO_PICKUP));
 		// Attempts to pickup cargo
