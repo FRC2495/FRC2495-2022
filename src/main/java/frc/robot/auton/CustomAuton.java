@@ -79,10 +79,10 @@ public class CustomAuton extends CommandGroup {
 			case Robot.START_POSITION_2:
 				switch (mainTarget) {
 					case Robot.MAIN_TARGET_HUB:
-						//addSequential(new StartingPositionTwoShootInHub());
+						addSequential(new StartingPositionTwoThreeBall());
 						break;
 					case Robot.MAIN_TARGET_NOWHERE:
-						//addSequential(new StartingPositionTwoToNowhere());
+						addSequential(new StartingPositionOneToNowhere());
 						break;	
 					default:
 						// nothing
