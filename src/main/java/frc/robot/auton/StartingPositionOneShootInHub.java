@@ -54,6 +54,9 @@ public class StartingPositionOneShootInHub extends CommandGroup {
 
 		addParallel(new GrasperTimedGrasp(15));
 		// Strarts Grasper (i.e. grasping) - will stop after 15 seconds or explicit stop, whichever comes first
+
+		addSequential(new DrivetrainTurnAngleFromCameraUsingPidController());
+		// Turns towards the hub using limelight
 	
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_ONE_TO_HIGH_SHOOTING_ZONE));
 		// Moving from starting point 1 to high shooting zone
