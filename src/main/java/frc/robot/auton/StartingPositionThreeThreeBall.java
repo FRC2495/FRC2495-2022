@@ -51,8 +51,6 @@ public class StartingPositionThreeThreeBall extends CommandGroup {
 		// Moves hinge down for 5 secs max
 
 		addParallel(new GrasperTimedGrasp(14));
-		// Starts grasper for 14 secs
-
 		addSequential(new DrivetrainMoveDistanceWithStallDetection(+AutonConstants.DISTANCE_FROM_STARTING_POINT_TWO_TO_CARGO_PICKUP));
 		// Moves from starting point three to cargo pickup area
 

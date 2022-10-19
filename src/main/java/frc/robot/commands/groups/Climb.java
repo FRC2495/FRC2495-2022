@@ -22,108 +22,31 @@ public class Climb extends CommandGroup {
 
 		// 1. drive forward into hangar
 
-		// 2. use gamepad to extended rear arms
-		// addSequential(new RearArmsExtend());
-
-		// 2.5 use gamepad to set rear elbows midway
-		// addSequential(new RearElbowsMidwayWithStallDetection());
-
-		// 3. drive back against bar
-
-		// 4. extend front elbow
-		//addParallel(new FrontElbowsOpen());
-
-		// 5. extend front arms
-		//addSequential(new FrontArmsExtendWithStallDetection());
-
-		// 4. & 5.
-		addSequential(new FrontOpenExtend());
-
-		//addSequential(new WaitCommand(2));
-
-		// 6. retract rear arms
-		addSequential(new RearArmsRetractWithStallDetection());
-
-	    //addSequential(new WaitCommand(2));
-
-		// 6.5. retract rear elbow
-		addSequential(new RearElbowsCloseWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// 7. close front elbow 
-		addSequential(new FrontElbowsMoveWithStallDetection(3137));
-
-		//addSequential(new WaitCommand(2));
-
-		// 8. retract front arms 
-		addSequential(new FrontArmsRetractWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// we are now hanging from the second bar
-
-
-		// next, we attempt to climb to the third bar
+		// 2. use gamepad to extend arms and position at mid bar 
 		
-		// 1. extend rear arms
-		addSequential(new RearArmsExtendWithStallDetection());
+		addSequential (new FrontArmsRetractWithStallDetection());
+		// 3. retract arm (now on mid bar)
 
-		//addSequential(new WaitCommand(2));
+		addSequential (new FrontElbowsOpenWithStallDetection());
+		// 4. open elbow
 
-		// 2. close front elbows
-		addSequential(new FrontElbowsMoveWithStallDetection(0));
+		addSequential (new FrontArmsExtendWithStallDetection());
+		// 5. extend arm
 
-		//addSequential(new WaitCommand(2));
+		addSequential (new FrontElbowsCloseWithStallDetection());
+		// 6. close elbow (now touching high bar)
 
-		// 3. close rear elbows
-		addSequential(new RearElbowsMoveWithStallDetection(0));
+		addSequential (new FrontArmsRetractWithStallDetection());
+		// 7. retract arm (now on high bar)
 
-		//addSequential(new WaitCommand(2));
+		addSequential (new FrontArmsExtendWithStallDetection());
+		// 8. extend front arms
 
+		addSequential (new FrontElbowsOpenWithStallDetection());
+		// 9. close elbow (now touching traversal bar)
 
-		// 4. retract rear arms
-		addSequential(new RearArmsRetractWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// 5. extend front arms
-		addSequential(new FrontArmsExtendWithStallDetection());
-
-		//(new WaitCommand(2));
-
-		// 6. open front elbows
-		addSequential(new FrontElbowsOpenWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		addSequential(new WaitCommand(.5));
-
-		// 7. retract front arms 
-		addSequential(new FrontArmsRetractWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// 8. extend rear arms
-		addSequential(new RearArmsExtendWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// 9. open rear elbows
-		addSequential(new RearElbowsOpenWithStallDetection());
-
-		//addSequential(new WaitCommand(2));
-
-		// 5. open front elbows
-		//addSequential(new FrontElbowsOpen());
-
-		// 6. retract front arms
-		//addSequential(new FrontArmsRetractWithStallDetection());
-
-		// 6. close front elbows
-		//addSequential(new FrontElbowsCloseWithStallDetection());
-
-		// we are now hanging from the third bar
+		addSequential (new FrontArmsRetractWithStallDetection());
+		// 10. retract arm 
 		
 	}
 }
