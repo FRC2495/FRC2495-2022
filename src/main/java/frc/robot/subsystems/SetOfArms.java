@@ -105,6 +105,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		
 		//Enable limit switches
 		arm.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
+		arm.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
 		arm.overrideLimitSwitchesEnable(true);
 	
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
@@ -135,6 +136,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		arm.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
+		arm.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
 		
 		isMoving = false;
 		isExtending = false;
@@ -360,6 +362,10 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	public boolean getLimitSwitchState() {
 		return arm.getSensorCollection().isFwdLimitSwitchClosed();
+	}
+
+	public boolean getReverseLimitSwitchState() {
+		return arm.getSensorCollection().isRevLimitSwitchClosed();
 	}
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.

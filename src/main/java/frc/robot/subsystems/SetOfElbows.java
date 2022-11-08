@@ -104,6 +104,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 
 		//Enable limit switches
 		elbow.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
+		elbow.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
 		elbow.overrideLimitSwitchesEnable(true);
 	
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
@@ -139,6 +140,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
+		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
 		
 		isMoving = false;
 		isOpening = false;
@@ -402,6 +404,10 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 
 	public boolean getLimitSwitchState() {
 		return elbow.getSensorCollection().isFwdLimitSwitchClosed();
+	}
+
+	public boolean getReverseLimitSwitchState() {
+		return elbow.getSensorCollection().isRevLimitSwitchClosed();
 	}
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.

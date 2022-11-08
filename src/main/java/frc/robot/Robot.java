@@ -575,24 +575,28 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putString("Gearbox Position", gearbox.getGear().toString());
 
 		SmartDashboard.putBoolean("Front Arms Limit Switch", frontArms.getLimitSwitchState());
+		SmartDashboard.putBoolean("Front Arms Reverse Limit Switch", frontArms.getReverseLimitSwitchState());
 		SmartDashboard.putNumber("Front Arms Enc Position", frontArms.getEncoderPosition());
 		SmartDashboard.putBoolean("Front Arms IsMoving?", frontArms.isMoving());
 		SmartDashboard.putNumber("Front Arms Target", frontArms.getTarget());
 		SmartDashboard.putBoolean("Front Arms isStalled?", frontArms.isStalled());
 
 		SmartDashboard.putBoolean("Rear Arms Limit Switch", rearArms.getLimitSwitchState());
+		SmartDashboard.putBoolean("Rear Arms Reverse Limit Switch", rearArms.getReverseLimitSwitchState());
 		SmartDashboard.putNumber("Rear Arms Enc Position", rearArms.getEncoderPosition());
 		SmartDashboard.putBoolean("Rear Arms IsMoving?", rearArms.isMoving());
 		SmartDashboard.putNumber("Rear Arms Target", rearArms.getTarget());
 		SmartDashboard.putBoolean("Rear Arms isStalled?", rearArms.isStalled());
 
 		SmartDashboard.putBoolean("Front Elbows Limit Switch", frontElbows.getLimitSwitchState());
+		SmartDashboard.putBoolean("Front Elbows Reverse Limit Switch", frontElbows.getReverseLimitSwitchState());
 		SmartDashboard.putNumber("Front Elbows Enc Position", frontElbows.getEncoderPosition());
 		SmartDashboard.putBoolean("Front Elbows IsMoving?", frontElbows.isMoving());
 		SmartDashboard.putNumber("Front Elbows Target", frontElbows.getTarget());
 		SmartDashboard.putBoolean("Front Elbows isStalled?", frontElbows.isStalled());
 
 		SmartDashboard.putBoolean("Rear Elbows Limit Switch", rearElbows.getLimitSwitchState());
+		SmartDashboard.putBoolean("Rear Elbows Reverse Limit Switch", rearElbows.getReverseLimitSwitchState());
 		SmartDashboard.putNumber("Rear Elbows Enc Position", rearElbows.getEncoderPosition());
 		SmartDashboard.putBoolean("Rear Elbows IsMoving?", rearElbows.isMoving());
 		SmartDashboard.putNumber("Rear Elbows Target", rearElbows.getTarget());
