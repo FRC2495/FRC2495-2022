@@ -63,7 +63,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
 	WPI_TalonSRX elbow; 
-	BaseMotorController elbow_follower;
+	//BaseMotorController elbow_follower;
 	
 	boolean isMoving;
 	boolean isOpening;
@@ -79,23 +79,23 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	Side side;
 	
 	
-	public SetOfElbows(WPI_TalonSRX elbow_in, BaseMotorController elbow_follower_in, Robot robot_in, Side side_in) {
+	public SetOfElbows(WPI_TalonSRX elbow_in, /*BaseMotorController elbow_follower_in,*/ Robot robot_in, Side side_in) {
 		
 		elbow = elbow_in;
-		elbow_follower = elbow_follower_in;
+		//elbow_follower = elbow_follower_in;
 				
 		robot = robot_in;
 
 		side = side_in;
 
 		elbow.configFactoryDefault();
-		elbow_follower.configFactoryDefault();
+		//elbow_follower.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
 		elbow.setNeutralMode(NeutralMode.Brake);
-		elbow_follower.setNeutralMode(NeutralMode.Brake);
+		//elbow_follower.setNeutralMode(NeutralMode.Brake);
 				
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -112,19 +112,19 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		elbow.setInverted(false);
-		elbow_follower.setInverted(false);
+		//elbow_follower.setInverted(false);
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		elbow_follower.follow(elbow);
+		//elbow_follower.follow(elbow);
 		
 		// Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
 		// The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
 		// This is a useful optimization to manage CAN bus utilization.
-		elbow_follower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
-		elbow_follower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
+		//elbow_follower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
+		//elbow_follower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
 
 		setPIDParameters();
 		

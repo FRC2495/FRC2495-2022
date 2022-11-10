@@ -102,12 +102,12 @@ public class Ports {
 			public static final int PDP = 0;
 			public static final int FRONT_ARM_MASTER_UNUSED = 10;
 			public static final int FRONT_ARM_REAL_MASTER = 11;
-			public static final int REAR_ARM_MASTER_UNUSED = 12;
-			public static final int REAR_ARM_REAL_MASTER = 13;
-			public static final int FRONT_ELBOW_MASTER = 14;
-			public static final int FRONT_ELBOW_FOLLOWER = 15;
-			public static final int REAR_ELBOW_MASTER = 16;
-			public static final int REAR_ELBOW_FOLLOWER = 17;
+			public static final int REAR_ARM_MASTER_UNUSED = 32;
+			public static final int REAR_ARM_REAL_MASTER = 33;
+			public static final int FRONT_ELBOW_MASTER = 13;
+			public static final int FRONT_ELBOW_FOLLOWER = 12;
+			public static final int REAR_ELBOW_MASTER = 30;
+			public static final int REAR_ELBOW_FOLLOWER = 31;
 			public static final int SHOOTER = 18;
 			public static final int FEEDER = 19;
 		}

@@ -129,18 +129,18 @@ public class OI {
 
 		gamepadRYp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY);
 		//gamepadRYp.whenPressed(new RearArmsExtend());
-		gamepadRYp.whenPressed(new RearArmsRetractWithStallDetection());
+		//gamepadRYp.whenPressed(new RearArmsRetractWithStallDetection());
 
 		gamepadRYn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RY,false);
 		//gamepadRYn.whenPressed(new RearArmsRetract());
-		gamepadRYn.whenPressed(new RearArmsExtendWithStallDetection());
+		//gamepadRYn.whenPressed(new RearArmsExtendWithStallDetection());
 
 		gamepadRXp = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX);
 		//gamepadRXp.whenPressed(new RearElbowsOpen());
-		gamepadRXp.whenPressed(new RearElbowsMidwayWithStallDetection());
+		//gamepadRXp.whenPressed(new RearElbowsMidwayWithStallDetection());
 
 		gamepadRXn = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RX,false);
-		gamepadRXn.whenPressed(new RearElbowsCloseWithStallDetection());
+		//gamepadRXn.whenPressed(new RearElbowsCloseWithStallDetection());
 
 		gamepadRT = new GamepadAxis(gamepad, ControllerBase.GamepadAxes.RT);
 		//gamepadRT.whenPressed(new CameraSetLedMode(ICamera.LedMode.FORCE_ON));
@@ -211,7 +211,7 @@ public class OI {
 		joyRight = new Joystick(Ports.USB.RIGHT);
 
 		joyRightBtn11 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN11); 
-		joyRightBtn11.whileHeld(new RearArmsJoystickControl());
+		//joyRightBtn11.whileHeld(new RearArmsJoystickControl());
 	
 		joyRightBtn10 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN10);
 		joyRightBtn10.whileHeld(new FrontArmsJoystickControl());
@@ -219,7 +219,7 @@ public class OI {
 		joyRightBtn9 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN9);
 		//joyRightBtn9.whenPressed(new WinchStopperSetStop());
 		//joyRightBtn9.whenPressed(new WinchLockWinchStopperSetLockedAndStop());
-		joyRightBtn9.whileHeld(new RearElbowsJoystickControl());
+		//joyRightBtn9.whileHeld(new RearElbowsJoystickControl());
 
 		joyRightBtn8 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN8);
 		//joyRightBtn8.whenPressed(new WinchStopperSetFree());

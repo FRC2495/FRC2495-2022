@@ -30,7 +30,7 @@ public class SetOfArms extends Subsystem implements ISetOfArms {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 510000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = -400000; // TODO adjust as needed (halve for Talon FX)
 	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 600000; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;

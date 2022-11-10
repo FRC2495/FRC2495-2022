@@ -143,20 +143,20 @@ public class Robot extends TimedRobot {
 
 	public static /*I*/SetOfArms frontArms;
 
-	WPI_TalonSRX rear_arm_master;
+	//WPI_TalonSRX rear_arm_master;
 	//BaseMotorController rear_arm_follower;
 
-	public static /*I*/SetOfArms rearArms;
+	//public static /*I*/SetOfArms rearArms;
 
 	WPI_TalonSRX front_elbow_master;
 	BaseMotorController front_elbow_follower;
 
 	public static /*I*/SetOfElbows frontElbows;
 
-	WPI_TalonSRX rear_elbow_master;
-	BaseMotorController rear_elbow_follower;
+	//WPI_TalonSRX rear_elbow_master;
+	//BaseMotorController rear_elbow_follower;
 
-	public static /*I*/SetOfElbows rearElbows;
+	//public static /*I*/SetOfElbows rearElbows;
 
 	
 	// pneumatic devices
@@ -283,21 +283,21 @@ public class Robot extends TimedRobot {
 
 		frontArms = new SetOfArms(front_arm_master, /*front_arm_follower,*/ this, false, ISetOfArms.Side.FRONT);
 
-		rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_REAL_MASTER);
+		//rear_arm_master = new WPI_TalonSRX(Ports.CAN.REAR_ARM_REAL_MASTER);
 		//rear_arm_follower = new WPI_TalonSRX(Ports.CAN.REAR_ARM_FOLLOWER);
 
-		rearArms = new SetOfArms(rear_arm_master, /*rear_arm_follower,*/ this, false, ISetOfArms.Side.REAR);
+		//rearArms = new SetOfArms(rear_arm_master, /*rear_arm_follower,*/ this, false, ISetOfArms.Side.REAR);
 
 
 		front_elbow_master = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_MASTER);
-		front_elbow_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_FOLLOWER);
+		//front_elbow_follower = new WPI_TalonSRX(Ports.CAN.FRONT_ELBOW_FOLLOWER);
 
-		frontElbows = new SetOfElbows(front_elbow_master, front_elbow_follower, this, ISetOfElbows.Side.FRONT);
+		frontElbows = new SetOfElbows(front_elbow_master, /*front_elbow_follower,*/ this, ISetOfElbows.Side.FRONT);
 
-		rear_elbow_master = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_MASTER);
-		rear_elbow_follower = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_FOLLOWER);
+		//rear_elbow_master = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_MASTER);
+		//rear_elbow_follower = new WPI_TalonSRX(Ports.CAN.REAR_ELBOW_FOLLOWER);
 
-		rearElbows = new SetOfElbows(rear_elbow_master, rear_elbow_follower, this, ISetOfElbows.Side.REAR);
+		//rearElbows = new SetOfElbows(rear_elbow_master, rear_elbow_follower, this, ISetOfElbows.Side.REAR);
 		
 
 		// pneumatic devices
@@ -581,12 +581,12 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Front Arms Target", frontArms.getTarget());
 		SmartDashboard.putBoolean("Front Arms isStalled?", frontArms.isStalled());
 
-		SmartDashboard.putBoolean("Rear Arms Limit Switch", rearArms.getLimitSwitchState());
-		SmartDashboard.putBoolean("Rear Arms Reverse Limit Switch", rearArms.getReverseLimitSwitchState());
-		SmartDashboard.putNumber("Rear Arms Enc Position", rearArms.getEncoderPosition());
-		SmartDashboard.putBoolean("Rear Arms IsMoving?", rearArms.isMoving());
-		SmartDashboard.putNumber("Rear Arms Target", rearArms.getTarget());
-		SmartDashboard.putBoolean("Rear Arms isStalled?", rearArms.isStalled());
+		//SmartDashboard.putBoolean("Rear Arms Limit Switch", rearArms.getLimitSwitchState());
+		//SmartDashboard.putBoolean("Rear Arms Reverse Limit Switch", rearArms.getReverseLimitSwitchState());
+		//SmartDashboard.putNumber("Rear Arms Enc Position", rearArms.getEncoderPosition());
+		//SmartDashboard.putBoolean("Rear Arms IsMoving?", rearArms.isMoving());
+		//SmartDashboard.putNumber("Rear Arms Target", rearArms.getTarget());
+		//SmartDashboard.putBoolean("Rear Arms isStalled?", rearArms.isStalled());
 
 		SmartDashboard.putBoolean("Front Elbows Limit Switch", frontElbows.getLimitSwitchState());
 		SmartDashboard.putBoolean("Front Elbows Reverse Limit Switch", frontElbows.getReverseLimitSwitchState());
@@ -595,12 +595,12 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Front Elbows Target", frontElbows.getTarget());
 		SmartDashboard.putBoolean("Front Elbows isStalled?", frontElbows.isStalled());
 
-		SmartDashboard.putBoolean("Rear Elbows Limit Switch", rearElbows.getLimitSwitchState());
-		SmartDashboard.putBoolean("Rear Elbows Reverse Limit Switch", rearElbows.getReverseLimitSwitchState());
-		SmartDashboard.putNumber("Rear Elbows Enc Position", rearElbows.getEncoderPosition());
-		SmartDashboard.putBoolean("Rear Elbows IsMoving?", rearElbows.isMoving());
-		SmartDashboard.putNumber("Rear Elbows Target", rearElbows.getTarget());
-		SmartDashboard.putBoolean("Rear Elbows isStalled?", rearElbows.isStalled());
+		//SmartDashboard.putBoolean("Rear Elbows Limit Switch", rearElbows.getLimitSwitchState());
+		//SmartDashboard.putBoolean("Rear Elbows Reverse Limit Switch", rearElbows.getReverseLimitSwitchState());
+		//SmartDashboard.putNumber("Rear Elbows Enc Position", rearElbows.getEncoderPosition());
+		//SmartDashboard.putBoolean("Rear Elbows IsMoving?", rearElbows.isMoving());
+		//SmartDashboard.putNumber("Rear Elbows Target", rearElbows.getTarget());
+		//SmartDashboard.putBoolean("Rear Elbows isStalled?", rearElbows.isStalled());
 
 	}
 
