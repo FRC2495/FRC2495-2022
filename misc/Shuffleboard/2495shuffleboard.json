@@ -1285,12 +1285,12 @@
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [11]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [11]/Value"
+                  "_title": "Talon SRX [11]/Value"
                 },
                 {
                   "_type": "Text View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/Talon SRX [13]/Value",
-                  "_title": "/LiveWindow/Ungrouped/Talon SRX [13]/Value"
+                  "_title": "Talon SRX [13]/Value"
                 },
                 {
                   "_type": "Text View",
@@ -2629,54 +2629,6 @@
               "_title": "/SmartDashboard/Front Arms Target"
             }
           },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rear Arms Enc Position",
-              "_title": "/SmartDashboard/Rear Arms Enc Position"
-            }
-          },
-          "1,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Arms IsMoving?",
-              "_title": "/SmartDashboard/Rear Arms IsMoving?",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "4,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rear Arms Target",
-              "_title": "/SmartDashboard/Rear Arms Target"
-            }
-          },
-          "0,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Arms Limit Switch",
-              "_title": "/SmartDashboard/Rear Arms Limit Switch",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
           "8,0": {
             "size": [
               1,
@@ -2725,54 +2677,6 @@
               "_title": "SmartDashboard/Front Elbows Target"
             }
           },
-          "5,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Elbows Limit Switch",
-              "_title": "SmartDashboard/Rear Elbows Limit Switch",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Elbows IsMoving?",
-              "_title": "SmartDashboard/Rear Elbows IsMoving?",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "8,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rear Elbows Enc Position",
-              "_title": "SmartDashboard/Rear Elbows Enc Position"
-            }
-          },
-          "9,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rear Elbows Target",
-              "_title": "SmartDashboard/Rear Elbows Target"
-            }
-          },
           "2,0": {
             "size": [
               1,
@@ -2799,33 +2703,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Arms isStalled?",
-              "_title": "SmartDashboard/Rear Arms isStalled?",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "7,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rear Elbows isStalled?",
-              "_title": "SmartDashboard/Rear Elbows isStalled?",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "0,2": {
+          "0,1": {
             "size": [
               1,
               1
@@ -2838,7 +2716,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "5,2": {
+          "5,1": {
             "size": [
               1,
               1

@@ -31,10 +31,10 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 9000; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_FRONT = 35000; // adjust as needed
 	public static final int LENGTH_OF_TRAVEL_TICKS_REAR = 7000; // adjust as needed
 
-	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_FRONT = 4600; // adjust as needed
+	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_FRONT = 35000; // adjust as needed
 	public static final int LENGTH_OF_TRAVEL_TICKS_MIDWAY_REAR = 4000; // adjust as needed
 
 	static final double MAX_PCT_OUTPUT = 1.0;
@@ -50,12 +50,12 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.5;
 	
-	static final double MOVE_PROPORTIONAL_GAIN = 0.6;
+	static final double MOVE_PROPORTIONAL_GAIN = 0.1;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
-	static final int TALON_TICK_THRESH = 64;//128;
-	static final double TICK_THRESH = 128;	
+	static final int TALON_TICK_THRESH = 128; //64;//128;
+	static final double TICK_THRESH = 512; //128;	
 	public static final double TICK_PER_100MS_THRESH = 64; // about a tenth of a rotation per second 
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
@@ -136,10 +136,10 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation		
-		elbow.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+		elbow.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
-		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
+		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitF, 0/*1*/, 0, 0, TALON_TIMEOUT_MS);
 		elbow.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
 		
 		isMoving = false;
@@ -304,9 +304,9 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		
 		//setPIDParameters();
 		System.out.println("Closing");
-		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
+		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = 0; // adjust as needed
+		tac = -5000; // adjust as needed
 		elbow.set(ControlMode.Position,tac);
 		
 		isMoving = true;
