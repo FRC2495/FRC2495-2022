@@ -306,7 +306,7 @@ public class SetOfElbows extends Subsystem implements ISetOfElbows {
 		System.out.println("Closing");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -5000; // adjust as needed
+		tac = 0; // adjust as needed
 		elbow.set(ControlMode.Position,tac);
 		
 		isMoving = true;
